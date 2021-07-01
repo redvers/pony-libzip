@@ -1,0 +1,131 @@
+{
+  "types": {
+    "String": {
+      "ponytypein": "String",
+      "ponytypeinconv": ".cstring()",
+      "ponytypeout": "String",
+      "ponytypeoutconv": [ "var pcstring: Pointer[U8] = ", "let p: String iso = String.from_cstring(pcstring).clone()\n    consume p" ],
+      "structtype": "Pointer[U8]",
+      "structdef": "Pointer[U8]",
+      "argtype": "Pointer[U8] tag",
+      "rvtype": "Pointer[U8]"
+    },
+    "Array[String]": {
+      "ponytypein": "Array[String]",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[Pointer[U8]]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[Pointer[U8]]",
+      "structdef": "Pointer[Pointer[U8]]",
+      "argtype": "Pointer[Pointer[U8]] tag",
+      "rvtype": "Pointer[Pointer[U8]]"
+    },
+    "I32": {
+      "ponytypein": "I32",
+      "ponytypeinconv": "",
+      "ponytypeout": "I32",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I32",
+      "structdef": "I32(0)",
+      "argtype": "I32",
+      "rvtype": "I32"
+    },
+    "U32": {
+      "ponytypein": "U32",
+      "ponytypeinconv": "",
+      "ponytypeout": "U32",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U32",
+      "structdef": "U32(0)",
+      "argtype": "U32",
+      "rvtype": "U32"
+    },
+    "U8": {
+      "ponytypein": "U8",
+      "ponytypeinconv": "",
+      "ponytypeout": "U8",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U8",
+      "structdef": "U8(0)",
+      "argtype": "U8",
+      "rvtype": "U8"
+    },
+    "U16": {
+      "ponytypein": "U16",
+      "ponytypeinconv": "",
+      "ponytypeout": "U16",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U16",
+      "structdef": "U16(0)",
+      "argtype": "U16",
+      "rvtype": "U16"
+    },
+    "I64": {
+      "ponytypein": "I64",
+      "ponytypeinconv": "",
+      "ponytypeout": "I64",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I64",
+      "structdef": "I64(0)",
+      "argtype": "I64",
+      "rvtype": "I64"
+    },
+    "U64": {
+      "ponytypein": "U64",
+      "ponytypeinconv": "",
+      "ponytypeout": "U64",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U64",
+      "structdef": "U64(0)",
+      "argtype": "U64",
+      "rvtype": "U64"
+    }
+  },
+  "structs": [
+    { "structname": "Zipsourceargsseek", "fields": [
+      { "name": "poffset", "type": "I64" },
+      { "name": "pwhence", "type": "I32" } ]
+    },
+    { "structname": "Ziperror", "fields": [
+      { "name": "pziperr", "type": "I32" },
+      { "name": "psyserr", "type": "I32" },
+      { "name": "pstr", "type": "String" } ]
+    },
+    { "structname": "Zipstat", "fields": [
+      { "name": "pvalid", "type": "U64" },
+      { "name": "pname", "type": "String" },
+      { "name": "pindex", "type": "U64" },
+      { "name": "psize", "type": "U64" },
+      { "name": "pcompsize", "type": "U64" },
+      { "name": "pmtime", "type": "I64" },
+      { "name": "pcrc", "type": "U32" },
+      { "name": "pcompmethod", "type": "U16" },
+      { "name": "pencryptionmethod", "type": "U16" },
+      { "name": "pflags", "type": "U32" } ]
+    },
+    { "structname": "Zipbufferfragment", "fields": [
+      { "name": "pdata", "type": "String" },
+      { "name": "plength", "type": "U64" } ]
+    },
+    { "structname": "Zipfileattributes", "fields": [
+      { "name": "pvalid", "type": "U64" },
+      { "name": "pversion", "type": "U8" },
+      { "name": "phostsystem", "type": "U8" },
+      { "name": "pascii", "type": "U8" },
+      { "name": "pversionneeded", "type": "U8" },
+      { "name": "pexternalfileattributes", "type": "U32" },
+      { "name": "pgeneralpurposebitflags", "type": "U16" },
+      { "name": "pgeneralpurposebitmask", "type": "U16" } ]
+    },
+    { "structname": "Zip", "fields": [
+ ]
+    },
+    { "structname": "Zipfile", "fields": [
+ ]
+    },
+    { "structname": "Zipsource", "fields": [
+ ]
+    }
+  ]
+}
+

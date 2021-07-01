@@ -1,0 +1,1243 @@
+{
+  "types": {
+    "String": {
+      "ponytypein": "String",
+      "ponytypeinconv": ".cstring()",
+      "ponytypeout": "String",
+      "ponytypeoutconv": [ "var pcstring: Pointer[U8] = ", "let p: String iso = String.from_cstring(pcstring).clone()\n    consume p" ],
+      "structtype": "Pointer[U8]",
+      "structdef": "Pointer[U8]",
+      "argtype": "Pointer[U8] tag",
+      "rvtype": "Pointer[U8]"
+    },
+    "Array[String]": {
+      "ponytypein": "Array[String]",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[Pointer[U8]]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[Pointer[U8]]",
+      "structdef": "Pointer[Pointer[U8]]",
+      "argtype": "Pointer[Pointer[U8]] tag",
+      "rvtype": "Pointer[Pointer[U8]]"
+    },
+    "F64": {
+      "ponytypein": "F64",
+      "ponytypeinconv": "",
+      "ponytypeout": "F64",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "F64",
+      "structdef": "F64(0)",
+      "argtype": "F64",
+      "rvtype": "F64"
+    },
+    "Pointer[None]": {
+      "ponytypein": "Pointer[None] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[None]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[None]",
+      "structdef": "Pointer[None]",
+      "argtype": "Pointer[None] tag",
+      "rvtype": "Pointer[None]"
+    },
+    "I8": {
+      "ponytypein": "I8",
+      "ponytypeinconv": "",
+      "ponytypeout": "I8",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I8",
+      "structdef": "I8(0)",
+      "argtype": "I8",
+      "rvtype": "I8"
+    },
+    "I32": {
+      "ponytypein": "I32",
+      "ponytypeinconv": "",
+      "ponytypeout": "I32",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I32",
+      "structdef": "I32(0)",
+      "argtype": "I32",
+      "rvtype": "I32"
+    },
+    "U32": {
+      "ponytypein": "U32",
+      "ponytypeinconv": "",
+      "ponytypeout": "U32",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U32",
+      "structdef": "U32(0)",
+      "argtype": "U32",
+      "rvtype": "U32"
+    },
+    "NullablePointer[Zip]": {
+      "ponytypein": "NullablePointer[Zip] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zip]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zip]",
+      "structdef": "NullablePointer[Zip]",
+      "argtype": "NullablePointer[Zip] tag",
+      "rvtype": "NullablePointer[Zip]"
+    },
+    "Pointer[U32]": {
+      "ponytypein": "Pointer[U32] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[U32]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[U32]",
+      "structdef": "Pointer[U32]",
+      "argtype": "Pointer[U32] tag",
+      "rvtype": "Pointer[U32]"
+    },
+    "I64": {
+      "ponytypein": "I64",
+      "ponytypeinconv": "",
+      "ponytypeout": "I64",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I64",
+      "structdef": "I64(0)",
+      "argtype": "I64",
+      "rvtype": "I64"
+    },
+    "U64": {
+      "ponytypein": "U64",
+      "ponytypeinconv": "",
+      "ponytypeout": "U64",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U64",
+      "structdef": "U64(0)",
+      "argtype": "U64",
+      "rvtype": "U64"
+    },
+    "NullablePointer[IOFILE]": {
+      "ponytypein": "NullablePointer[IOFILE] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[IOFILE]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[IOFILE]",
+      "structdef": "NullablePointer[IOFILE]",
+      "argtype": "NullablePointer[IOFILE] tag",
+      "rvtype": "NullablePointer[IOFILE]"
+    },
+    "I16": {
+      "ponytypein": "I16",
+      "ponytypeinconv": "",
+      "ponytypeout": "I16",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "I16",
+      "structdef": "I16(0)",
+      "argtype": "I16",
+      "rvtype": "I16"
+    },
+    "Pointer[I32]": {
+      "ponytypein": "Pointer[I32] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[I32]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[I32]",
+      "structdef": "Pointer[I32]",
+      "argtype": "Pointer[I32] tag",
+      "rvtype": "Pointer[I32]"
+    },
+    "U16": {
+      "ponytypein": "U16",
+      "ponytypeinconv": "",
+      "ponytypeout": "U16",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U16",
+      "structdef": "U16(0)",
+      "argtype": "U16",
+      "rvtype": "U16"
+    },
+    "...": {
+      "ponytypein": "... tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "...",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "...",
+      "structdef": "...",
+      "argtype": "... tag",
+      "rvtype": "..."
+    },
+    "NullablePointer[Zipsource]": {
+      "ponytypein": "NullablePointer[Zipsource] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zipsource]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zipsource]",
+      "structdef": "NullablePointer[Zipsource]",
+      "argtype": "NullablePointer[Zipsource] tag",
+      "rvtype": "NullablePointer[Zipsource]"
+    },
+    "None": {
+      "ponytypein": "None tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "None",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "None",
+      "structdef": "None",
+      "argtype": "None tag",
+      "rvtype": "None"
+    },
+    "NullablePointer[Ziperror]": {
+      "ponytypein": "NullablePointer[Ziperror] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Ziperror]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Ziperror]",
+      "structdef": "NullablePointer[Ziperror]",
+      "argtype": "NullablePointer[Ziperror] tag",
+      "rvtype": "NullablePointer[Ziperror]"
+    },
+    "NullablePointer[Zipfile]": {
+      "ponytypein": "NullablePointer[Zipfile] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zipfile]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zipfile]",
+      "structdef": "NullablePointer[Zipfile]",
+      "argtype": "NullablePointer[Zipfile] tag",
+      "rvtype": "NullablePointer[Zipfile]"
+    },
+    "NullablePointer[FUNCTIONTYPE]": {
+      "ponytypein": "NullablePointer[FUNCTIONTYPE] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[FUNCTIONTYPE]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[FUNCTIONTYPE]",
+      "structdef": "NullablePointer[FUNCTIONTYPE]",
+      "argtype": "NullablePointer[FUNCTIONTYPE] tag",
+      "rvtype": "NullablePointer[FUNCTIONTYPE]"
+    },
+    "Pointer[U16]": {
+      "ponytypein": "Pointer[U16] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "Pointer[U16]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Pointer[U16]",
+      "structdef": "Pointer[U16]",
+      "argtype": "Pointer[U16] tag",
+      "rvtype": "Pointer[U16]"
+    },
+    "NullablePointer[Zipfileattributes]": {
+      "ponytypein": "NullablePointer[Zipfileattributes] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zipfileattributes]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zipfileattributes]",
+      "structdef": "NullablePointer[Zipfileattributes]",
+      "argtype": "NullablePointer[Zipfileattributes] tag",
+      "rvtype": "NullablePointer[Zipfileattributes]"
+    },
+    "NullablePointer[Zipstat]": {
+      "ponytypein": "NullablePointer[Zipstat] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zipstat]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zipstat]",
+      "structdef": "NullablePointer[Zipstat]",
+      "argtype": "NullablePointer[Zipstat] tag",
+      "rvtype": "NullablePointer[Zipstat]"
+    },
+    "U8": {
+      "ponytypein": "U8",
+      "ponytypeinconv": "",
+      "ponytypeout": "U8",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "U8",
+      "structdef": "U8(0)",
+      "argtype": "U8",
+      "rvtype": "U8"
+    },
+    "NullablePointer[Zipbufferfragment]": {
+      "ponytypein": "NullablePointer[Zipbufferfragment] tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "NullablePointer[Zipbufferfragment]",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "NullablePointer[Zipbufferfragment]",
+      "structdef": "NullablePointer[Zipbufferfragment]",
+      "argtype": "NullablePointer[Zipbufferfragment] tag",
+      "rvtype": "NullablePointer[Zipbufferfragment]"
+    },
+    "Zipsourcecmd": {
+      "ponytypein": "Zipsourcecmd tag",
+      "ponytypeinconv": "",
+      "ponytypeout": "Zipsourcecmd",
+      "ponytypeoutconv": [ "" ],
+      "structtype": "Zipsourcecmd",
+      "structdef": "Zipsourcecmd",
+      "argtype": "Zipsourcecmd tag",
+      "rvtype": "Zipsourcecmd"
+    }
+  },
+  "use": [
+    {     "name": "zip_register_progress_callback",
+      "ponyname": "pzipregisterprogresscallback",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[FUNCTIONTYPE]" }
+      ]
+    },
+    {     "name": "zip_add",
+      "ponyname": "pzipadd",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_add_dir",
+      "ponyname": "pzipadddir",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }
+      ]
+    },
+    {     "name": "zip_get_file_comment",
+      "ponyname": "pzipgetfilecomment",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "Pointer[I32]" }, 
+        { "name": "pparg3", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_get_num_files",
+      "ponyname": "pzipgetnumfiles",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_rename",
+      "ponyname": "pziprename",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "String" }
+      ]
+    },
+    {     "name": "zip_replace",
+      "ponyname": "pzipreplace",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_set_file_comment",
+      "ponyname": "pzipsetfilecomment",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "String" }, 
+        { "name": "pparg3", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_error_get_sys_type",
+      "ponyname": "pziperrorgetsystype",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_error_get",
+      "ponyname": "pziperrorget",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "Pointer[I32]" }, 
+        { "name": "pparg2", "type": "Pointer[I32]" }
+      ]
+    },
+    {     "name": "zip_error_to_str",
+      "ponyname": "pziperrortostr",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "String" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I32" }, 
+        { "name": "pparg3", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_file_error_get",
+      "ponyname": "pzipfileerrorget",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }, 
+        { "name": "pparg1", "type": "Pointer[I32]" }, 
+        { "name": "pparg2", "type": "Pointer[I32]" }
+      ]
+    },
+    {     "name": "zip_close",
+      "ponyname": "pzipclose",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_delete",
+      "ponyname": "pzipdelete",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_dir_add",
+      "ponyname": "pzipdiradd",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_discard",
+      "ponyname": "pzipdiscard",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_get_error",
+      "ponyname": "pzipgeterror",
+            "rv": "NullablePointer[Ziperror]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_error_clear",
+      "ponyname": "pziperrorclear",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_error_code_zip",
+      "ponyname": "pziperrorcodezip",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_code_system",
+      "ponyname": "pziperrorcodesystem",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_fini",
+      "ponyname": "pziperrorfini",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_init",
+      "ponyname": "pziperrorinit",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_init_with_code",
+      "ponyname": "pziperrorinitwithcode",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }, 
+        { "name": "pparg1", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_error_set",
+      "ponyname": "pziperrorset",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }, 
+        { "name": "pparg1", "type": "I32" }, 
+        { "name": "pparg2", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_error_strerror",
+      "ponyname": "pziperrorstrerror",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_system_type",
+      "ponyname": "pziperrorsystemtype",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_error_to_data",
+      "ponyname": "pziperrortodata",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Ziperror]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_fclose",
+      "ponyname": "pzipfclose",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }
+      ]
+    },
+    {     "name": "zip_fdopen",
+      "ponyname": "pzipfdopen",
+            "rv": "NullablePointer[Zip]", "args": 
+      [ 
+        { "name": "pparg0", "type": "I32" }, 
+        { "name": "pparg1", "type": "I32" }, 
+        { "name": "pparg2", "type": "Pointer[I32]" }
+      ]
+    },
+    {     "name": "zip_file_add",
+      "ponyname": "pzipfileadd",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_attributes_init",
+      "ponyname": "pzipfileattributesinit",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfileattributes]" }
+      ]
+    },
+    {     "name": "zip_file_error_clear",
+      "ponyname": "pzipfileerrorclear",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }
+      ]
+    },
+    {     "name": "zip_file_extra_field_delete",
+      "ponyname": "pzipfileextrafielddelete",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_field_delete_by_id",
+      "ponyname": "pzipfileextrafielddeletebyid",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U16" }, 
+        { "name": "pparg4", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_field_set",
+      "ponyname": "pzipfileextrafieldset",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U16" }, 
+        { "name": "pparg4", "type": "String" }, 
+        { "name": "pparg5", "type": "U16" }, 
+        { "name": "pparg6", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_fields_count",
+      "ponyname": "pzipfileextrafieldscount",
+            "rv": "I16", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_fields_count_by_id",
+      "ponyname": "pzipfileextrafieldscountbyid",
+            "rv": "I16", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_field_get",
+      "ponyname": "pzipfileextrafieldget",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "Pointer[U16]" }, 
+        { "name": "pparg4", "type": "Pointer[U16]" }, 
+        { "name": "pparg5", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_extra_field_get_by_id",
+      "ponyname": "pzipfileextrafieldgetbyid",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U16" }, 
+        { "name": "pparg4", "type": "Pointer[U16]" }, 
+        { "name": "pparg5", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_get_comment",
+      "ponyname": "pzipfilegetcomment",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "Pointer[U32]" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_get_error",
+      "ponyname": "pzipfilegeterror",
+            "rv": "NullablePointer[Ziperror]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }
+      ]
+    },
+    {     "name": "zip_file_get_external_attributes",
+      "ponyname": "pzipfilegetexternalattributes",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "String" }, 
+        { "name": "pparg4", "type": "Pointer[U32]" }
+      ]
+    },
+    {     "name": "zip_file_rename",
+      "ponyname": "pzipfilerename",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "String" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_replace",
+      "ponyname": "pzipfilereplace",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_set_comment",
+      "ponyname": "pzipfilesetcomment",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "String" }, 
+        { "name": "pparg3", "type": "U16" }, 
+        { "name": "pparg4", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_set_dostime",
+      "ponyname": "pzipfilesetdostime",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "U16" }, 
+        { "name": "pparg4", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_set_encryption",
+      "ponyname": "pzipfilesetencryption",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U16" }, 
+        { "name": "pparg3", "type": "String" }
+      ]
+    },
+    {     "name": "zip_file_set_external_attributes",
+      "ponyname": "pzipfilesetexternalattributes",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "U8" }, 
+        { "name": "pparg4", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_set_mtime",
+      "ponyname": "pzipfilesetmtime",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I64" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_file_strerror",
+      "ponyname": "pzipfilestrerror",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }
+      ]
+    },
+    {     "name": "zip_fopen",
+      "ponyname": "pzipfopen",
+            "rv": "NullablePointer[Zipfile]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_fopen_encrypted",
+      "ponyname": "pzipfopenencrypted",
+            "rv": "NullablePointer[Zipfile]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "String" }
+      ]
+    },
+    {     "name": "zip_fopen_index",
+      "ponyname": "pzipfopenindex",
+            "rv": "NullablePointer[Zipfile]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_fopen_index_encrypted",
+      "ponyname": "pzipfopenindexencrypted",
+            "rv": "NullablePointer[Zipfile]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "String" }
+      ]
+    },
+    {     "name": "zip_fread",
+      "ponyname": "pzipfread",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_fseek",
+      "ponyname": "pzipfseek",
+            "rv": "I8", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }, 
+        { "name": "pparg1", "type": "I64" }, 
+        { "name": "pparg2", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_ftell",
+      "ponyname": "pzipftell",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipfile]" }
+      ]
+    },
+    {     "name": "zip_get_archive_comment",
+      "ponyname": "pzipgetarchivecomment",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "Pointer[I32]" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_get_archive_flag",
+      "ponyname": "pzipgetarchiveflag",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U32" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_get_name",
+      "ponyname": "pzipgetname",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_get_num_entries",
+      "ponyname": "pzipgetnumentries",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_libzip_version",
+      "ponyname": "pziplibzipversion",
+            "rv": "String", "args": [] },
+    {     "name": "zip_name_locate",
+      "ponyname": "pzipnamelocate",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_open",
+      "ponyname": "pzipopen",
+            "rv": "NullablePointer[Zip]", "args": 
+      [ 
+        { "name": "pparg0", "type": "String" }, 
+        { "name": "pparg1", "type": "I32" }, 
+        { "name": "pparg2", "type": "Pointer[I32]" }
+      ]
+    },
+    {     "name": "zip_open_from_source",
+      "ponyname": "pzipopenfromsource",
+            "rv": "NullablePointer[Zip]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "I32" }, 
+        { "name": "pparg2", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_register_progress_callback_with_state",
+      "ponyname": "pzipregisterprogresscallbackwithstate",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "F64" }, 
+        { "name": "pparg2", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg3", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg4", "type": "Pointer[None]" }
+      ]
+    },
+    {     "name": "zip_register_cancel_callback_with_state",
+      "ponyname": "pzipregistercancelcallbackwithstate",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg2", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg3", "type": "Pointer[None]" }
+      ]
+    },
+    {     "name": "zip_set_archive_comment",
+      "ponyname": "pzipsetarchivecomment",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U16" }
+      ]
+    },
+    {     "name": "zip_set_archive_flag",
+      "ponyname": "pzipsetarchiveflag",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U32" }, 
+        { "name": "pparg2", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_set_default_password",
+      "ponyname": "pzipsetdefaultpassword",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }
+      ]
+    },
+    {     "name": "zip_set_file_compression",
+      "ponyname": "pzipsetfilecompression",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I32" }, 
+        { "name": "pparg3", "type": "U32" }
+      ]
+    },
+    {     "name": "zip_source_begin_write",
+      "ponyname": "pzipsourcebeginwrite",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_begin_write_cloning",
+      "ponyname": "pzipsourcebeginwritecloning",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_source_buffer",
+      "ponyname": "pzipsourcebuffer",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "U64" }, 
+        { "name": "pparg3", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_source_buffer_create",
+      "ponyname": "pzipsourcebuffercreate",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "Pointer[None]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I32" }, 
+        { "name": "pparg3", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_buffer_fragment",
+      "ponyname": "pzipsourcebufferfragment",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[Zipbufferfragment]" }, 
+        { "name": "pparg2", "type": "U64" }, 
+        { "name": "pparg3", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_source_buffer_fragment_create",
+      "ponyname": "pzipsourcebufferfragmentcreate",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipbufferfragment]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I32" }, 
+        { "name": "pparg3", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_close",
+      "ponyname": "pzipsourceclose",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_commit_write",
+      "ponyname": "pzipsourcecommitwrite",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_error",
+      "ponyname": "pzipsourceerror",
+            "rv": "NullablePointer[Ziperror]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_file",
+      "ponyname": "pzipsourcefile",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U64" }, 
+        { "name": "pparg3", "type": "I64" }
+      ]
+    },
+    {     "name": "zip_source_file_create",
+      "ponyname": "pzipsourcefilecreate",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "String" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I64" }, 
+        { "name": "pparg3", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_filep",
+      "ponyname": "pzipsourcefilep",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[IOFILE]" }, 
+        { "name": "pparg2", "type": "U64" }, 
+        { "name": "pparg3", "type": "I64" }
+      ]
+    },
+    {     "name": "zip_source_filep_create",
+      "ponyname": "pzipsourcefilepcreate",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[IOFILE]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "I64" }, 
+        { "name": "pparg3", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_free",
+      "ponyname": "pzipsourcefree",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_function",
+      "ponyname": "pzipsourcefunction",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg2", "type": "Pointer[None]" }
+      ]
+    },
+    {     "name": "zip_source_function_create",
+      "ponyname": "pzipsourcefunctioncreate",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[FUNCTIONTYPE]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_get_file_attributes",
+      "ponyname": "pzipsourcegetfileattributes",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "NullablePointer[Zipfileattributes]" }
+      ]
+    },
+    {     "name": "zip_source_is_deleted",
+      "ponyname": "pzipsourceisdeleted",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_keep",
+      "ponyname": "pzipsourcekeep",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_make_command_bitmap",
+      "ponyname": "pzipsourcemakecommandbitmap",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "Zipsourcecmd" }, 
+        { "name": "pparg1", "type": "..." }
+      ]
+    },
+    {     "name": "zip_source_open",
+      "ponyname": "pzipsourceopen",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_read",
+      "ponyname": "pzipsourceread",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_source_rollback_write",
+      "ponyname": "pzipsourcerollbackwrite",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_seek",
+      "ponyname": "pzipsourceseek",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "I64" }, 
+        { "name": "pparg2", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_source_seek_compute_offset",
+      "ponyname": "pzipsourceseekcomputeoffset",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "U64" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "Pointer[None]" }, 
+        { "name": "pparg3", "type": "U64" }, 
+        { "name": "pparg4", "type": "NullablePointer[Ziperror]" }
+      ]
+    },
+    {     "name": "zip_source_seek_write",
+      "ponyname": "pzipsourceseekwrite",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "I64" }, 
+        { "name": "pparg2", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_source_stat",
+      "ponyname": "pzipsourcestat",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "NullablePointer[Zipstat]" }
+      ]
+    },
+    {     "name": "zip_source_tell",
+      "ponyname": "pzipsourcetell",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_tell_write",
+      "ponyname": "pzipsourcetellwrite",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }
+      ]
+    },
+    {     "name": "zip_source_write",
+      "ponyname": "pzipsourcewrite",
+            "rv": "I64", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipsource]" }, 
+        { "name": "pparg1", "type": "Pointer[None]" }, 
+        { "name": "pparg2", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_source_zip",
+      "ponyname": "pzipsourcezip",
+            "rv": "NullablePointer[Zipsource]", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg2", "type": "U64" }, 
+        { "name": "pparg3", "type": "U32" }, 
+        { "name": "pparg4", "type": "U64" }, 
+        { "name": "pparg5", "type": "I64" }
+      ]
+    },
+    {     "name": "zip_stat",
+      "ponyname": "pzipstat",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "String" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "NullablePointer[Zipstat]" }
+      ]
+    },
+    {     "name": "zip_stat_index",
+      "ponyname": "pzipstatindex",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }, 
+        { "name": "pparg2", "type": "U32" }, 
+        { "name": "pparg3", "type": "NullablePointer[Zipstat]" }
+      ]
+    },
+    {     "name": "zip_stat_init",
+      "ponyname": "pzipstatinit",
+            "rv": "None", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zipstat]" }
+      ]
+    },
+    {     "name": "zip_strerror",
+      "ponyname": "pzipstrerror",
+            "rv": "String", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_unchange",
+      "ponyname": "pzipunchange",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }, 
+        { "name": "pparg1", "type": "U64" }
+      ]
+    },
+    {     "name": "zip_unchange_all",
+      "ponyname": "pzipunchangeall",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_unchange_archive",
+      "ponyname": "pzipunchangearchive",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pparg0", "type": "NullablePointer[Zip]" }
+      ]
+    },
+    {     "name": "zip_compression_method_supported",
+      "ponyname": "pzipcompressionmethodsupported",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pmethod", "type": "I32" }, 
+        { "name": "pcompress", "type": "I32" }
+      ]
+    },
+    {     "name": "zip_encryption_method_supported",
+      "ponyname": "pzipencryptionmethodsupported",
+            "rv": "I32", "args": 
+      [ 
+        { "name": "pmethod", "type": "U16" }, 
+        { "name": "pencode", "type": "I32" }
+      ]
+    }
+  ]
+}
+
