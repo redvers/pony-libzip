@@ -20,12 +20,7 @@ actor Main
     try
       let s: Array[Zipstat] = zip.filesdata()?
       for t in s.values() do
-        None
-//        env.out.print(t.name())
-//        env.out.print(t.size().string())
-//        env.out.print(t.compsize().string())
-//        env.out.print(t.mtime().format("%c%Z")?)
-//        env.out.print(t.crc().string())
+        env.out.print(t.name())
       end
 
       let zs: Zipstat = s.apply(14)?

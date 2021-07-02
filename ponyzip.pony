@@ -38,13 +38,19 @@ class PonyZip
     var rv: Array[Zipstat] = Array[Zipstat]
 
     for i in Range(0,cnt) do
-      var zfile: Zipstat = Zipstat
-      var zfilep: NullablePointer[Zipstat] = NullablePointer[Zipstat](zfile)
-      var ii: I32 = ABLibZIP.pzipstatindex(zip, i.u64(), U32(0), zfilep)
-      rv.push(zfile)
+      rv.push(from_index(i)?)
     end
     rv
 
+  fun from_index(index: USize): Zipstat ? =>
+    var zfile: Zipstat = Zipstat
+    var zfilep: NullablePointer[Zipstat] = NullablePointer[Zipstat](zfile)
+    var ii: I32 = ABLibZIP.pzipstatindex(zip, index.u64(), U32(0), zfilep)
+    if (zfilep.is_none()) then
+      error
+    else
+      zfile
+    end
 
   fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =>
     let bytes: USize = zipstat.size()
