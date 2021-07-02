@@ -225,7 +225,7 @@ primitive ABLibZIP
     @zip_fopen_index_encrypted(pparg0, pparg1, pparg2, pparg3.cstring())
 
 
-  fun pzipfread(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[None] tag, pparg2: U64): I64 =>
+  fun pzipfread(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[U8] tag, pparg2: U64): I64 =>
     @zip_fread(pparg0, pparg1, pparg2)
 
 

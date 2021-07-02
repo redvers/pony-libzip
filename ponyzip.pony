@@ -42,7 +42,23 @@ class PonyZip
       var zfilep: NullablePointer[Zipstat] = NullablePointer[Zipstat](zfile)
       var ii: I32 = ABLibZIP.pzipstatindex(zip, i.u64(), U32(0), zfilep)
       rv.push(zfile)
-//      var fn: String = String.from_cstring(zfile.pname).clone()
-//      Debug.out(fn + ": " + zfile.pcompsize.string() + "b -> " + zfile.psize.string() + "b")
     end
     rv
+
+
+  fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =>
+    let bytes: USize = zipstat.size()
+    Debug.out("CompressedFilesize: " + zipstat.compsize().string())
+    Debug.out("Filesize: " + bytes.string())
+
+    var zf: NullablePointer[Zipfile] = ABLibZIP.pzipfopenindex(zip, zipstat.index().u64(), U32(0))
+    if (zf.is_none()) then
+      error
+    end
+
+    var data: Array[U8] iso = recover iso Array[U8].>undefined(bytes) end
+    var cnt: I64 = ABLibZIP.pzipfread(zf, data.cpointer(), bytes.u64())
+    Debug.out("Read: " + cnt.string() + " bytes out of " + bytes.string())
+    consume data
+
+

@@ -52,7 +52,7 @@ use @zip_fopen[NullablePointer[Zipfile]](pparg0: NullablePointer[Zip] tag, pparg
 use @zip_fopen_encrypted[NullablePointer[Zipfile]](pparg0: NullablePointer[Zip] tag, pparg1: Pointer[U8] tag, pparg2: U32, pparg3: Pointer[U8] tag)
 use @zip_fopen_index[NullablePointer[Zipfile]](pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32)
 use @zip_fopen_index_encrypted[NullablePointer[Zipfile]](pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32, pparg3: Pointer[U8] tag)
-use @zip_fread[I64](pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[None] tag, pparg2: U64)
+use @zip_fread[I64](pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[U8] tag, pparg2: U64)
 use @zip_fseek[I8](pparg0: NullablePointer[Zipfile] tag, pparg1: I64, pparg2: I32)
 use @zip_ftell[I64](pparg0: NullablePointer[Zipfile] tag)
 use @zip_get_archive_comment[Pointer[U8]](pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: U32)
