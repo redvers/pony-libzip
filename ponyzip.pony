@@ -1,3 +1,4 @@
+use "debug"
 use "collections"
 
 class PonyZip
@@ -31,18 +32,17 @@ class PonyZip
     end
 
 
+  fun ref filesdata(): Array[Zipstat] ? =>
+    var cnt: USize = this.count()?
 
-/*
-      var count: USize = LibZIP.pzipgetnumentries(zip, U32(0)).usize()
-      env.out.print("Contains " + count.string() + " entries")
+    var rv: Array[Zipstat] = Array[Zipstat]
 
+    for i in Range(0,cnt) do
       var zfile: Zipstat = Zipstat
       var zfilep: NullablePointer[Zipstat] = NullablePointer[Zipstat](zfile)
-      for i in Range(0,count) do
-        var ii: I32 = LibZIP.pzipstatindex(zip, i.u64(), U32(0), zfilep)
-
-        var fn: String = String.from_cstring(zfile.pname).clone()
-        env.out.print(fn + ": " + zfile.pcompsize.string() + "b -> " + zfile.psize.string() + "b")
-      end
+      var ii: I32 = ABLibZIP.pzipstatindex(zip, i.u64(), U32(0), zfilep)
+      rv.push(zfile)
+//      var fn: String = String.from_cstring(zfile.pname).clone()
+//      Debug.out(fn + ": " + zfile.pcompsize.string() + "b -> " + zfile.psize.string() + "b")
     end
-*/
+    rv
