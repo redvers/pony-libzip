@@ -263,7 +263,6 @@ primitive ABLibZIP
   fun pzipnamelocate(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32): I64 =>
     @zip_name_locate(pparg0, pparg1.cstring(), pparg2)
 
-
   fun pzipopen(pparg0: String, pparg1: I32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =>
     @zip_open(pparg0.cstring(), pparg1, pparg2)
 
