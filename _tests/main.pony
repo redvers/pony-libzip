@@ -5,9 +5,9 @@ actor Main
     env.out.print("Starting")
 
     let filename: String = "test.zip"
-    let zip: PonyZip = PonyZip.openRO(filename)
+    let zip: PonyZip = PonyZip(filename, [ZipRDOnly;ZipCheckcons])
 
-    if (zip.valid) then
+    if (zip.valid()) then
       env.out.print("Successfully Opened " + filename)
     else
       env.out.print("Failed to open " + filename + ", Error: " + zip.errorstr + " (" + zip.errorno.string() + ")")
@@ -16,7 +16,6 @@ actor Main
     try
       env.out.print("There are " + zip.count()?.string() + " entries")
     end
-
     try
       let s: Array[Zipstat] = zip.filesdata()?
       for t in s.values() do
@@ -31,3 +30,4 @@ actor Main
     else
       env.out.print("BOOM")
     end
+

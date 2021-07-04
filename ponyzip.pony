@@ -5,11 +5,13 @@ class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
   var errorno: I32 = 0
   var errorstr: String = ""
-  var valid: Bool = false
+  var initflags: I32 = 0
 
-  new openRO(filename: String) =>
+  new create(filename: String, flags: Array[ZipFlags]) =>
+    initflags = zfflags(flags)
+
     var errno: Array[I32] = [I32(42)]
-    zip = ABLibZIP.pzipopen(filename, I32(16), errno.cpointer())
+    zip = ABLibZIP.pzipopen(filename, initflags, errno.cpointer())
 
     if (zip.is_none()) then
       try
@@ -20,29 +22,52 @@ class PonyZip
         ABLibZIP.pziperrorinitwithcode(ziperrp, errorno)
         errorstr = ABLibZIP.pziperrorstrerror(ziperrp)
       end
-    else
-      valid = true
     end
 
-  fun ref count(): USize ? =>
-    if (valid) then
-      ABLibZIP.pzipgetnumentries(zip, U32(0)).usize()
+  fun valid(): Bool =>
+    if (zip.is_none()) then
+      false
     else
+      true
+    end
+
+  fun zfflags(flags: Array[ZipFlags]): I32 =>
+    var rv: I32 = 0
+    for f in flags.values() do
+      rv = rv+f.apply()
+    end
+    rv
+
+  fun zfflflags(flags: Array[ZipFLFlags]): U32 =>
+    var rv: U32 = 0
+    for f in flags.values() do
+      rv = rv+f.apply()
+    end
+    rv
+
+
+  fun ref count(flags: Array[ZipFLFlags] = []): USize ? =>
+    if (zip.is_none()) then
       error
+    else
+      ABLibZIP.pzipgetnumentries(zip, zfflflags(flags)).usize()
     end
 
 
   fun ref filesdata(): Array[Zipstat] ? =>
-    var cnt: USize = this.count()?
+    var cnt: USize = this.count([])? // FIXME ?
 
     var rv: Array[Zipstat] = Array[Zipstat]
 
     for i in Range(0,cnt) do
-      rv.push(from_index(i)?)
+      rv.push(zip_stat_index(i)?)
     end
     rv
 
-  fun from_index(index: USize): Zipstat ? =>
+  fun zip_stat_index(index: USize): Zipstat ? =>
+    if (zip.is_none()) then
+      error
+    end
     var zfile: Zipstat = Zipstat
     var zfilep: NullablePointer[Zipstat] = NullablePointer[Zipstat](zfile)
     var ii: I32 = ABLibZIP.pzipstatindex(zip, index.u64(), U32(0), zfilep)
@@ -53,6 +78,10 @@ class PonyZip
     end
 
   fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =>
+    if (zipstat.pencryptionmethod != ZipEMNone.apply()) then
+      error  // We should probably automatically call
+             // a decrypt function here... cos we're nice
+    end
     let bytes: USize = zipstat.size()
     Debug.out("CompressedFilesize: " + zipstat.compsize().string())
     Debug.out("Filesize: " + bytes.string())

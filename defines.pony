@@ -2,11 +2,11 @@
 
 // Flags for zip_open
 type ZipFlags is (ZipCreate|ZipExcl|ZipCheckcons|ZipTruncate|ZipRDOnly)
-primitive ZipCreate    fun apply(): U32 => 1
-primitive ZipExcl      fun apply(): U32 => 2
-primitive ZipCheckcons fun apply(): U32 => 4
-primitive ZipTruncate  fun apply(): U32 => 8
-primitive ZipRDOnly    fun apply(): U32 => 16
+primitive ZipCreate    fun apply(): I32 => 1
+primitive ZipExcl      fun apply(): I32 => 2
+primitive ZipCheckcons fun apply(): I32 => 4
+primitive ZipTruncate  fun apply(): I32 => 8
+primitive ZipRDOnly    fun apply(): I32 => 16
 
 /* flags for zip_name_locate, zip_fopen, zip_stat, ... */
 type ZipFLFlags is (ZipFLNocase|ZipFLNodir|ZipFLCompressed|ZipFLUnchanged|ZipFLRecompress|ZipFLEncrypted|ZipFLEncGuess|ZipFLEncRaw|ZipFLEncStrict|ZipFLLocal|ZipFLCentral|ZipFLEncUtf8|ZipFLEncCp437|ZipFLOverwrite)
@@ -102,43 +102,44 @@ primitive ZipCMPpmd fun apply(): I32 => 98    /* PPMd version I, Rev 1 */
 
 /* encryption methods */
 
-primitive ZipEMNone fun apply(): I32 => 0         /* not encrypted */
-primitive ZipEMTradpkware fun apply(): I32 => 1  /* traditional PKWARE encryption */
-primitive ZipEMDes fun apply(): I32 => 0x6601     /* strong encryption: DES */
-primitive ZipEMRc2old fun apply(): I32 => 0X6602 /* strong encryption: RC2, version < 5.2 */
-primitive ZipEM3des168 fun apply(): I32 => 0x6603
-primitive ZipEM3des112 fun apply(): I32 => 0X6609
-primitive ZipEMPkzipaes128 fun apply(): I32 => 0X660e
-primitive ZipEMPkzipaes192 fun apply(): I32 => 0x660f
-primitive ZipEMPkzipaes256 fun apply(): I32 => 0x6610
-primitive ZipEMRc2 fun apply(): I32 => 0x6702 /* strong encryption: RC2, version >= 5.2 */
-primitive ZipEMRc4 fun apply(): I32 => 0x6801
-primitive ZipEMAes128 fun apply(): I32 => 0X0101 /* Winzip AES encryption */
-primitive ZipEMAes192 fun apply(): I32 => 0x0102
-primitive ZipEMAes256 fun apply(): I32 => 0x0103
-primitive ZipEMUnknown fun apply(): I32 => 0xffff /* unknown algorithm */
+type ZipEMType is (ZipEMNone|ZipEMTradpkware|ZipEMDes|ZipEMRc2old|ZipEM3des168|ZipEM3des112|ZipEMPkzipaes128|ZipEMPkzipaes192|ZipEMPkzipaes256|ZipEMRc2|ZipEMRc4|ZipEMAes128|ZipEMAes192|ZipEMAes256|ZipEMUnknown)
+primitive ZipEMNone fun apply(): U16 => 0         /* not encrypted */
+primitive ZipEMTradpkware fun apply(): U16 => 1  /* traditional PKWARE encryption */
+primitive ZipEMDes fun apply(): U16 => 0x6601     /* strong encryption: DES */
+primitive ZipEMRc2old fun apply(): U16 => 0X6602 /* strong encryption: RC2, version < 5.2 */
+primitive ZipEM3des168 fun apply(): U16 => 0x6603
+primitive ZipEM3des112 fun apply(): U16 => 0X6609
+primitive ZipEMPkzipaes128 fun apply(): U16 => 0X660e
+primitive ZipEMPkzipaes192 fun apply(): U16 => 0x660f
+primitive ZipEMPkzipaes256 fun apply(): U16 => 0x6610
+primitive ZipEMRc2 fun apply(): U16 => 0x6702 /* strong encryption: RC2, version >= 5.2 */
+primitive ZipEMRc4 fun apply(): U16 => 0x6801
+primitive ZipEMAes128 fun apply(): U16 => 0X0101 /* Winzip AES encryption */
+primitive ZipEMAes192 fun apply(): U16 => 0x0102
+primitive ZipEMAes256 fun apply(): U16 => 0x0103
+primitive ZipEMUnknown fun apply(): U16 => 0xffff /* unknown algorithm */
 
 
-primitive ZipOPSYSDos fun apply(): U32 => 0x00
-primitive ZipOPSYSAmiga fun apply(): U32 => 0x01
-primitive ZipOPSYSOpenvms fun apply(): U32 => 0x02
-primitive ZipOPSYSUnix fun apply(): U32 => 0x03
-primitive ZipOPSYSVmcms fun apply(): U32 => 0x04
-primitive ZipOPSYSAtarist fun apply(): U32 => 0x05
-primitive ZipOPSYSOs2 fun apply(): U32 => 0x06
-primitive ZipOPSYSMacintosh fun apply(): U32 => 0x07
-primitive ZipOPSYSZsystem fun apply(): U32 => 0X08
-primitive ZipOPSYSCpm fun apply(): U32 => 0x09
-primitive ZipOPSYSWindowsntfs fun apply(): U32 => 0x0a
-primitive ZipOPSYSMvs fun apply(): U32 => 0x0b
-primitive ZipOPSYSVse fun apply(): U32 => 0x0c
-primitive ZipOPSYSAcornrisc fun apply(): U32 => 0X0d
-primitive ZipOPSYSVfat fun apply(): U32 => 0x0e
-primitive ZipOPSYSAlternatemvs fun apply(): U32 => 0x0f
-primitive ZipOPSYSBeos fun apply(): U32 => 0x10
-primitive ZipOPSYSTandem fun apply(): U32 => 0X11
-primitive ZipOPSYSOs400 fun apply(): U32 => 0x12
-primitive ZipOPSYSOsx fun apply(): U32 => 0x13
+primitive ZipOPSYSDos fun apply(): U8 => 0x00
+primitive ZipOPSYSAmiga fun apply(): U8 => 0x01
+primitive ZipOPSYSOpenvms fun apply(): U8 => 0x02
+primitive ZipOPSYSUnix fun apply(): U8 => 0x03
+primitive ZipOPSYSVmcms fun apply(): U8 => 0x04
+primitive ZipOPSYSAtarist fun apply(): U8 => 0x05
+primitive ZipOPSYSOs2 fun apply(): U8 => 0x06
+primitive ZipOPSYSMacintosh fun apply(): U8 => 0x07
+primitive ZipOPSYSZsystem fun apply(): U8 => 0X08
+primitive ZipOPSYSCpm fun apply(): U8 => 0x09
+primitive ZipOPSYSWindowsntfs fun apply(): U8 => 0x0a
+primitive ZipOPSYSMvs fun apply(): U8 => 0x0b
+primitive ZipOPSYSVse fun apply(): U8 => 0x0c
+primitive ZipOPSYSAcornrisc fun apply(): U8 => 0X0d
+primitive ZipOPSYSVfat fun apply(): U8 => 0x0e
+primitive ZipOPSYSAlternatemvs fun apply(): U8 => 0x0f
+primitive ZipOPSYSBeos fun apply(): U8 => 0x10
+primitive ZipOPSYSTandem fun apply(): U8 => 0X11
+primitive ZipOPSYSOs400 fun apply(): U8 => 0x12
+primitive ZipOPSYSOsx fun apply(): U8 => 0x13
 
 type ZipOPSYSDefault is ZipOPSYSUnix
 
@@ -176,24 +177,24 @@ primitive ZipSOURCEGetFileAttributes fun apply(): U32 => 1 << 19 /* get addition
 
 
 type ZipStatFlags is (ZipSTATName|ZipSTATIndex|ZipSTATSize|ZipSTATCompSize|ZipSTATMtime|ZipSTATCrc|ZipSTATCompMethod|ZipSTATEncryptionMethod|ZipSTATFlag)
-primitive ZipSTATName fun apply(): U32 => 0x0001
-primitive ZipSTATIndex fun apply(): U32 => 0x0002
-primitive ZipSTATSize fun apply(): U32 => 0x0004
-primitive ZipSTATCompSize fun apply(): U32 => 0x0008
-primitive ZipSTATMtime fun apply(): U32 => 0x0010
-primitive ZipSTATCrc fun apply(): U32 => 0x0020
-primitive ZipSTATCompMethod fun apply(): U32 => 0x0040
-primitive ZipSTATEncryptionMethod fun apply(): U32 => 0x0080
-primitive ZipSTATFlag fun apply(): U32 => 0x0100
+primitive ZipSTATName fun apply(): U16 => 0x0001
+primitive ZipSTATIndex fun apply(): U16 => 0x0002
+primitive ZipSTATSize fun apply(): U16 => 0x0004
+primitive ZipSTATCompSize fun apply(): U16 => 0x0008
+primitive ZipSTATMtime fun apply(): U16 => 0x0010
+primitive ZipSTATCrc fun apply(): U16 => 0x0020
+primitive ZipSTATCompMethod fun apply(): U16 => 0x0040
+primitive ZipSTATEncryptionMethod fun apply(): U16 => 0x0080
+primitive ZipSTATFlag fun apply(): U16 => 0x0100
 
 
 
 type ZipFileAttributesFlags is (ZipFileAttributesHostSystem|ZipFileAttributesAscii|ZipFileAttributesVersionNeeded|ZipFileAttributesExternalFileAttributes|ZipFileAttributesGeneralPurposeBitFlags)
-primitive ZipFileAttributesHostSystem             fun apply(): U32 => 0x0001
-primitive ZipFileAttributesAscii                  fun apply(): U32 => 0x0002
-primitive ZipFileAttributesVersionNeeded          fun apply(): U32 => 0x0004
-primitive ZipFileAttributesExternalFileAttributes fun apply(): U32 => 0x0008
-primitive ZipFileAttributesGeneralPurposeBitFlags fun apply(): U32 => 0x0010
+primitive ZipFileAttributesHostSystem             fun apply(): U16 => 0x0001
+primitive ZipFileAttributesAscii                  fun apply(): U16 => 0x0002
+primitive ZipFileAttributesVersionNeeded          fun apply(): U16 => 0x0004
+primitive ZipFileAttributesExternalFileAttributes fun apply(): U16 => 0x0008
+primitive ZipFileAttributesGeneralPurposeBitFlags fun apply(): U16 => 0x0010
 
 
 
