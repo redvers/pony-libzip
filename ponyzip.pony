@@ -1,6 +1,8 @@
 use "debug"
 use "collections"
 
+use @printf[I32](...)
+
 class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
   var errorno: I32 = 0
@@ -95,5 +97,23 @@ class PonyZip
     var cnt: I64 = ABLibZIP.pzipfread(zf, data.cpointer(), bytes.u64())
     Debug.out("Read: " + cnt.string() + " bytes out of " + bytes.string())
     consume data
+
+  fun ref add_file(filename: String, data: Array[U8] val, flags: Array[ZipFLFlags]): USize ? =>
+    if (zip.is_none()) then
+      error
+    end
+
+    var ziperr: Ziperror = Ziperror
+    var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+    let zs: NullablePointer[Zipsource] = ABLibZIP.pzipsourcebuffercreate(data.cpointer(), data.size().u64(), I32(1), ziperrp)
+    if (zs.is_none()) then
+      errorstr = ABLibZIP.pziperrorstrerror(ziperrp)
+      error
+    end
+    ABLibZIP.pzipfileadd(zip, filename, zs, U32(0)).usize() // FIXME
+    //// Check here for -1 too for writing issues...
+
+  fun close(): None =>
+    ABLibZIP.pzipclose(zip)
 
 

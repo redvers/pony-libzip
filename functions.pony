@@ -307,7 +307,7 @@ primitive ABLibZIP
     @zip_source_buffer(pparg0, pparg1, pparg2, pparg3)
 
 
-  fun pzipsourcebuffercreate(pparg0: Pointer[None] tag, pparg1: U64, pparg2: I32, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =>
+  fun pzipsourcebuffercreate(pparg0: Pointer[U8] tag, pparg1: U64, pparg2: I32, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =>
     @zip_source_buffer_create(pparg0, pparg1, pparg2, pparg3)
 
 
