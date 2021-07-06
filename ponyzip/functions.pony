@@ -3,64 +3,227 @@ use "lib:zip"
 struct IOFILE
 
 primitive ABLibZIP
+  """
+  ABLibZIP is a direct mapping to the C API.  Documentation here is a copy
+  and paste from the C documnentation which can be found at https://libzip.org/
+
+  """
 //  fun pzipregisterprogresscallback(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[FUNCTIONTYPE] tag): None =>
 //    @zip_register_progress_callback(pparg0, pparg1)
 
 
-  fun pzipadd(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: NullablePointer[Zipsource] tag): I64 =>
+  fun pzipadd_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: NullablePointer[Zipsource] tag): I64 =>
+    """
+    The function zip_add() is the obsolete version of zip_file_add(3). It is the same as calling zip_file_add(3) with an empty flags argument. Similarly, the zip_replace() function is the obsolete version of zip_file_replace(3). It is the same as calling zip_file_replace(3) with an empty flags argument. 
+    """
     @zip_add(pparg0, pparg1.cstring(), pparg2)
 
 
-  fun pzipadddir(pparg0: NullablePointer[Zip] tag, pparg1: String): I64 =>
+  fun pzipadddir_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: String): I64 =>
+    """
+    The function zip_add_dir() is the obsolete version of zip_dir_add(3). It is the same as calling zip_dir_add(3) with an empty flags argument. 
+    """
     @zip_add_dir(pparg0, pparg1.cstring())
 
 
-  fun pzipgetfilecomment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: Pointer[I32] tag, pparg3: I32): String =>
+  fun pzipgetfilecomment_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: Pointer[I32] tag, pparg3: I32): String =>
+    """
+    The zip_get_file_comment() function is the obsolete version of zip_file_get_comment(3). The only differences are the types of the lenp and flags arguments.
+    """
     var pcstring: Pointer[U8] = @zip_get_file_comment(pparg0, pparg1, pparg2, pparg3)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzipgetnumfiles(pparg0: NullablePointer[Zip] tag): I32 =>
+  fun pzipgetnumfiles_obsolete(pparg0: NullablePointer[Zip] tag): I32 =>
+    """
+    This function is deprecated. Use zip_get_num_entries(3) instead.
+
+    The zip_get_num_files() function returns the number of files in archive.
+    """
     @zip_get_num_files(pparg0)
 
 
-  fun pziprename(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String): I32 =>
+  fun pziprename_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String): I32 =>
+    """
+    zip_rename() is the obsolete version of zip_file_rename(3). It is the same as calling zip_file_rename(3) with an empty flags argument. 
+    """
     @zip_rename(pparg0, pparg1, pparg2.cstring())
 
 
-  fun pzipreplace(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: NullablePointer[Zipsource] tag): I32 =>
+  fun pzipreplace_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: NullablePointer[Zipsource] tag): I32 =>
+    """
+    The function zip_add() is the obsolete version of zip_file_add(3). It is the same as calling zip_file_add(3) with an empty flags argument. Similarly, the zip_replace() function is the obsolete version of zip_file_replace(3). It is the same as calling zip_file_replace(3) with an empty flags argument.
+    """
     @zip_replace(pparg0, pparg1, pparg2)
 
 
-  fun pzipsetfilecomment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: I32): I32 =>
+  fun pzipsetfilecomment_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: I32): I32 =>
+    """
+    The zip_set_file_comment() function is the obsolete version of zip_file_set_comment(3). The only differences are the type of the len argument and the additional flags argument. zip_set_file_comment() is the same as calling zip_file_set_comment(3) with an empty flags argument. 
+    """
     @zip_set_file_comment(pparg0, pparg1, pparg2.cstring(), pparg3)
 
 
-  fun pziperrorgetsystype(pparg0: I32): I32 =>
+  fun pziperrorgetsystype_obsolete(pparg0: I32): I32 =>
+    """
+    The function zip_error_get_sys_type() is deprecated; use zip_error_init_with_code(3) and zip_error_system_type(3) instead.
+
+    Replace
+
+    int i = zip_error_get_sys_type(ze);
+
+    with
+
+    zip_error_t error;
+    zip_error_init_with_code(&error, ze);
+    int i = zip_error_system_type(&error);
+
+    """
     @zip_error_get_sys_type(pparg0)
 
 
-  fun pziperrorget(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
+  fun pziperrorget_obsolete(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
+    """
+    The functions zip_error_get() and zip_file_error_get() are deprecated. Use zip_error_code_system(3), zip_error_code_zip(3), zip_file_get_error(3), and zip_get_error(3) instead.
+
+    For zip_error_get(), replace
+
+    int ze, se;
+    zip_error_get(za, &ze, &se);
+
+    with
+
+    int ze, se;
+    zip_error_t *error = zip_get_error(za);
+    ze = zip_error_code_zip(error);
+    se = zip_error_code_system(error);
+
+    For zip_file_error_get(), replace
+
+    int ze, se;
+    zip_file_error_get(zf, &ze, &se);
+
+    with
+
+    int ze, se;
+    zip_error_t *error = zip_file_get_error(zf);
+    ze = zip_error_code_zip(error);
+    se = zip_error_code_system(error);
+    """
     @zip_error_get(pparg0, pparg1, pparg2)
 
 
-  fun pziperrortostr(pparg0: String, pparg1: U64, pparg2: I32, pparg3: I32): I32 =>
+  fun pziperrortostr_obsolete(pparg0: String, pparg1: U64, pparg2: I32, pparg3: I32): I32 =>
+    """
+    The function zip_error_to_str() is deprecated; use zip_error_init_with_code(3) and zip_error_strerror(3) instead.
+
+    Replace
+
+    char buf[BUFSIZE];
+    zip_error_to_str(buf, sizeof(buf), ze, se);
+    printf("%s", buf);
+
+    with
+
+    zip_error_t error;
+    zip_error_init_with_code(&error, ze);
+    printf("%s", zip_error_strerror(&error));
+    zip_error_fini(&error);
+
+    """
     @zip_error_to_str(pparg0.cstring(), pparg1, pparg2, pparg3)
 
 
   fun pzipfileerrorget(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
+    """
+    The functions zip_error_get() and zip_file_error_get() are deprecated. Use zip_error_code_system(3), zip_error_code_zip(3), zip_file_get_error(3), and zip_get_error(3) instead.
+
+    For zip_error_get(), replace
+
+    int ze, se;
+    zip_error_get(za, &ze, &se);
+
+    with
+
+    int ze, se;
+    zip_error_t *error = zip_get_error(za);
+    ze = zip_error_code_zip(error);
+    se = zip_error_code_system(error);
+
+    For zip_file_error_get(), replace
+
+    int ze, se;
+    zip_file_error_get(zf, &ze, &se);
+
+    with
+
+    int ze, se;
+    zip_error_t *error = zip_file_get_error(zf);
+    ze = zip_error_code_zip(error);
+    se = zip_error_code_system(error);
+
+    """
     @zip_file_error_get(pparg0, pparg1, pparg2)
 
 
   fun pzipclose(pparg0: NullablePointer[Zip] tag): I32 =>
+    """
+    DESCRIPTION
+    The zip_close() function writes any changes made to archive to disk. If archive contains no files, the file is completely removed (no empty archive is written). If successful, archive is freed. Otherwise archive is left unchanged and must still be freed.
+    
+    To close and free a zip archive without saving changes, use zip_discard(3).
+    
+    Progress updates for GUIs can be implemented using zip_register_progress_callback_with_state(3). Cancelling the write of an archive during zip_close can be implemented using zip_register_cancel_callback_with_state(3).
+    RETURN VALUES
+    Upon successful completion 0 is returned. Otherwise, -1 is returned and the error code in archive is set to indicate the error.
+    ERRORS
+    zip_close() will fail if:
+    
+    [ZIP_ER_EOF]
+        Unexpected end-of-file found while reading from a file.
+    [ZIP_ER_INTERNAL]
+        The callback function of an added or replaced file returned an error but failed to report which.
+    [ZIP_ER_INVAL]
+        The path argument is NULL.
+    [ZIP_ER_MEMORY]
+        Required memory could not be allocated.
+    [ZIP_ER_NOZIP]
+        File is not a zip archive.
+    [ZIP_ER_READ]
+        A file read failed.
+    [ZIP_ER_RENAME]
+        A temporary file could not be renamed to its final name.
+    [ZIP_ER_SEEK]
+        A file seek failed.
+    [ZIP_ER_TMPOPEN]
+        A temporary file could not be created.
+    [ZIP_ER_WRITE]
+        A file write failed.
+    [ZIP_ER_ZLIB]
+        An error occurred while (de)compressing a stream with zlib(3).
+    
+    Additionally, any errors returned by the callback function for added or replaced files will be passed back. 
+    """
     @zip_close(pparg0)
 
 
   fun pzipdelete(pparg0: NullablePointer[Zip] tag, pparg1: U64): I32 =>
+"""
+DESCRIPTION
+The file at position index in the zip archive archive is marked as deleted.
+RETURN VALUES
+Upon successful completion 0 is returned. Otherwise, -1 is returned and the error code in archive is set to indicate the error.
+ERRORS
+zip_delete() fails if:
+
+[ZIP_ER_INVAL]
+    index is not a valid file index in archive.
+"""
     @zip_delete(pparg0, pparg1)
 
 
   fun pzipdiradd(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32): I64 =>
+
     @zip_dir_add(pparg0, pparg1.cstring(), pparg2)
 
 
