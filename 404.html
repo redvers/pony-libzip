@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="/pony-libzip/img/favicon.ico">
+        <title>ponyzip</title>
+        <link href="/pony-libzip/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/pony-libzip/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/pony-libzip/css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="/pony-libzip/js/jquery-1.10.2.min.js" defer></script>
+        <script src="/pony-libzip/js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="/pony-libzip/.">ponyzip</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="/pony-libzip/." class="nav-link">ponyzip</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package ponyzip <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipsourceargsseek/" class="dropdown-item">struct Zipsourceargsseek</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Ziperror/" class="dropdown-item">struct Ziperror</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipstat/" class="dropdown-item">struct Zipstat</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipbufferfragment/" class="dropdown-item">struct Zipbufferfragment</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipfileattributes/" class="dropdown-item">struct Zipfileattributes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zip/" class="dropdown-item">struct Zip</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipfile/" class="dropdown-item">struct Zipfile</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Zipsource/" class="dropdown-item">struct Zipsource</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-PonyZip/" class="dropdown-item">class PonyZip</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-IOFILE/" class="dropdown-item">struct IOFILE</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ABLibZIP/" class="dropdown-item">primitive ABLibZIP</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFlags/" class="dropdown-item">type ZipFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCreate/" class="dropdown-item">primitive ZipCreate</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipExcl/" class="dropdown-item">primitive ZipExcl</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCheckcons/" class="dropdown-item">primitive ZipCheckcons</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipTruncate/" class="dropdown-item">primitive ZipTruncate</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipRDOnly/" class="dropdown-item">primitive ZipRDOnly</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLFlags/" class="dropdown-item">type ZipFLFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLNocase/" class="dropdown-item">primitive ZipFLNocase</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLNodir/" class="dropdown-item">primitive ZipFLNodir</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLCompressed/" class="dropdown-item">primitive ZipFLCompressed</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLUnchanged/" class="dropdown-item">primitive ZipFLUnchanged</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLRecompress/" class="dropdown-item">primitive ZipFLRecompress</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncrypted/" class="dropdown-item">primitive ZipFLEncrypted</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncGuess/" class="dropdown-item">primitive ZipFLEncGuess</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncRaw/" class="dropdown-item">primitive ZipFLEncRaw</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncStrict/" class="dropdown-item">primitive ZipFLEncStrict</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLLocal/" class="dropdown-item">primitive ZipFLLocal</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLCentral/" class="dropdown-item">primitive ZipFLCentral</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncUtf8/" class="dropdown-item">primitive ZipFLEncUtf8</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLEncCp437/" class="dropdown-item">primitive ZipFLEncCp437</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFLOverwrite/" class="dropdown-item">primitive ZipFLOverwrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipAflFlags/" class="dropdown-item">type ZipAflFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipAFLRDOnly/" class="dropdown-item">primitive ZipAFLRDOnly</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipER/" class="dropdown-item">type ZipER</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEROK/" class="dropdown-item">primitive ZipEROK</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERMultidisk/" class="dropdown-item">primitive ZipERMultidisk</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERRename/" class="dropdown-item">primitive ZipERRename</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERClose/" class="dropdown-item">primitive ZipERClose</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERSeek/" class="dropdown-item">primitive ZipERSeek</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERRead/" class="dropdown-item">primitive ZipERRead</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERWrite/" class="dropdown-item">primitive ZipERWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERCRC/" class="dropdown-item">primitive ZipERCRC</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERZipclosed/" class="dropdown-item">primitive ZipERZipclosed</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERNoent/" class="dropdown-item">primitive ZipERNoent</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERExists/" class="dropdown-item">primitive ZipERExists</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEROpen/" class="dropdown-item">primitive ZipEROpen</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERTmpopen/" class="dropdown-item">primitive ZipERTmpopen</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERZlib/" class="dropdown-item">primitive ZipERZlib</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERMemory/" class="dropdown-item">primitive ZipERMemory</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERChanged/" class="dropdown-item">primitive ZipERChanged</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERCompnotsupp/" class="dropdown-item">primitive ZipERCompnotsupp</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEREof/" class="dropdown-item">primitive ZipEREof</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERInval/" class="dropdown-item">primitive ZipERInval</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERNozip/" class="dropdown-item">primitive ZipERNozip</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERInternal/" class="dropdown-item">primitive ZipERInternal</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERIncons/" class="dropdown-item">primitive ZipERIncons</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERRemove/" class="dropdown-item">primitive ZipERRemove</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERDeleted/" class="dropdown-item">primitive ZipERDeleted</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEREncrnotsupp/" class="dropdown-item">primitive ZipEREncrnotsupp</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERRDOnly/" class="dropdown-item">primitive ZipERRDOnly</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERNopasswd/" class="dropdown-item">primitive ZipERNopasswd</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERWrongpasswd/" class="dropdown-item">primitive ZipERWrongpasswd</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEROpnotsupp/" class="dropdown-item">primitive ZipEROpnotsupp</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERInuse/" class="dropdown-item">primitive ZipERInuse</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERTell/" class="dropdown-item">primitive ZipERTell</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERCompresseddata/" class="dropdown-item">primitive ZipERCompresseddata</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipERCancelled/" class="dropdown-item">primitive ZipERCancelled</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipETNone/" class="dropdown-item">primitive ZipETNone</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipETSys/" class="dropdown-item">primitive ZipETSys</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipETZlib/" class="dropdown-item">primitive ZipETZlib</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMDefault/" class="dropdown-item">primitive ZipCMDefault</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMStore/" class="dropdown-item">primitive ZipCMStore</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMShrink/" class="dropdown-item">primitive ZipCMShrink</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMReduce1/" class="dropdown-item">primitive ZipCMReduce1</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMReduce2/" class="dropdown-item">primitive ZipCMReduce2</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMReduce3/" class="dropdown-item">primitive ZipCMReduce3</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMReduce4/" class="dropdown-item">primitive ZipCMReduce4</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMImplode/" class="dropdown-item">primitive ZipCMImplode</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMDeflate/" class="dropdown-item">primitive ZipCMDeflate</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMDeflate64/" class="dropdown-item">primitive ZipCMDeflate64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMPkwareimplode/" class="dropdown-item">primitive ZipCMPkwareimplode</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMBzip2/" class="dropdown-item">primitive ZipCMBzip2</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMLzma/" class="dropdown-item">primitive ZipCMLzma</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMTerse/" class="dropdown-item">primitive ZipCMTerse</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMLz77/" class="dropdown-item">primitive ZipCMLz77</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMLzma2/" class="dropdown-item">primitive ZipCMLzma2</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMxz/" class="dropdown-item">primitive ZipCMxz</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMJpeg/" class="dropdown-item">primitive ZipCMJpeg</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMWavpack/" class="dropdown-item">primitive ZipCMWavpack</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipCMPpmd/" class="dropdown-item">primitive ZipCMPpmd</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMType/" class="dropdown-item">type ZipEMType</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMNone/" class="dropdown-item">primitive ZipEMNone</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMTradpkware/" class="dropdown-item">primitive ZipEMTradpkware</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMDes/" class="dropdown-item">primitive ZipEMDes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMRc2old/" class="dropdown-item">primitive ZipEMRc2old</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEM3des168/" class="dropdown-item">primitive ZipEM3des168</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEM3des112/" class="dropdown-item">primitive ZipEM3des112</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMPkzipaes128/" class="dropdown-item">primitive ZipEMPkzipaes128</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMPkzipaes192/" class="dropdown-item">primitive ZipEMPkzipaes192</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMPkzipaes256/" class="dropdown-item">primitive ZipEMPkzipaes256</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMRc2/" class="dropdown-item">primitive ZipEMRc2</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMRc4/" class="dropdown-item">primitive ZipEMRc4</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMAes128/" class="dropdown-item">primitive ZipEMAes128</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMAes192/" class="dropdown-item">primitive ZipEMAes192</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMAes256/" class="dropdown-item">primitive ZipEMAes256</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipEMUnknown/" class="dropdown-item">primitive ZipEMUnknown</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSDos/" class="dropdown-item">primitive ZipOPSYSDos</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSAmiga/" class="dropdown-item">primitive ZipOPSYSAmiga</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSOpenvms/" class="dropdown-item">primitive ZipOPSYSOpenvms</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSUnix/" class="dropdown-item">primitive ZipOPSYSUnix</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSVmcms/" class="dropdown-item">primitive ZipOPSYSVmcms</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSAtarist/" class="dropdown-item">primitive ZipOPSYSAtarist</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSOs2/" class="dropdown-item">primitive ZipOPSYSOs2</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSMacintosh/" class="dropdown-item">primitive ZipOPSYSMacintosh</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSZsystem/" class="dropdown-item">primitive ZipOPSYSZsystem</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSCpm/" class="dropdown-item">primitive ZipOPSYSCpm</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSWindowsntfs/" class="dropdown-item">primitive ZipOPSYSWindowsntfs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSMvs/" class="dropdown-item">primitive ZipOPSYSMvs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSVse/" class="dropdown-item">primitive ZipOPSYSVse</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSAcornrisc/" class="dropdown-item">primitive ZipOPSYSAcornrisc</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSVfat/" class="dropdown-item">primitive ZipOPSYSVfat</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSAlternatemvs/" class="dropdown-item">primitive ZipOPSYSAlternatemvs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSBeos/" class="dropdown-item">primitive ZipOPSYSBeos</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSTandem/" class="dropdown-item">primitive ZipOPSYSTandem</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSOs400/" class="dropdown-item">primitive ZipOPSYSOs400</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSOsx/" class="dropdown-item">primitive ZipOPSYSOsx</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipOPSYSDefault/" class="dropdown-item">type ZipOPSYSDefault</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESupportsReadable/" class="dropdown-item">type ZipSOURCESupportsReadable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEOpen/" class="dropdown-item">primitive ZipSOURCEOpen</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCERead/" class="dropdown-item">primitive ZipSOURCERead</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEClose/" class="dropdown-item">primitive ZipSOURCEClose</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEStat/" class="dropdown-item">primitive ZipSOURCEStat</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEError/" class="dropdown-item">primitive ZipSOURCEError</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEFree/" class="dropdown-item">primitive ZipSOURCEFree</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESupportsSeekable/" class="dropdown-item">type ZipSOURCESupportsSeekable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESeek/" class="dropdown-item">primitive ZipSOURCESeek</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCETell/" class="dropdown-item">primitive ZipSOURCETell</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESupports/" class="dropdown-item">primitive ZipSOURCESupports</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESupportsWritable/" class="dropdown-item">type ZipSOURCESupportsWritable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEBeginWrite/" class="dropdown-item">primitive ZipSOURCEBeginWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCECommitWrite/" class="dropdown-item">primitive ZipSOURCECommitWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCERollbackWrite/" class="dropdown-item">primitive ZipSOURCERollbackWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEWrite/" class="dropdown-item">primitive ZipSOURCEWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCESeekWrite/" class="dropdown-item">primitive ZipSOURCESeekWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCETellWrite/" class="dropdown-item">primitive ZipSOURCETellWrite</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCERemove/" class="dropdown-item">primitive ZipSOURCERemove</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEReserved1/" class="dropdown-item">primitive ZipSOURCEReserved1</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEBeginWriteCloning/" class="dropdown-item">primitive ZipSOURCEBeginWriteCloning</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEAcceptEmpty/" class="dropdown-item">primitive ZipSOURCEAcceptEmpty</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSOURCEGetFileAttributes/" class="dropdown-item">primitive ZipSOURCEGetFileAttributes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipStatFlags/" class="dropdown-item">type ZipStatFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATName/" class="dropdown-item">primitive ZipSTATName</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATIndex/" class="dropdown-item">primitive ZipSTATIndex</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATSize/" class="dropdown-item">primitive ZipSTATSize</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATCompSize/" class="dropdown-item">primitive ZipSTATCompSize</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATMtime/" class="dropdown-item">primitive ZipSTATMtime</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATCrc/" class="dropdown-item">primitive ZipSTATCrc</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATCompMethod/" class="dropdown-item">primitive ZipSTATCompMethod</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATEncryptionMethod/" class="dropdown-item">primitive ZipSTATEncryptionMethod</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipSTATFlag/" class="dropdown-item">primitive ZipSTATFlag</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesFlags/" class="dropdown-item">type ZipFileAttributesFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesHostSystem/" class="dropdown-item">primitive ZipFileAttributesHostSystem</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesAscii/" class="dropdown-item">primitive ZipFileAttributesAscii</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesVersionNeeded/" class="dropdown-item">primitive ZipFileAttributesVersionNeeded</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesExternalFileAttributes/" class="dropdown-item">primitive ZipFileAttributesExternalFileAttributes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-ZipFileAttributesGeneralPurposeBitFlags/" class="dropdown-item">primitive ZipFileAttributesGeneralPurposeBitFlags</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponyzip-Main/" class="dropdown-item">actor Main</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package builtin <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/builtin--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-U8/" class="dropdown-item">primitive U8</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-U16/" class="dropdown-item">primitive U16</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-U32/" class="dropdown-item">primitive U32</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-U64/" class="dropdown-item">primitive U64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ULong/" class="dropdown-item">primitive ULong</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-USize/" class="dropdown-item">primitive USize</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-U128/" class="dropdown-item">primitive U128</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Unsigned/" class="dropdown-item">type Unsigned</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Stringable/" class="dropdown-item">interface Stringable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-String/" class="dropdown-item">class String</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-StringBytes/" class="dropdown-item">class StringBytes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-StringRunes/" class="dropdown-item">class StringRunes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-InputNotify/" class="dropdown-item">interface InputNotify</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-InputStream/" class="dropdown-item">interface InputStream</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Stdin/" class="dropdown-item">actor Stdin</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ByteSeq/" class="dropdown-item">type ByteSeq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ByteSeqIter/" class="dropdown-item">interface ByteSeqIter</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-OutStream/" class="dropdown-item">interface OutStream</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-StdStream/" class="dropdown-item">actor StdStream</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-SourceLoc/" class="dropdown-item">interface SourceLoc</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-I8/" class="dropdown-item">primitive I8</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-I16/" class="dropdown-item">primitive I16</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-I32/" class="dropdown-item">primitive I32</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-I64/" class="dropdown-item">primitive I64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ILong/" class="dropdown-item">primitive ILong</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ISize/" class="dropdown-item">primitive ISize</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-I128/" class="dropdown-item">primitive I128</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Signed/" class="dropdown-item">type Signed</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Seq/" class="dropdown-item">interface Seq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-RuntimeOptions/" class="dropdown-item">struct RuntimeOptions</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Real/" class="dropdown-item">trait Real</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Integer/" class="dropdown-item">trait Integer</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-SignedInteger/" class="dropdown-item">trait SignedInteger</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-UnsignedInteger/" class="dropdown-item">trait UnsignedInteger</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-FloatingPoint/" class="dropdown-item">trait FloatingPoint</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Number/" class="dropdown-item">type Number</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Int/" class="dropdown-item">type Int</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ReadSeq/" class="dropdown-item">interface ReadSeq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ReadElement/" class="dropdown-item">interface ReadElement</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Pointer/" class="dropdown-item">struct Pointer</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Platform/" class="dropdown-item">primitive Platform</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-NullablePointer/" class="dropdown-item">struct NullablePointer</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-None/" class="dropdown-item">primitive None</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Iterator/" class="dropdown-item">interface Iterator</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-F32/" class="dropdown-item">primitive F32</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-F64/" class="dropdown-item">primitive F64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Float/" class="dropdown-item">type Float</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Env/" class="dropdown-item">class Env</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-DoNotOptimise/" class="dropdown-item">primitive DoNotOptimise</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-DisposableActor/" class="dropdown-item">interface DisposableActor</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Less/" class="dropdown-item">primitive Less</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Equal/" class="dropdown-item">primitive Equal</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Greater/" class="dropdown-item">primitive Greater</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Compare/" class="dropdown-item">type Compare</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-HasEq/" class="dropdown-item">interface HasEq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Equatable/" class="dropdown-item">interface Equatable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Comparable/" class="dropdown-item">interface Comparable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Bool/" class="dropdown-item">primitive Bool</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-AsioEventID/" class="dropdown-item">type AsioEventID</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-AsioEventNotify/" class="dropdown-item">interface AsioEventNotify</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-AsioEvent/" class="dropdown-item">primitive AsioEvent</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Array/" class="dropdown-item">class Array</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ArrayKeys/" class="dropdown-item">class ArrayKeys</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ArrayValues/" class="dropdown-item">class ArrayValues</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-ArrayPairs/" class="dropdown-item">class ArrayPairs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-Any/" class="dropdown-item">interface Any</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/builtin-AmbientAuth/" class="dropdown-item">primitive AmbientAuth</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package collections <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/collections--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Sort/" class="dropdown-item">primitive Sort</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Set/" class="dropdown-item">type Set</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-SetIs/" class="dropdown-item">type SetIs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashSet/" class="dropdown-item">class HashSet</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-SetValues/" class="dropdown-item">class SetValues</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-RingBuffer/" class="dropdown-item">class RingBuffer</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Reverse/" class="dropdown-item">class Reverse</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Range/" class="dropdown-item">class Range</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Map/" class="dropdown-item">type Map</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MapIs/" class="dropdown-item">type MapIs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashMap/" class="dropdown-item">class HashMap</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MapKeys/" class="dropdown-item">class MapKeys</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MapValues/" class="dropdown-item">class MapValues</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MapPairs/" class="dropdown-item">class MapPairs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-ListNode/" class="dropdown-item">class ListNode</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-List/" class="dropdown-item">class List</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-ListNodes/" class="dropdown-item">class ListNodes</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-ListValues/" class="dropdown-item">class ListValues</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MinHeap/" class="dropdown-item">type MinHeap</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MaxHeap/" class="dropdown-item">type MaxHeap</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-BinaryHeap/" class="dropdown-item">class BinaryHeap</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-BinaryHeapPriority/" class="dropdown-item">type BinaryHeapPriority</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MinHeapPriority/" class="dropdown-item">primitive MinHeapPriority</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-MaxHeapPriority/" class="dropdown-item">primitive MaxHeapPriority</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Hashable/" class="dropdown-item">interface Hashable</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Hashable64/" class="dropdown-item">interface Hashable64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashFunction/" class="dropdown-item">interface HashFunction</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashFunction64/" class="dropdown-item">interface HashFunction64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashEq/" class="dropdown-item">primitive HashEq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashEq64/" class="dropdown-item">primitive HashEq64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashIs/" class="dropdown-item">primitive HashIs</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-HashByteSeq/" class="dropdown-item">primitive HashByteSeq</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Flag/" class="dropdown-item">interface Flag</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/collections-Flags/" class="dropdown-item">class Flags</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package debug <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/debug--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/debug-DebugOut/" class="dropdown-item">primitive DebugOut</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/debug-DebugErr/" class="dropdown-item">primitive DebugErr</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/debug-DebugStream/" class="dropdown-item">type DebugStream</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/debug-Debug/" class="dropdown-item">primitive Debug</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package ponytest <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/ponytest--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponytest-UnitTest/" class="dropdown-item">trait UnitTest</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponytest-TestList/" class="dropdown-item">trait TestList</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponytest-ITest/" class="dropdown-item">interface ITest</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponytest-TestHelper/" class="dropdown-item">class TestHelper</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/ponytest-PonyTest/" class="dropdown-item">actor PonyTest</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package random <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/random--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-XorShift128Plus/" class="dropdown-item">class XorShift128Plus</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-XorOshiro128Plus/" class="dropdown-item">class XorOshiro128Plus</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-XorOshiro128StarStar/" class="dropdown-item">class XorOshiro128StarStar</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-SplitMix64/" class="dropdown-item">class SplitMix64</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-Rand/" class="dropdown-item">type Rand</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-Random/" class="dropdown-item">trait Random</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-MT/" class="dropdown-item">class MT</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/random-Dice/" class="dropdown-item">class Dice</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">package time <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/time--index/" class="dropdown-item">Package</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-Timers/" class="dropdown-item">actor Timers</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-TimerNotify/" class="dropdown-item">interface TimerNotify</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-Timer/" class="dropdown-item">class Timer</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-Time/" class="dropdown-item">primitive Time</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-PosixDate/" class="dropdown-item">class PosixDate</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/time-Nanos/" class="dropdown-item">primitive Nanos</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">source <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="/pony-libzip/src/ponyzip/structs/" class="dropdown-item">structs.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponyzip/ponyzip/" class="dropdown-item">ponyzip.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponyzip/functions/" class="dropdown-item">functions.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponyzip/defines/" class="dropdown-item">defines.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponyzip/_test/" class="dropdown-item">_test.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/unsigned/" class="dropdown-item">unsigned.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/stringable/" class="dropdown-item">stringable.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/string/" class="dropdown-item">string.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/stdin/" class="dropdown-item">stdin.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/std_stream/" class="dropdown-item">std_stream.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/source_loc/" class="dropdown-item">source_loc.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/signed/" class="dropdown-item">signed.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/seq/" class="dropdown-item">seq.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/runtime_options/" class="dropdown-item">runtime_options.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/real/" class="dropdown-item">real.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/read_seq/" class="dropdown-item">read_seq.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/pointer/" class="dropdown-item">pointer.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/platform/" class="dropdown-item">platform.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/nullable_pointer/" class="dropdown-item">nullable_pointer.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/none/" class="dropdown-item">none.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/iterator/" class="dropdown-item">iterator.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/float/" class="dropdown-item">float.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/env/" class="dropdown-item">env.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/do_not_optimise/" class="dropdown-item">do_not_optimise.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/disposable_actor/" class="dropdown-item">disposable_actor.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/compare/" class="dropdown-item">compare.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/bool/" class="dropdown-item">bool.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/asio_event/" class="dropdown-item">asio_event.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/array/" class="dropdown-item">array.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/any/" class="dropdown-item">any.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/builtin/ambient_auth/" class="dropdown-item">ambient_auth.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/sort/" class="dropdown-item">sort.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/set/" class="dropdown-item">set.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/ring_buffer/" class="dropdown-item">ring_buffer.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/reverse/" class="dropdown-item">reverse.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/range/" class="dropdown-item">range.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/map/" class="dropdown-item">map.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/list_node/" class="dropdown-item">list_node.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/list/" class="dropdown-item">list.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/heap/" class="dropdown-item">heap.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/hashable/" class="dropdown-item">hashable.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/collections/flag/" class="dropdown-item">flag.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/debug/debug/" class="dropdown-item">debug.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponytest/unit_test/" class="dropdown-item">unit_test.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponytest/test_list/" class="dropdown-item">test_list.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponytest/test_helper/" class="dropdown-item">test_helper.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/ponytest/pony_test/" class="dropdown-item">pony_test.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/xorshift/" class="dropdown-item">xorshift.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/xoroshiro/" class="dropdown-item">xoroshiro.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/splitmix64/" class="dropdown-item">splitmix64.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/random/" class="dropdown-item">random.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/mt/" class="dropdown-item">mt.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/random/dice/" class="dropdown-item">dice.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/timers/" class="dropdown-item">timers.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/timer_notify/" class="dropdown-item">timer_notify.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/timer/" class="dropdown-item">timer.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/time/" class="dropdown-item">time.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/posix_date/" class="dropdown-item">posix_date.pony</a>
+</li>
+                                    
+<li>
+    <a href="/pony-libzip/src/time/nanos/" class="dropdown-item">nanos.pony</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+    <div class="row-fluid">
+      <div id="main-content" class="span12">
+        <h1 id="404-page-not-found" style="text-align: center">404</h1>
+        <p style="text-align: center"><strong>Page not found</strong></p>
+      </div>
+    </div>
+
+
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "/pony-libzip/",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="/pony-libzip/js/base.js" defer></script>
+        <script src="/pony-libzip/search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
