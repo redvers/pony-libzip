@@ -18,4 +18,4 @@ jobs:
           git_user_name: "redvers"
           git_user_email: "red@infect.me"
         env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
