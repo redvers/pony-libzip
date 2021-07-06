@@ -1,55 +1,6 @@
 use "lib:zip"
 
 primitive ABLibZIP
-//  fun pzip_register_progress_callback(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[FUNCTIONTYPE] tag): None =>
-//    @zip_register_progress_callback(pparg0, pparg1)
-
-
-  fun pzip_add(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: NullablePointer[Zipsource] tag): I64 =>
-    @zip_add(pparg0, pparg1.cstring(), pparg2)
-
-
-  fun pzip_add_dir(pparg0: NullablePointer[Zip] tag, pparg1: String): I64 =>
-    @zip_add_dir(pparg0, pparg1.cstring())
-
-
-  fun pzip_get_file_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: Pointer[I32] tag, pparg3: I32): String =>
-    var pcstring: Pointer[U8] = @zip_get_file_comment(pparg0, pparg1, pparg2, pparg3)
-    let p: String iso = String.from_cstring(pcstring).clone()
-    consume p
-
-  fun pzip_get_num_files(pparg0: NullablePointer[Zip] tag): I32 =>
-    @zip_get_num_files(pparg0)
-
-
-  fun pzip_rename(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String): I32 =>
-    @zip_rename(pparg0, pparg1, pparg2.cstring())
-
-
-  fun pzip_replace(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: NullablePointer[Zipsource] tag): I32 =>
-    @zip_replace(pparg0, pparg1, pparg2)
-
-
-  fun pzip_set_file_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: I32): I32 =>
-    @zip_set_file_comment(pparg0, pparg1, pparg2.cstring(), pparg3)
-
-
-  fun pzip_error_get_sys_type(pparg0: I32): I32 =>
-    @zip_error_get_sys_type(pparg0)
-
-
-  fun pzip_error_get(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
-    @zip_error_get(pparg0, pparg1, pparg2)
-
-
-  fun pzip_error_to_str(pparg0: String, pparg1: U64, pparg2: I32, pparg3: I32): I32 =>
-    @zip_error_to_str(pparg0.cstring(), pparg1, pparg2, pparg3)
-
-
-  fun pzip_file_error_get(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
-    @zip_file_error_get(pparg0, pparg1, pparg2)
-
-
   fun pzip_close(pparg0: NullablePointer[Zip] tag): I32 =>
     @zip_close(pparg0)
 
@@ -270,9 +221,6 @@ primitive ABLibZIP
     @zip_open_from_source(pparg0, pparg1, pparg2)
 
 
-//  fun pzip_register_progress_callback_with_state(pparg0: NullablePointer[Zip] tag, pparg1: F64, pparg2: NullablePointer[FUNCTIONTYPE] tag, pparg3: NullablePointer[FUNCTIONTYPE] tag, pparg4: Pointer[None] tag): I32 =>
-//    @zip_register_progress_callback_with_state(pparg0, pparg1, pparg2, pparg3, pparg4)
-
 
 //  fun pzip_register_cancel_callback_with_state(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[FUNCTIONTYPE] tag, pparg2: NullablePointer[FUNCTIONTYPE] tag, pparg3: Pointer[None] tag): I32 =>
 //    @zip_register_cancel_callback_with_state(pparg0, pparg1, pparg2, pparg3)
@@ -454,4 +402,47 @@ primitive ABLibZIP
   fun pzip_encryption_method_supported(pmethod: U16, pencode: I32): I32 =>
     @zip_encryption_method_supported(pmethod, pencode)
 
+  fun obsolete_pzip_add(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: NullablePointer[Zipsource] tag): I64 =>
+    @zip_add(pparg0, pparg1.cstring(), pparg2)
+
+
+  fun obsolete_pzip_add_dir(pparg0: NullablePointer[Zip] tag, pparg1: String): I64 =>
+    @zip_add_dir(pparg0, pparg1.cstring())
+
+
+  fun obsolete_pzip_get_file_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: Pointer[I32] tag, pparg3: I32): String =>
+    var pcstring: Pointer[U8] = @zip_get_file_comment(pparg0, pparg1, pparg2, pparg3)
+    let p: String iso = String.from_cstring(pcstring).clone()
+    consume p
+
+  fun obsolete_pzip_get_num_files(pparg0: NullablePointer[Zip] tag): I32 =>
+    @zip_get_num_files(pparg0)
+
+
+  fun obsolete_pzip_rename(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String): I32 =>
+    @zip_rename(pparg0, pparg1, pparg2.cstring())
+
+
+  fun obsolete_pzip_replace(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: NullablePointer[Zipsource] tag): I32 =>
+    @zip_replace(pparg0, pparg1, pparg2)
+
+
+  fun obsolete_pzip_set_file_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: I32): I32 =>
+    @zip_set_file_comment(pparg0, pparg1, pparg2.cstring(), pparg3)
+
+
+  fun obsolete_pzip_error_get_sys_type(pparg0: I32): I32 =>
+    @zip_error_get_sys_type(pparg0)
+
+
+  fun obsolete_pzip_error_get(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
+    @zip_error_get(pparg0, pparg1, pparg2)
+
+
+  fun obsolete_pzip_error_to_str(pparg0: String, pparg1: U64, pparg2: I32, pparg3: I32): I32 =>
+    @zip_error_to_str(pparg0.cstring(), pparg1, pparg2, pparg3)
+
+
+  fun obsolete_pzip_file_error_get(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[I32] tag, pparg2: Pointer[I32] tag): None =>
+    @zip_file_error_get(pparg0, pparg1, pparg2)
 
