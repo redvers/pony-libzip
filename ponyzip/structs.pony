@@ -63,4 +63,4 @@ struct Zipfile
 
 struct Zipsource
 
-
+struct IOFILE
