@@ -1,4 +1,3 @@
-use "../../pony-libzip"
 
 actor Main
   new create(env: Env) =>
