@@ -3,7 +3,7 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     ponyc
     pony-corral
-#    stdenv
+    mkdocs
     pkg-config
     libzip
   ];
