@@ -4323,17 +4323,54 @@
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="pzip_open">pzip_open<a class="headerlink" href="#pzip_open" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponyzip/functions/#L5">[Source]</a></span></p>
+<h4 id="description">DESCRIPTION<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
+<p>The pzip_open() function opens the zip archive specified by path and returns
+a pointer to a struct zip, used to manipulate the archive. The flags are
+specified by or'ing the following values, or 0 for none of them.</p>
+<ul>
+<li>ZipCheckcons Perform additional stricter consistency checks on the
+archive, and error if they fail.</li>
+<li>ZipCreate Create the archive if it does not exist.</li>
+<li>ZipExcl Error if archive already exists.</li>
+<li>ZipTruncate If archive exists, ignore its current contents. In other
+words, handle it the same way as an empty archive.</li>
+<li>ZipRDOnly Open archive in read-only mode.</li>
+</ul>
+<p>If an error occurs and errorp is non-NULL, it will be set to the
+corresponding error code.</p>
+<p>The pzip_open_from_source() function opens a zip archive encapsulated
+by the zip_source zs using the provided flags. In case of error, the
+ZipError ze is filled in.</p>
+<h4 id="return-values">RETURN VALUES<a class="headerlink" href="#return-values" title="Permanent link">&para;</a></h4>
+<p>Upon successful completion pzip_open() and pzip_open_from_source()
+return a struct zip pointer. Otherwise, NULL is returned and pzip_open()
+sets *errorp to indicate the error, while zip_open_from(source)
+sets ze to indicate the error.</p>
+<h4 id="errors">ERRORS<a class="headerlink" href="#errors" title="Permanent link">&para;</a></h4>
+<p>The archive specified by path is opened unless:</p>
+<ul>
+<li>ZipERExists The file specified by path exists and ZIP_EXCL is set.</li>
+<li>ZipERIncons Inconsistencies were found in the file specified by
+path. This error is often caused by specifying ZIP_CHECKCONS but can also happen without it.</li>
+<li>ZipERInval The path argument is NULL.</li>
+<li>ZipERMemory Required memory could not be allocated.</li>
+<li>ZipERNoent The file specified by path does not exist and ZIP_CREATE is not set.</li>
+<li>ZipERNozip The file specified by path is not a zip archive.</li>
+<li>ZipEROpen The file specified by path could not be opened.</li>
+<li>ZipERRead A read error occurred; see errno for details.</li>
+<li>ZipERSeek The file specified by path does not allow seeks.</li>
+</ul>
 <pre><code class="language-pony">fun box pzip_open(
-  pparg0: String val,
-  pparg1: I32 val,
-  pparg2: Pointer[I32 val] tag)
+  path: String val,
+  flags: I32 val,
+  errorp: Pointer[I32 val] tag)
 : NullablePointer[Zip ref] ref
 </code></pre>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li>pparg0: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
-<li>pparg1: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val</li>
-<li>pparg2: <a href="https://stdlib.ponylang.io/builtin-Pointer/">Pointer</a>[<a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val] tag</li>
+<li>path: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
+<li>flags: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val</li>
+<li>errorp: <a href="https://stdlib.ponylang.io/builtin-Pointer/">Pointer</a>[<a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val] tag</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4341,7 +4378,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fdopen">pzip_fdopen<a class="headerlink" href="#pzip_fdopen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L8">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L50">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fdopen(
   pparg0: I32 val,
   pparg1: I32 val,
@@ -4360,7 +4397,7 @@
 </ul>
 <hr />
 <h3 id="pzip_open_from_source">pzip_open_from_source<a class="headerlink" href="#pzip_open_from_source" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L11">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L53">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_open_from_source(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: I32 val,
@@ -4379,7 +4416,7 @@
 </ul>
 <hr />
 <h3 id="pzip_name_locate">pzip_name_locate<a class="headerlink" href="#pzip_name_locate" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L15">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L57">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_name_locate(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4398,7 +4435,7 @@
 </ul>
 <hr />
 <h3 id="pzip_stat">pzip_stat<a class="headerlink" href="#pzip_stat" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L20">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L62">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4419,7 +4456,7 @@
 </ul>
 <hr />
 <h3 id="pzip_stat_index">pzip_stat_index<a class="headerlink" href="#pzip_stat_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L23">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L65">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat_index(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4440,7 +4477,7 @@
 </ul>
 <hr />
 <h3 id="pzip_stat_init">pzip_stat_init<a class="headerlink" href="#pzip_stat_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L26">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L68">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat_init(
   pparg0: NullablePointer[Zipstat ref] tag)
 : None val
@@ -4455,7 +4492,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fopen">pzip_fopen<a class="headerlink" href="#pzip_fopen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L29">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L71">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4474,7 +4511,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fopen_encrypted">pzip_fopen_encrypted<a class="headerlink" href="#pzip_fopen_encrypted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L32">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L74">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_encrypted(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4495,7 +4532,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fopen_index">pzip_fopen_index<a class="headerlink" href="#pzip_fopen_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L35">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L77">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_index(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4514,7 +4551,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fopen_index_encrypted">pzip_fopen_index_encrypted<a class="headerlink" href="#pzip_fopen_index_encrypted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L38">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L80">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_index_encrypted(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4535,7 +4572,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fread">pzip_fread<a class="headerlink" href="#pzip_fread" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L41">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L83">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fread(
   pparg0: NullablePointer[Zipfile ref] tag,
   pparg1: Pointer[U8 val] tag,
@@ -4554,7 +4591,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fseek">pzip_fseek<a class="headerlink" href="#pzip_fseek" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L44">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L86">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fseek(
   pparg0: NullablePointer[Zipfile ref] tag,
   pparg1: I64 val,
@@ -4573,7 +4610,7 @@
 </ul>
 <hr />
 <h3 id="pzip_ftell">pzip_ftell<a class="headerlink" href="#pzip_ftell" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L47">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L89">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_ftell(
   pparg0: NullablePointer[Zipfile ref] tag)
 : I64 val
@@ -4588,7 +4625,7 @@
 </ul>
 <hr />
 <h3 id="pzip_fclose">pzip_fclose<a class="headerlink" href="#pzip_fclose" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L50">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L92">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fclose(
   pparg0: NullablePointer[Zipfile ref] tag)
 : I32 val
@@ -4603,7 +4640,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_fields_count">pzip_file_extra_fields_count<a class="headerlink" href="#pzip_file_extra_fields_count" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L53">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L95">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_fields_count(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4622,7 +4659,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_fields_count_by_id">pzip_file_extra_fields_count_by_id<a class="headerlink" href="#pzip_file_extra_fields_count_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L56">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L98">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_fields_count_by_id(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4643,7 +4680,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_get">pzip_file_extra_field_get<a class="headerlink" href="#pzip_file_extra_field_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L59">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L101">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_get(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4668,7 +4705,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_get_by_id">pzip_file_extra_field_get_by_id<a class="headerlink" href="#pzip_file_extra_field_get_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L64">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L106">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_get_by_id(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4693,7 +4730,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_get_comment">pzip_file_get_comment<a class="headerlink" href="#pzip_file_get_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L69">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L111">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4714,7 +4751,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_get_external_attributes">pzip_file_get_external_attributes<a class="headerlink" href="#pzip_file_get_external_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L74">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L116">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_external_attributes(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4737,7 +4774,7 @@
 </ul>
 <hr />
 <h3 id="pzip_get_archive_comment">pzip_get_archive_comment<a class="headerlink" href="#pzip_get_archive_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L77">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L119">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_archive_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: Pointer[I32 val] tag,
@@ -4756,7 +4793,7 @@
 </ul>
 <hr />
 <h3 id="pzip_get_archive_flag">pzip_get_archive_flag<a class="headerlink" href="#pzip_get_archive_flag" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L82">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L124">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_archive_flag(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U32 val,
@@ -4775,7 +4812,7 @@
 </ul>
 <hr />
 <h3 id="pzip_get_name">pzip_get_name<a class="headerlink" href="#pzip_get_name" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L85">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L127">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_name(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4794,7 +4831,7 @@
 </ul>
 <hr />
 <h3 id="pzip_get_num_entries">pzip_get_num_entries<a class="headerlink" href="#pzip_get_num_entries" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L90">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L132">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_num_entries(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U32 val)
@@ -4811,7 +4848,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_get_file_attributes">pzip_source_get_file_attributes<a class="headerlink" href="#pzip_source_get_file_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L93">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L135">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_get_file_attributes(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: NullablePointer[Zipfileattributes ref] tag)
@@ -4828,7 +4865,7 @@
 </ul>
 <hr />
 <h3 id="pzip_close">pzip_close<a class="headerlink" href="#pzip_close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L100">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L142">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_close(
   pparg0: NullablePointer[Zip ref] tag)
 : I32 val
@@ -4843,7 +4880,7 @@
 </ul>
 <hr />
 <h3 id="pzip_discard">pzip_discard<a class="headerlink" href="#pzip_discard" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L103">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L145">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_discard(
   pparg0: NullablePointer[Zip ref] tag)
 : None val
@@ -4858,7 +4895,7 @@
 </ul>
 <hr />
 <h3 id="pzip_delete">pzip_delete<a class="headerlink" href="#pzip_delete" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L108">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L150">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_delete(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val)
@@ -4875,7 +4912,7 @@
 </ul>
 <hr />
 <h3 id="pzip_dir_add">pzip_dir_add<a class="headerlink" href="#pzip_dir_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L111">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L153">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_dir_add(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4894,7 +4931,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_add">pzip_file_add<a class="headerlink" href="#pzip_file_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L114">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L156">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_add(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -4915,7 +4952,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_attributes_init">pzip_file_attributes_init<a class="headerlink" href="#pzip_file_attributes_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L117">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L159">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_attributes_init(
   pparg0: NullablePointer[Zipfileattributes ref] tag)
 : None val
@@ -4930,7 +4967,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_delete">pzip_file_extra_field_delete<a class="headerlink" href="#pzip_file_extra_field_delete" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L120">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L162">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_delete(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4951,7 +4988,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_delete_by_id">pzip_file_extra_field_delete_by_id<a class="headerlink" href="#pzip_file_extra_field_delete_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L123">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L165">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_delete_by_id(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -4974,7 +5011,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_set">pzip_file_extra_field_set<a class="headerlink" href="#pzip_file_extra_field_set" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L126">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L168">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_set(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5001,7 +5038,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_rename">pzip_file_rename<a class="headerlink" href="#pzip_file_rename" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L129">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L171">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_rename(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5022,7 +5059,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_replace">pzip_file_replace<a class="headerlink" href="#pzip_file_replace" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L132">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L174">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_replace(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5043,7 +5080,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_set_comment">pzip_file_set_comment<a class="headerlink" href="#pzip_file_set_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L135">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L177">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5066,7 +5103,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_set_dostime">pzip_file_set_dostime<a class="headerlink" href="#pzip_file_set_dostime" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L138">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L180">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_dostime(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5089,7 +5126,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_set_encryption">pzip_file_set_encryption<a class="headerlink" href="#pzip_file_set_encryption" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L141">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L183">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_encryption(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5110,7 +5147,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_set_external_attributes">pzip_file_set_external_attributes<a class="headerlink" href="#pzip_file_set_external_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L144">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L186">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_external_attributes(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5133,7 +5170,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_set_mtime">pzip_file_set_mtime<a class="headerlink" href="#pzip_file_set_mtime" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L147">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L189">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_mtime(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5154,7 +5191,7 @@
 </ul>
 <hr />
 <h3 id="pzip_set_archive_comment">pzip_set_archive_comment<a class="headerlink" href="#pzip_set_archive_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L150">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L192">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_archive_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -5173,7 +5210,7 @@
 </ul>
 <hr />
 <h3 id="pzip_set_archive_flag">pzip_set_archive_flag<a class="headerlink" href="#pzip_set_archive_flag" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L153">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L195">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_archive_flag(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U32 val,
@@ -5192,7 +5229,7 @@
 </ul>
 <hr />
 <h3 id="pzip_set_default_password">pzip_set_default_password<a class="headerlink" href="#pzip_set_default_password" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L156">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L198">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_default_password(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val)
@@ -5209,7 +5246,7 @@
 </ul>
 <hr />
 <h3 id="pzip_set_file_compression">pzip_set_file_compression<a class="headerlink" href="#pzip_set_file_compression" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L159">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L201">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_file_compression(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -5230,7 +5267,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_begin_write">pzip_source_begin_write<a class="headerlink" href="#pzip_source_begin_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L162">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L204">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_begin_write(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5245,7 +5282,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_begin_write_cloning">pzip_source_begin_write_cloning<a class="headerlink" href="#pzip_source_begin_write_cloning" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L165">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L207">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_begin_write_cloning(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: U64 val)
@@ -5262,7 +5299,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_buffer">pzip_source_buffer<a class="headerlink" href="#pzip_source_buffer" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L168">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L210">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: Pointer[U8 val] tag,
@@ -5283,7 +5320,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_create">pzip_source_buffer_create<a class="headerlink" href="#pzip_source_buffer_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L171">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L213">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_create(
   pparg0: Pointer[U8 val] tag,
   pparg1: U64 val,
@@ -5304,7 +5341,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_fragment">pzip_source_buffer_fragment<a class="headerlink" href="#pzip_source_buffer_fragment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L174">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L216">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_fragment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: NullablePointer[Zipbufferfragment ref] tag,
@@ -5325,7 +5362,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_fragment_create">pzip_source_buffer_fragment_create<a class="headerlink" href="#pzip_source_buffer_fragment_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L177">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L219">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_fragment_create(
   pparg0: NullablePointer[Zipbufferfragment ref] tag,
   pparg1: U64 val,
@@ -5346,7 +5383,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_close">pzip_source_close<a class="headerlink" href="#pzip_source_close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L180">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L222">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_close(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5361,7 +5398,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_commit_write">pzip_source_commit_write<a class="headerlink" href="#pzip_source_commit_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L183">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L225">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_commit_write(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5376,7 +5413,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_error">pzip_source_error<a class="headerlink" href="#pzip_source_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L186">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L228">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_error(
   pparg0: NullablePointer[Zipsource ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5391,7 +5428,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_file">pzip_source_file<a class="headerlink" href="#pzip_source_file" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L189">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L231">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_file(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -5412,7 +5449,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_file_create">pzip_source_file_create<a class="headerlink" href="#pzip_source_file_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L192">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L234">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_file_create(
   pparg0: String val,
   pparg1: U64 val,
@@ -5433,7 +5470,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_filep">pzip_source_filep<a class="headerlink" href="#pzip_source_filep" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L195">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L237">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_filep(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: NullablePointer[IOFILE ref] tag,
@@ -5454,7 +5491,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_filep_create">pzip_source_filep_create<a class="headerlink" href="#pzip_source_filep_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L198">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L240">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_filep_create(
   pparg0: NullablePointer[IOFILE ref] tag,
   pparg1: U64 val,
@@ -5475,7 +5512,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_free">pzip_source_free<a class="headerlink" href="#pzip_source_free" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L201">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L243">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_free(
   pparg0: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5490,7 +5527,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_keep">pzip_source_keep<a class="headerlink" href="#pzip_source_keep" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L204">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L246">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_keep(
   pparg0: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5505,7 +5542,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_open">pzip_source_open<a class="headerlink" href="#pzip_source_open" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L207">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L249">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_open(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5520,7 +5557,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_read">pzip_source_read<a class="headerlink" href="#pzip_source_read" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L210">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L252">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_read(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: Pointer[U8 val] tag,
@@ -5539,7 +5576,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_rollback_write">pzip_source_rollback_write<a class="headerlink" href="#pzip_source_rollback_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L213">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L255">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_rollback_write(
   pparg0: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5554,7 +5591,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_seek">pzip_source_seek<a class="headerlink" href="#pzip_source_seek" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L216">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L258">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: I64 val,
@@ -5573,7 +5610,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_seek_compute_offset">pzip_source_seek_compute_offset<a class="headerlink" href="#pzip_source_seek_compute_offset" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L219">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L261">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek_compute_offset(
   pparg0: U64 val,
   pparg1: U64 val,
@@ -5596,7 +5633,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_seek_write">pzip_source_seek_write<a class="headerlink" href="#pzip_source_seek_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L222">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L264">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek_write(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: I64 val,
@@ -5615,7 +5652,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_stat">pzip_source_stat<a class="headerlink" href="#pzip_source_stat" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L225">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L267">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_stat(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: NullablePointer[Zipstat ref] tag)
@@ -5632,7 +5669,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_tell">pzip_source_tell<a class="headerlink" href="#pzip_source_tell" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L228">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L270">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_tell(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I64 val
@@ -5647,7 +5684,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_tell_write">pzip_source_tell_write<a class="headerlink" href="#pzip_source_tell_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L231">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L273">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_tell_write(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I64 val
@@ -5662,7 +5699,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_write">pzip_source_write<a class="headerlink" href="#pzip_source_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L234">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L276">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_write(
   pparg0: NullablePointer[Zipsource ref] tag,
   pparg1: Pointer[U8 val] tag,
@@ -5681,7 +5718,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_zip">pzip_source_zip<a class="headerlink" href="#pzip_source_zip" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L237">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L279">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_zip(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: NullablePointer[Zip ref] tag,
@@ -5706,7 +5743,7 @@
 </ul>
 <hr />
 <h3 id="pzip_unchange">pzip_unchange<a class="headerlink" href="#pzip_unchange" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L240">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L282">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val)
@@ -5723,7 +5760,7 @@
 </ul>
 <hr />
 <h3 id="pzip_unchange_all">pzip_unchange_all<a class="headerlink" href="#pzip_unchange_all" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L243">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L285">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange_all(
   pparg0: NullablePointer[Zip ref] tag)
 : I32 val
@@ -5738,7 +5775,7 @@
 </ul>
 <hr />
 <h3 id="pzip_unchange_archive">pzip_unchange_archive<a class="headerlink" href="#pzip_unchange_archive" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L246">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L288">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange_archive(
   pparg0: NullablePointer[Zip ref] tag)
 : I32 val
@@ -5753,7 +5790,7 @@
 </ul>
 <hr />
 <h3 id="pzip_compression_method_supported">pzip_compression_method_supported<a class="headerlink" href="#pzip_compression_method_supported" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L249">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L291">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_compression_method_supported(
   pmethod: I32 val,
   pcompress: I32 val)
@@ -5770,7 +5807,7 @@
 </ul>
 <hr />
 <h3 id="pzip_encryption_method_supported">pzip_encryption_method_supported<a class="headerlink" href="#pzip_encryption_method_supported" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L252">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L294">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_encryption_method_supported(
   pmethod: U16 val,
   pencode: I32 val)
@@ -5787,7 +5824,7 @@
 </ul>
 <hr />
 <h3 id="pzip_get_error">pzip_get_error<a class="headerlink" href="#pzip_get_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L257">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L299">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_error(
   pparg0: NullablePointer[Zip ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5802,7 +5839,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_clear">pzip_error_clear<a class="headerlink" href="#pzip_error_clear" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L260">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L302">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_clear(
   pparg0: NullablePointer[Zip ref] tag)
 : None val
@@ -5817,7 +5854,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_code_zip">pzip_error_code_zip<a class="headerlink" href="#pzip_error_code_zip" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L263">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L305">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_code_zip(
   pparg0: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5832,7 +5869,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_code_system">pzip_error_code_system<a class="headerlink" href="#pzip_error_code_system" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L266">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L308">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_code_system(
   pparg0: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5847,7 +5884,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_fini">pzip_error_fini<a class="headerlink" href="#pzip_error_fini" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L269">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L311">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_fini(
   pparg0: NullablePointer[Ziperror ref] tag)
 : None val
@@ -5862,7 +5899,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_init">pzip_error_init<a class="headerlink" href="#pzip_error_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L272">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L314">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_init(
   pparg0: NullablePointer[Ziperror ref] tag)
 : None val
@@ -5877,7 +5914,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_init_with_code">pzip_error_init_with_code<a class="headerlink" href="#pzip_error_init_with_code" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L275">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L317">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_init_with_code(
   pparg0: NullablePointer[Ziperror ref] tag,
   pparg1: I32 val)
@@ -5894,7 +5931,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_set">pzip_error_set<a class="headerlink" href="#pzip_error_set" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L278">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L320">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_set(
   pparg0: NullablePointer[Ziperror ref] tag,
   pparg1: I32 val,
@@ -5913,7 +5950,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_strerror">pzip_error_strerror<a class="headerlink" href="#pzip_error_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L281">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L323">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_strerror(
   pparg0: NullablePointer[Ziperror ref] tag)
 : String val
@@ -5928,7 +5965,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_system_type">pzip_error_system_type<a class="headerlink" href="#pzip_error_system_type" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L286">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L328">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_system_type(
   pparg0: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5943,7 +5980,7 @@
 </ul>
 <hr />
 <h3 id="pzip_error_to_data">pzip_error_to_data<a class="headerlink" href="#pzip_error_to_data" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L289">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L331">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_to_data(
   pparg0: NullablePointer[Ziperror ref] tag,
   pparg1: Pointer[U8 val] tag,
@@ -5962,7 +5999,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_error_clear">pzip_file_error_clear<a class="headerlink" href="#pzip_file_error_clear" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L292">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L334">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_error_clear(
   pparg0: NullablePointer[Zipfile ref] tag)
 : None val
@@ -5977,7 +6014,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_get_error">pzip_file_get_error<a class="headerlink" href="#pzip_file_get_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L295">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L337">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_error(
   pparg0: NullablePointer[Zipfile ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5992,7 +6029,7 @@
 </ul>
 <hr />
 <h3 id="pzip_file_strerror">pzip_file_strerror<a class="headerlink" href="#pzip_file_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L298">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L340">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_strerror(
   pparg0: NullablePointer[Zipfile ref] tag)
 : String val
@@ -6007,7 +6044,7 @@
 </ul>
 <hr />
 <h3 id="pzip_strerror">pzip_strerror<a class="headerlink" href="#pzip_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L303">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L345">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_strerror(
   pparg0: NullablePointer[Zip ref] tag)
 : String val
@@ -6022,7 +6059,7 @@
 </ul>
 <hr />
 <h3 id="pzip_libzip_version">pzip_libzip_version<a class="headerlink" href="#pzip_libzip_version" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L309">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L351">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_libzip_version()
 : String val
 </code></pre>
@@ -6032,7 +6069,7 @@
 </ul>
 <hr />
 <h3 id="pzip_source_is_deleted">pzip_source_is_deleted<a class="headerlink" href="#pzip_source_is_deleted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L314">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L356">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_is_deleted(
   pparg0: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -6047,7 +6084,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_add">obsolete_pzip_add<a class="headerlink" href="#obsolete_pzip_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L320">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L362">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_add(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -6066,7 +6103,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_add_dir">obsolete_pzip_add_dir<a class="headerlink" href="#obsolete_pzip_add_dir" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L324">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L366">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_add_dir(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val)
@@ -6083,7 +6120,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_get_file_comment">obsolete_pzip_get_file_comment<a class="headerlink" href="#obsolete_pzip_get_file_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L327">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L369">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_get_file_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6104,7 +6141,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_get_num_files">obsolete_pzip_get_num_files<a class="headerlink" href="#obsolete_pzip_get_num_files" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L332">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L374">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_get_num_files(
   pparg0: NullablePointer[Zip ref] tag)
 : I32 val
@@ -6119,7 +6156,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_rename">obsolete_pzip_rename<a class="headerlink" href="#obsolete_pzip_rename" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L336">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L378">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_rename(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6138,7 +6175,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_replace">obsolete_pzip_replace<a class="headerlink" href="#obsolete_pzip_replace" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L340">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L382">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_replace(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6157,7 +6194,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_set_file_comment">obsolete_pzip_set_file_comment<a class="headerlink" href="#obsolete_pzip_set_file_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L344">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L386">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_set_file_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6178,7 +6215,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_get_sys_type">obsolete_pzip_error_get_sys_type<a class="headerlink" href="#obsolete_pzip_error_get_sys_type" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L348">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L390">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_get_sys_type(
   pparg0: I32 val)
 : I32 val
@@ -6193,7 +6230,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_get">obsolete_pzip_error_get<a class="headerlink" href="#obsolete_pzip_error_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L352">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L394">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_get(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: Pointer[I32 val] tag,
@@ -6212,7 +6249,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_to_str">obsolete_pzip_error_to_str<a class="headerlink" href="#obsolete_pzip_error_to_str" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L356">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L398">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_to_str(
   pparg0: String val,
   pparg1: U64 val,
@@ -6233,7 +6270,7 @@
 </ul>
 <hr />
 <h3 id="obsolete_pzip_file_error_get">obsolete_pzip_file_error_get<a class="headerlink" href="#obsolete_pzip_file_error_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L360">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L402">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_file_error_get(
   pparg0: NullablePointer[Zipfile ref] tag,
   pparg1: Pointer[I32 val] tag,
