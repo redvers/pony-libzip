@@ -1,6 +1,23 @@
 use "debug"
 use "collections"
 
+"""
+# PonyZip Package
+
+This package consists of two APIs:
+
+1. ABLibZIP - A direct 1:1 mapping of the libzip C API to Pony C-FFI calls.
+2. PonyZip - A safer 'Ponyesque' API which is designed to not crash if you
+do something which is not safe or supported.
+
+As a general rule you should prefer the PonyZip API over ABLibZIP and only
+use ABLibZIP if one of the functions you need isn't implemented.
+
+If there is functionality that is missing the PonyZip that is present in
+ABLibZIP please either open an Issue to request it or a Pull Request to add
+it.
+"""
+
 use @printf[I32](...)
 
 class PonyZip
