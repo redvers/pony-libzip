@@ -308,6 +308,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-nav__link">
+      struct IOFILE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -517,18 +529,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-nav__link">
-      struct IOFILE
-    </a>
   </li>
 
         
@@ -2644,12 +2644,12 @@
                 
                 
                 <h1 id="ponyzip">PonyZip<a class="headerlink" href="#ponyzip" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L6">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L23">[Source]</a></span></p>
 <pre><code class="language-pony">class ref PonyZip
 </code></pre>
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L12">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L29">[Source]</a></span></p>
 <pre><code class="language-pony">new ref create(
   filename: String val,
   flags: Array[(ZipCreate val | ZipExcl val | ZipCheckcons val | ZipTruncate val | ZipRDOnly val)] ref)
@@ -2667,20 +2667,20 @@
 <hr />
 <h2 id="public-fields">Public fields<a class="headerlink" href="#public-fields" title="Permanent link">&para;</a></h2>
 <h3 id="var-zip-nullablepointerzip-ref-ref">var zip: <a href="https://stdlib.ponylang.io/builtin-NullablePointer/">NullablePointer</a>[<a href="../ponyzip-Zip/">Zip</a> ref] ref<a class="headerlink" href="#var-zip-nullablepointerzip-ref-ref" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L7">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L24">[Source]</a></span></p>
 <hr />
 <h3 id="var-errorno-i32-val">var errorno: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val<a class="headerlink" href="#var-errorno-i32-val" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L8">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L25">[Source]</a></span></p>
 <hr />
 <h3 id="var-errorstr-string-val">var errorstr: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val<a class="headerlink" href="#var-errorstr-string-val" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L9">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L26">[Source]</a></span></p>
 <hr />
 <h3 id="var-initflags-i32-val">var initflags: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val<a class="headerlink" href="#var-initflags-i32-val" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L10">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L27">[Source]</a></span></p>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="valid">valid<a class="headerlink" href="#valid" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L29">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L46">[Source]</a></span></p>
 <pre><code class="language-pony">fun box valid()
 : Bool val
 </code></pre>
@@ -2690,7 +2690,7 @@
 </ul>
 <hr />
 <h3 id="zfflags">zfflags<a class="headerlink" href="#zfflags" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L36">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L53">[Source]</a></span></p>
 <pre><code class="language-pony">fun box zfflags(
   flags: Array[(ZipCreate val | ZipExcl val | ZipCheckcons val | ZipTruncate val | ZipRDOnly val)] ref)
 : I32 val
@@ -2705,7 +2705,7 @@
 </ul>
 <hr />
 <h3 id="zfflflags">zfflflags<a class="headerlink" href="#zfflflags" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L43">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L60">[Source]</a></span></p>
 <pre><code class="language-pony">fun box zfflflags(
   flags: Array[(ZipFLNocase val | ZipFLNodir val | ZipFLCompressed val | ZipFLUnchanged val | ZipFLRecompress val | ZipFLEncrypted val | ZipFLEncGuess val | ZipFLEncRaw val | ZipFLEncStrict val | ZipFLLocal val | ZipFLCentral val | ZipFLEncUtf8 val | ZipFLEncCp437 val | ZipFLOverwrite val)] ref)
 : U32 val
@@ -2720,7 +2720,7 @@
 </ul>
 <hr />
 <h3 id="count">count<a class="headerlink" href="#count" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L51">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L68">[Source]</a></span></p>
 <pre><code class="language-pony">fun ref count(
   flags: Array[(ZipFLNocase val | ZipFLNodir val | ZipFLCompressed val | ZipFLUnchanged val | ZipFLRecompress val | ZipFLEncrypted val | ZipFLEncGuess val | ZipFLEncRaw val | ZipFLEncStrict val | ZipFLLocal val | ZipFLCentral val | ZipFLEncUtf8 val | ZipFLEncCp437 val | ZipFLOverwrite val)] ref = array)
 : USize val ?
@@ -2735,7 +2735,7 @@
 </ul>
 <hr />
 <h3 id="filesdata">filesdata<a class="headerlink" href="#filesdata" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L59">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L76">[Source]</a></span></p>
 <pre><code class="language-pony">fun ref filesdata()
 : Array[Zipstat ref] ref ?
 </code></pre>
@@ -2745,7 +2745,7 @@
 </ul>
 <hr />
 <h3 id="zip_stat_index">zip_stat_index<a class="headerlink" href="#zip_stat_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L69">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L86">[Source]</a></span></p>
 <pre><code class="language-pony">fun box zip_stat_index(
   index: USize val)
 : Zipstat ref ?
@@ -2760,7 +2760,7 @@
 </ul>
 <hr />
 <h3 id="readfile">readfile<a class="headerlink" href="#readfile" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L82">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L99">[Source]</a></span></p>
 <pre><code class="language-pony">fun ref readfile(
   zipstat: Zipstat ref)
 : Array[U8 val] iso^ ?
@@ -2775,7 +2775,7 @@
 </ul>
 <hr />
 <h3 id="add_file">add_file<a class="headerlink" href="#add_file" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L101">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L118">[Source]</a></span></p>
 <pre><code class="language-pony">fun ref add_file(
   filename: String val,
   data: Array[U8 val] val,
@@ -2794,7 +2794,7 @@
 </ul>
 <hr />
 <h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L116">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L133">[Source]</a></span></p>
 <pre><code class="language-pony">fun box close()
 : None val
 </code></pre>
@@ -2823,7 +2823,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ponyzip-Zipsource/" title="struct Zipsource" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2832,19 +2832,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                struct Zipsource
+                struct IOFILE
               </span>
             </div>
           </a>
         
         
-          <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ponyzip-ABLibZIP/" title="primitive ABLibZIP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                struct IOFILE
+                primitive ABLibZIP
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

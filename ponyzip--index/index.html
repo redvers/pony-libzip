@@ -72,7 +72,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#public-types" tabindex="1" class="md-skip">
+      <a href="#ponyzip-package" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -207,6 +207,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Package
@@ -219,6 +221,8 @@
       
 <nav class="md-nav md-nav--secondary">
   
+  
+    
   
   
   
@@ -348,8 +352,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ponyzip-PonyZip/" title="class PonyZip" class="md-nav__link">
-      class PonyZip
+    <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-nav__link">
+      struct IOFILE
     </a>
   </li>
 
@@ -360,8 +364,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-nav__link">
-      struct IOFILE
+    <a href="../ponyzip-PonyZip/" title="class PonyZip" class="md-nav__link">
+      class PonyZip
     </a>
   </li>
 
@@ -2281,6 +2285,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
   
   
@@ -2313,9 +2319,18 @@
               
                 
                 
-                  <h1>Package</h1>
-                
-                <p>No package doc string provided for ponyzip.</p>
+                <h1 id="ponyzip-package">PonyZip Package<a class="headerlink" href="#ponyzip-package" title="Permanent link">&para;</a></h1>
+<p>This package consists of two APIs:</p>
+<ol>
+<li>ABLibZIP - A direct 1:1 mapping of the libzip C API to Pony C-FFI calls.</li>
+<li>PonyZip - A safer 'Ponyesque' API which is designed to not crash if you
+do something which is not safe or supported.</li>
+</ol>
+<p>As a general rule you should prefer the PonyZip API over ABLibZIP and only
+use ABLibZIP if one of the functions you need isn't implemented.</p>
+<p>If there is functionality that is missing the PonyZip that is present in
+ABLibZIP please either open an Issue to request it or a Pull Request to add
+it.</p>
 <h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../ponyzip-Zipsourceargsseek/">struct Zipsourceargsseek</a></li>
@@ -2326,8 +2341,8 @@
 <li><a href="../ponyzip-Zip/">struct Zip</a></li>
 <li><a href="../ponyzip-Zipfile/">struct Zipfile</a></li>
 <li><a href="../ponyzip-Zipsource/">struct Zipsource</a></li>
-<li><a href="../ponyzip-PonyZip/">class PonyZip</a></li>
 <li><a href="../ponyzip-IOFILE/">struct IOFILE</a></li>
+<li><a href="../ponyzip-PonyZip/">class PonyZip</a></li>
 <li><a href="../ponyzip-ABLibZIP/">primitive ABLibZIP</a></li>
 <li><a href="../ponyzip-ZipFlags/">type ZipFlags</a></li>
 <li><a href="../ponyzip-ZipCreate/">primitive ZipCreate</a></li>
