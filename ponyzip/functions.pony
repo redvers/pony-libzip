@@ -2,8 +2,50 @@ use "lib:zip"
 
 primitive ABLibZIP
   /* Open Archive */
-  fun pzip_open(pparg0: String, pparg1: I32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =>
-    @zip_open(pparg0.cstring(), pparg1, pparg2)
+  fun pzip_open(path: String, flags: I32, errorp: Pointer[I32] tag): NullablePointer[Zip] =>
+"""
+#### DESCRIPTION
+The pzip_open() function opens the zip archive specified by path and returns
+a pointer to a struct zip, used to manipulate the archive. The flags are
+specified by or'ing the following values, or 0 for none of them.
+
+* ZipCheckcons Perform additional stricter consistency checks on the
+archive, and error if they fail.
+* ZipCreate Create the archive if it does not exist.
+* ZipExcl Error if archive already exists.
+* ZipTruncate If archive exists, ignore its current contents. In other
+words, handle it the same way as an empty archive.
+* ZipRDOnly Open archive in read-only mode.
+
+If an error occurs and errorp is non-NULL, it will be set to the
+corresponding error code.
+
+The pzip_open_from_source() function opens a zip archive encapsulated
+by the zip_source zs using the provided flags. In case of error, the
+ZipError ze is filled in.
+
+
+#### RETURN VALUES
+Upon successful completion pzip_open() and pzip_open_from_source()
+return a struct zip pointer. Otherwise, NULL is returned and pzip_open()
+sets *errorp to indicate the error, while zip_open_from(source)
+sets ze to indicate the error.
+
+#### ERRORS
+The archive specified by path is opened unless:
+
+* ZipERExists The file specified by path exists and ZIP_EXCL is set.
+* ZipERIncons Inconsistencies were found in the file specified by
+path. This error is often caused by specifying ZIP_CHECKCONS but can also happen without it.
+* ZipERInval The path argument is NULL.
+* ZipERMemory Required memory could not be allocated.
+* ZipERNoent The file specified by path does not exist and ZIP_CREATE is not set.
+* ZipERNozip The file specified by path is not a zip archive.
+* ZipEROpen The file specified by path could not be opened.
+* ZipERRead A read error occurred; see errno for details.
+* ZipERSeek The file specified by path does not allow seeks.
+"""
+    @zip_open(path.cstring(), flags, errorp)
 
   fun pzip_fdopen(pparg0: I32, pparg1: I32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =>
     @zip_fdopen(pparg0, pparg1, pparg2)
