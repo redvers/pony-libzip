@@ -1,6 +1,3 @@
-use "debug"
-use "collections"
-
 """
 # PonyZip Package
 
@@ -17,6 +14,9 @@ If there is functionality that is missing the PonyZip that is present in
 ABLibZIP please either open an Issue to request it or a Pull Request to add
 it.
 """
+
+use "debug"
+use "collections"
 
 use @printf[I32](...)
 
