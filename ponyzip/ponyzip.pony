@@ -24,10 +24,10 @@ class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
   var errorno: I32 = 0
   var errorstr: String = ""
-  var initflags: I32 = 0
+  var initflags: U32 = 0
 
-  new create(filename: String, flags: Array[ZipFlags]) =>
-    initflags = zfflags(flags)
+  new create(filename: String, flags: ZipFlags) =>
+    initflags = flags.value()
 
     var errno: Array[I32] = [I32(42)]
     zip = ABLibZIP.pzip_open(filename, initflags, errno.cpointer())
@@ -50,38 +50,15 @@ class PonyZip
       true
     end
 
-  fun zfflags(flags: Array[ZipFlags]): I32 =>
-    var rv: I32 = 0
-    for f in flags.values() do
-      rv = rv+f.apply()
-    end
-    rv
 
-  fun zfflflags(flags: Array[ZipFLFlags]): U32 =>
-    var rv: U32 = 0
-    for f in flags.values() do
-      rv = rv+f.apply()
-    end
-    rv
-
-
-  fun ref count(flags: Array[ZipFLFlags] = []): USize ? =>
+  fun count(flags: ZipFLFlags = ZipFLFlags): USize ? =>
     if (zip.is_none()) then
       error
     else
-      ABLibZIP.pzip_get_num_entries(zip, zfflflags(flags)).usize()
+      ABLibZIP.pzip_get_num_entries(zip, flags.value()).usize()
     end
 
 
-  fun ref filesdata(): Array[Zipstat] ? =>
-    var cnt: USize = this.count([])? // FIXME ?
-
-    var rv: Array[Zipstat] = Array[Zipstat]
-
-    for i in Range(0,cnt) do
-      rv.push(zip_stat_index(i)?)
-    end
-    rv
 
   fun zip_stat_index(index: USize): Zipstat ? =>
     if (zip.is_none()) then
@@ -97,7 +74,7 @@ class PonyZip
     end
 
   fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =>
-    if (zipstat.pencryptionmethod != ZipEMNone.apply()) then
+    if (zipstat.pencryptionmethod != ZipEMNone.value()) then
       error  // We should probably automatically call
              // a decrypt function here... cos we're nice
     end

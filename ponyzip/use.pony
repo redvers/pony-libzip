@@ -60,7 +60,7 @@ use @zip_get_name[Pointer[U8]](pparg0: NullablePointer[Zip] tag, pparg1: U64, pp
 use @zip_get_num_entries[I64](pparg0: NullablePointer[Zip] tag, pparg1: U32)
 use @zip_libzip_version[Pointer[U8]]()
 use @zip_name_locate[I64](pparg0: NullablePointer[Zip] tag, pparg1: Pointer[U8] tag, pparg2: U32)
-use @zip_open[NullablePointer[Zip]](pparg0: Pointer[U8] tag, pparg1: I32, pparg2: Pointer[I32] tag)
+use @zip_open[NullablePointer[Zip]](pparg0: Pointer[U8] tag, pparg1: U32, pparg2: Pointer[I32] tag)
 use @zip_open_from_source[NullablePointer[Zip]](pparg0: NullablePointer[Zipsource] tag, pparg1: I32, pparg2: NullablePointer[Ziperror] tag)
 use @zip_set_archive_comment[I32](pparg0: NullablePointer[Zip] tag, pparg1: Pointer[U8] tag, pparg2: U16)
 use @zip_set_archive_flag[I32](pparg0: NullablePointer[Zip] tag, pparg1: U32, pparg2: I32)

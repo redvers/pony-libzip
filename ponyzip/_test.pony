@@ -1,18 +1,48 @@
+use "ponytest"
+use "collections"
 
-actor Main
-  new create(env: Env) =>
-    env.out.print("Starting")
+actor Main is TestList
+    new create(env: Env) => PonyTest(env, this)
+    new make() => None
 
-    let filename: String = "test.zip"
-    let zip: PonyZip = PonyZip(filename, [ZipRDOnly;ZipCheckcons])
+      fun tag tests(test: PonyTest) =>
+      test(_TestZipOpen)
 
-    if (zip.valid()) then
-      env.out.print("Successfully Opened " + filename)
-    else
-      env.out.print("Failed to open " + filename + ", Error: " + zip.errorstr + " (" + zip.errorno.string() + ")")
-    end
 
-    try
+
+class iso _TestZipOpen is UnitTest
+  fun name(): String => "PonyZip/zip_open"
+
+  fun apply(h: TestHelper) ? =>
+    let rdf: ZipFlags = ZipFlags.>set(ZipRDOnly).>set(ZipCheckcons)
+    h.assert_eq[U32](rdf.value(), 20)
+    let nofilezip: PonyZip = PonyZip("idonotexist.zip", rdf)
+    h.assert_false(nofilezip.valid())
+    h.assert_eq[String](nofilezip.errorstr, "No such file")
+
+    let rdzip: PonyZip = PonyZip("test.zip", rdf)
+    h.assert_true(rdzip.valid())
+    h.assert_eq[String](rdzip.errorstr, "")
+
+    let rdzipcnt: USize = rdzip.count()?
+    h.assert_eq[USize](rdzipcnt, 15)
+
+    h.assert_eq[String](rdzip.zip_stat_index(0)?.name(), "CXMLArrayType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(1)?.name(), "CXMLCvQualifiedType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(2)?.name(), "CXMLElaboratedType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(3)?.name(), "CXMLEnumeration.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(4)?.name(), "CXMLField.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(5)?.name(), "CXMLFile.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(6)?.name(), "CXMLFunction.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(7)?.name(), "CXMLFunctionType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(8)?.name(), "CXMLFundamentalType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(9)?.name(), "CXMLPointerType.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(10)?.name(), "CXMLStruct.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(11)?.name(), "CXMLTypedef.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(12)?.name(), "CXMLUnimplemented.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(13)?.name(), "CXMLUnion.pony")
+    h.assert_eq[String](rdzip.zip_stat_index(14)?.name(), "CXMLVariable.pony")
+    /*
       env.out.print("There are " + zip.count()?.string() + " entries")
     end
     try
@@ -29,4 +59,4 @@ actor Main
     else
       env.out.print("BOOM")
     end
-
+*/

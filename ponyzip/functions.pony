@@ -2,7 +2,7 @@ use "lib:zip"
 
 primitive ABLibZIP
   /* Open Archive */
-  fun pzip_open(path: String, flags: I32, errorp: Pointer[I32] tag): NullablePointer[Zip] =>
+  fun pzip_open(path: String, flags: U32, errorp: Pointer[I32] tag): NullablePointer[Zip] =>
 """
 #### DESCRIPTION
 The pzip_open() function opens the zip archive specified by path and returns
