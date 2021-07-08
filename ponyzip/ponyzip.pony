@@ -22,7 +22,7 @@ use @printf[I32](...)
 
 class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
-  var errorno: I32 = 0
+  var errortype: ZipER = ZipEROK
   var errorstr: String = ""
   var initflags: U32 = 0
 
@@ -45,14 +45,15 @@ class PonyZip
     """
     initflags = flags.value()
 
-    var errno: Array[I32] = [I32(42)]
+    var errno: Array[I32] = [I32(0)]
     zip = ABLibZIP.pzip_open(filename, initflags, errno.cpointer())
 
     if (zip.is_none()) then
       try
-        errorno = errno.apply(0)?
+        var errorno = errno.apply(0)?
         var ziperr: Ziperror = Ziperror
         var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+        errortype = ZipERR.decode(errorno)
 
         ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
         errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
@@ -153,5 +154,4 @@ class PonyZip
     Success results in a return-code of 0.
     """
     ABLibZIP.pzip_close(zip)
-
 

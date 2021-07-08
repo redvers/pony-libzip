@@ -19,10 +19,12 @@ class iso _TestZipOpen is UnitTest
     let nofilezip: PonyZip = PonyZip("idonotexist.zip", rdf)
     h.assert_false(nofilezip.valid())
     h.assert_eq[String](nofilezip.errorstr, "No such file")
+    h.assert_eq[I32](nofilezip.errortype.value(), 9)
 
     let rdzip: PonyZip = PonyZip("test.zip", rdf)
     h.assert_true(rdzip.valid())
     h.assert_eq[String](rdzip.errorstr, "")
+    h.assert_eq[I32](rdzip.errortype.value(), 0)
 
     let rdzipcnt: USize = rdzip.count()?
     h.assert_eq[USize](rdzipcnt, 15)
@@ -43,6 +45,8 @@ class iso _TestZipOpen is UnitTest
     h.assert_eq[String](rdzip.zip_stat_index(13)?.name(), "CXMLUnion.pony")
     h.assert_eq[String](rdzip.zip_stat_index(14)?.name(), "CXMLVariable.pony")
     h.assert_eq[I32](rdzip.close(), 0)
+
+    h.env.out.print(rdzip.calc_crc32("0123456789".array()).string())
     /*
       env.out.print("There are " + zip.count()?.string() + " entries")
     end
