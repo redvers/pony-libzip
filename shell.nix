@@ -6,5 +6,6 @@ pkgs.mkShell {
     mkdocs
     pkg-config
     libzip
+    zlib
   ];
 }

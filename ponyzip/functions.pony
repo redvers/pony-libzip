@@ -1,4 +1,7 @@
 use "lib:zip"
+use "lib:z"
+
+use @crc32[U32](crc32: U32, data: Pointer[U8] tag, length: I32)
 
 primitive ABLibZIP
   /* Open Archive */

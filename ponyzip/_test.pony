@@ -7,6 +7,7 @@ actor Main is TestList
 
       fun tag tests(test: PonyTest) =>
       test(_TestZipOpen)
+      test(_TestZipRead)
 
 
 
@@ -46,22 +47,24 @@ class iso _TestZipOpen is UnitTest
     h.assert_eq[String](rdzip.zip_stat_index(14)?.name(), "CXMLVariable.pony")
     h.assert_eq[I32](rdzip.close(), 0)
 
-    h.env.out.print(rdzip.calc_crc32("0123456789".array()).string())
-    /*
-      env.out.print("There are " + zip.count()?.string() + " entries")
+class iso _TestZipRead is UnitTest
+  fun name(): String => "PonyZip/zip_read"
+
+  fun apply(h: TestHelper) ? =>
+    let rdf: ZipFlags = ZipFlags.>set(ZipRDOnly).>set(ZipCheckcons)
+    let rdzip: PonyZip = PonyZip("test.zip", rdf)
+    h.assert_true(rdzip.valid())
+    h.assert_eq[String](rdzip.errorstr, "")
+    h.assert_eq[I32](rdzip.errortype.value(), 0)
+
+    let rdzipcnt: USize = rdzip.count()?
+
+    let f1: Zipstat = rdzip.zip_stat_index(0)?
+    let f1data: Array[U8] val = rdzip.readfile(f1)?
+
+    // Read the files and manually Verify all the CRCs!
+    for f in Range(0,14) do
+      let zs: Zipstat = rdzip.zip_stat_index(f)?
+      h.assert_eq[U32](CRC32.calc(rdzip.readfile(zs)?), zs.crc())
     end
-    try
-      let s: Array[Zipstat] = zip.filesdata()?
-      for t in s.values() do
-        env.out.print(t.name())
-      end
-
-      let zs: Zipstat = s.apply(14)?
-      let data: String iso = String.from_iso_array(zip.readfile(zs)?)
-
-      env.out.print(consume data)
-
-    else
-      env.out.print("BOOM")
-    end
-*/
+    h.assert_eq[I32](rdzip.close(), 0)
