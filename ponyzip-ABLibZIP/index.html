@@ -2797,6 +2797,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponyzip-ZipSOURCESupportsReadableFlags/" title="type ZipSOURCESupportsReadableFlags" class="md-nav__link">
+      type ZipSOURCESupportsReadableFlags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponyzip-ZipSOURCEOpen/" title="primitive ZipSOURCEOpen" class="md-nav__link">
       primitive ZipSOURCEOpen
     </a>
@@ -2881,6 +2893,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../ponyzip-ZipSOURCESupportsSeekableFlags/" title="type ZipSOURCESupportsSeekableFlags" class="md-nav__link">
+      type ZipSOURCESupportsSeekableFlags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ponyzip-ZipSOURCESeek/" title="primitive ZipSOURCESeek" class="md-nav__link">
       primitive ZipSOURCESeek
     </a>
@@ -2919,6 +2943,18 @@
   <li class="md-nav__item">
     <a href="../ponyzip-ZipSOURCESupportsWritable/" title="type ZipSOURCESupportsWritable" class="md-nav__link">
       type ZipSOURCESupportsWritable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponyzip-ZipSOURCESupportsWritableFlags/" title="type ZipSOURCESupportsWritableFlags" class="md-nav__link">
+      type ZipSOURCESupportsWritableFlags
     </a>
   </li>
 
@@ -3243,18 +3279,6 @@
   <li class="md-nav__item">
     <a href="../ponyzip-ZipFileAttributesGeneralPurposeBitFlags/" title="primitive ZipFileAttributesGeneralPurposeBitFlags" class="md-nav__link">
       primitive ZipFileAttributesGeneralPurposeBitFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Main/" title="actor Main" class="md-nav__link">
-      actor Main
     </a>
   </li>
 
@@ -4362,14 +4386,14 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <pre><code class="language-pony">fun box pzip_open(
   path: String val,
-  flags: I32 val,
+  flags: U32 val,
   errorp: Pointer[I32 val] tag)
 : NullablePointer[Zip ref] ref
 </code></pre>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>path: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
-<li>flags: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val</li>
+<li>flags: <a href="https://stdlib.ponylang.io/builtin-U32/">U32</a> val</li>
 <li>errorp: <a href="https://stdlib.ponylang.io/builtin-Pointer/">Pointer</a>[<a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val] tag</li>
 </ul>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>

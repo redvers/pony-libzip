@@ -1756,6 +1756,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipSOURCESupportsReadableFlags/" title="type ZipSOURCESupportsReadableFlags" class="md-nav__link">
+      type ZipSOURCESupportsReadableFlags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponyzip-ZipSOURCEOpen/" title="primitive ZipSOURCEOpen" class="md-nav__link">
       primitive ZipSOURCEOpen
     </a>
@@ -1840,6 +1852,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipSOURCESupportsSeekableFlags/" title="type ZipSOURCESupportsSeekableFlags" class="md-nav__link">
+      type ZipSOURCESupportsSeekableFlags
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponyzip-ZipSOURCESeek/" title="primitive ZipSOURCESeek" class="md-nav__link">
       primitive ZipSOURCESeek
     </a>
@@ -1878,6 +1902,18 @@
   <li class="md-nav__item">
     <a href="../../../ponyzip-ZipSOURCESupportsWritable/" title="type ZipSOURCESupportsWritable" class="md-nav__link">
       type ZipSOURCESupportsWritable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipSOURCESupportsWritableFlags/" title="type ZipSOURCESupportsWritableFlags" class="md-nav__link">
+      type ZipSOURCESupportsWritableFlags
     </a>
   </li>
 
@@ -2206,18 +2242,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../ponyzip-Main/" title="actor Main" class="md-nav__link">
-      actor Main
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -2264,10 +2288,26 @@ class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
   var errorno: I32 = 0
   var errorstr: String = &quot;&quot;
-  var initflags: I32 = 0
+  var initflags: U32 = 0
 
-  new create(filename: String, flags: Array[ZipFlags]) =&gt;
-    initflags = zfflags(flags)
+  new create(filename: String, flags: ZipFlags) =&gt;
+    &quot;&quot;&quot;
+    The create() constructor opens the zip archive specified by filename and
+    returns a PonyZip object instance.
+
+    The flags available are:
+    * ZipCheckcons Perform additional stricter consistency checks on the
+    archive, and error if they fail.
+    * ZipCreate Create the archive if it does not exist.
+    * ZipExcl Error if archive already exists.
+    * ZipTruncate If archive exists, ignore its current contents. In other
+    words, handle it the same way as an empty archive.
+    * ZipRDOnly Open archive in read-only mode.
+
+    After creation you should immediately verify that the creation was
+    successful by calling the valid() function.
+    &quot;&quot;&quot;
+    initflags = flags.value()
 
     var errno: Array[I32] = [I32(42)]
     zip = ABLibZIP.pzip_open(filename, initflags, errno.cpointer())
@@ -2284,46 +2324,34 @@ class PonyZip
     end
 
   fun valid(): Bool =&gt;
+    &quot;&quot;&quot;
+    Validatates if the associated open* creator was successful in opening
+    the specified zip archive.  Returns boolean true/false.
+
+    If creation was unsuccessful, the cause of the error can be accessed
+    via the errorstr field.
+    &quot;&quot;&quot;
     if (zip.is_none()) then
       false
     else
       true
     end
 
-  fun zfflags(flags: Array[ZipFlags]): I32 =&gt;
-    var rv: I32 = 0
-    for f in flags.values() do
-      rv = rv+f.apply()
-    end
-    rv
-
-  fun zfflflags(flags: Array[ZipFLFlags]): U32 =&gt;
-    var rv: U32 = 0
-    for f in flags.values() do
-      rv = rv+f.apply()
-    end
-    rv
-
-
-  fun ref count(flags: Array[ZipFLFlags] = []): USize ? =&gt;
+  fun count(flags: ZipFLFlags = ZipFLFlags): USize ? =&gt;
+    &quot;&quot;&quot;
+    Returns the total number of entries in the provided zip archive.
+    &quot;&quot;&quot;
     if (zip.is_none()) then
       error
     else
-      ABLibZIP.pzip_get_num_entries(zip, zfflflags(flags)).usize()
+      ABLibZIP.pzip_get_num_entries(zip, flags.value()).usize()
     end
-
-
-  fun ref filesdata(): Array[Zipstat] ? =&gt;
-    var cnt: USize = this.count([])? // FIXME ?
-
-    var rv: Array[Zipstat] = Array[Zipstat]
-
-    for i in Range(0,cnt) do
-      rv.push(zip_stat_index(i)?)
-    end
-    rv
 
   fun zip_stat_index(index: USize): Zipstat ? =&gt;
+    &quot;&quot;&quot;
+    Returns a Zipstat struct containing the file metadata for the file at
+    the provided index value.
+    &quot;&quot;&quot;
     if (zip.is_none()) then
       error
     end
@@ -2337,7 +2365,11 @@ class PonyZip
     end
 
   fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =&gt;
-    if (zipstat.pencryptionmethod != ZipEMNone.apply()) then
+    &quot;&quot;&quot;
+    Returns the contents of the file defined by the provided
+    Zipstat.  Currently only supports unencrypted files.
+    &quot;&quot;&quot;
+    if (zipstat.pencryptionmethod != ZipEMNone.value()) then
       error  // We should probably automatically call
              // a decrypt function here... cos we're nice
     end
@@ -2356,6 +2388,13 @@ class PonyZip
     consume data
 
   fun ref add_file(filename: String, data: Array[U8] val, flags: Array[ZipFLFlags]): USize ? =&gt;
+    &quot;&quot;&quot;
+    Adds the contents of the provided data-field to the archive
+    with the specified filename.
+
+    This is a convenience function which combines Source creation
+    and file addition.
+    &quot;&quot;&quot;
     if (zip.is_none()) then
       error
     end
@@ -2370,7 +2409,13 @@ class PonyZip
     ABLibZIP.pzip_file_add(zip, filename, zs, U32(0)).usize() // FIXME
     //// Check here for -1 too for writing issues...
 
-  fun close(): None =&gt;
+  fun close(): I32 =&gt;
+    &quot;&quot;&quot;
+    Closes the specified archive. Will not complete until any changes
+    to the archive have been committed to disk.
+
+    Success results in a return-code of 0.
+    &quot;&quot;&quot;
     ABLibZIP.pzip_close(zip)
 
 
