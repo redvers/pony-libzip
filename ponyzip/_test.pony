@@ -42,6 +42,7 @@ class iso _TestZipOpen is UnitTest
     h.assert_eq[String](rdzip.zip_stat_index(12)?.name(), "CXMLUnimplemented.pony")
     h.assert_eq[String](rdzip.zip_stat_index(13)?.name(), "CXMLUnion.pony")
     h.assert_eq[String](rdzip.zip_stat_index(14)?.name(), "CXMLVariable.pony")
+    h.assert_eq[I32](rdzip.close(), 0)
     /*
       env.out.print("There are " + zip.count()?.string() + " entries")
     end

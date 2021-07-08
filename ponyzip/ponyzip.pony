@@ -27,6 +27,22 @@ class PonyZip
   var initflags: U32 = 0
 
   new create(filename: String, flags: ZipFlags) =>
+    """
+    The create() constructor opens the zip archive specified by filename and
+    returns a PonyZip object instance.
+
+    The flags available are:
+    * ZipCheckcons Perform additional stricter consistency checks on the
+    archive, and error if they fail.
+    * ZipCreate Create the archive if it does not exist.
+    * ZipExcl Error if archive already exists.
+    * ZipTruncate If archive exists, ignore its current contents. In other
+    words, handle it the same way as an empty archive.
+    * ZipRDOnly Open archive in read-only mode.
+
+    After creation you should immediately verify that the creation was
+    successful by calling the valid() function.
+    """
     initflags = flags.value()
 
     var errno: Array[I32] = [I32(42)]
@@ -44,23 +60,34 @@ class PonyZip
     end
 
   fun valid(): Bool =>
+    """
+    Validatates if the associated open* creator was successful in opening
+    the specified zip archive.  Returns boolean true/false.
+
+    If creation was unsuccessful, the cause of the error can be accessed
+    via the errorstr field.
+    """
     if (zip.is_none()) then
       false
     else
       true
     end
 
-
   fun count(flags: ZipFLFlags = ZipFLFlags): USize ? =>
+    """
+    Returns the total number of entries in the provided zip archive.
+    """
     if (zip.is_none()) then
       error
     else
       ABLibZIP.pzip_get_num_entries(zip, flags.value()).usize()
     end
 
-
-
   fun zip_stat_index(index: USize): Zipstat ? =>
+    """
+    Returns a Zipstat struct containing the file metadata for the file at
+    the provided index value.
+    """
     if (zip.is_none()) then
       error
     end
@@ -74,6 +101,10 @@ class PonyZip
     end
 
   fun ref readfile(zipstat: Zipstat): Array[U8] iso^ ? =>
+    """
+    Returns the contents of the file defined by the provided
+    Zipstat.  Currently only supports unencrypted files.
+    """
     if (zipstat.pencryptionmethod != ZipEMNone.value()) then
       error  // We should probably automatically call
              // a decrypt function here... cos we're nice
@@ -93,6 +124,13 @@ class PonyZip
     consume data
 
   fun ref add_file(filename: String, data: Array[U8] val, flags: Array[ZipFLFlags]): USize ? =>
+    """
+    Adds the contents of the provided data-field to the archive
+    with the specified filename.
+
+    This is a convenience function which combines Source creation
+    and file addition.
+    """
     if (zip.is_none()) then
       error
     end
@@ -107,7 +145,13 @@ class PonyZip
     ABLibZIP.pzip_file_add(zip, filename, zs, U32(0)).usize() // FIXME
     //// Check here for -1 too for writing issues...
 
-  fun close(): None =>
+  fun close(): I32 =>
+    """
+    Closes the specified archive. Will not complete until any changes
+    to the archive have been committed to disk.
+
+    Success results in a return-code of 0.
+    """
     ABLibZIP.pzip_close(zip)
 
 
