@@ -63,13 +63,28 @@ for index in Range(0, count) do
 end
 ```
 
+### Reading the contents of a file
+
+```pony
+/* You can extract the contents of a file like so:          */
+let zipstat0: Zipstat = archive.zip_stat_index(index)?
+let data: Array[U8] val = archive.readfile(zipstat0)
+```
+
 ### Closing the archive
 
 ```pony
 archive.close()
 ```
 
-### Questions? Issues? Requests? Contributions?
+### More examples? Something missing?
+
+Look at the ponyzip/\_test.pony for more examples of usage.
+The test suite will likely be the most authoratitive info
+available.
+
+
+### Got Questions? Issues? Requests? Contributions?
 
 Please feel free to open Issues and Pull Requests as needed.
 
