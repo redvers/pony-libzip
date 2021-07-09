@@ -4,6 +4,13 @@ use "lib:z"
 use @crc32[U32](crc32: U32, data: Pointer[U8] tag, length: I32)
 
 primitive ABLibZIP
+  """
+  The documentation here will be incomplete.
+
+  Please refer to the C API instructions which can be found
+  at [https://libzip.org/documentation/](https://libzip.org/documentation/)
+  """
+
   /* Open Archive */
   fun pzip_open(path: String, flags: U32, errorp: Pointer[I32] tag): NullablePointer[Zip] =>
 """

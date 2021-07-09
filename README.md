@@ -4,22 +4,76 @@ Pony implementation of libzip
 
 ## Status
 
-[![CircleCI](https://circleci.com/gh/redvers/pony-libzip.svg?style=svg)](https://circleci.com/gh/redvers/pony-libzip)
-
-pony-libzip is pre-alpha software.
+pony-libzip is "in-flight" software.  It's getting there.
 
 ## Installation
 
-* Install [pony-stable](https://github.com/ponylang/pony-stable)
-* Update your `bundle.json`
+Using corral, into your deps it goes...
 
 ```json
 {
-  "type": "github",
-  "repo": "redvers/pony-libzip"
+  "locator": "github.com/redvers/pony-libzip.git",
+  "version": ""
 }
 ```
 
-* `stable fetch` to fetch your dependencies
+* `corral fetch` to fetch your dependencies
 * `use "ponyzip"` to include this package
-* `stable env ponyc` to compile your application
+* `corral run -- ponyc` to compile your application
+
+## Example Use:
+
+### How to Open an arcive
+
+```pony
+/* You need to select which flags to open your file with...
+   if we assume you just want to read a file, this is a
+   reasonable default                                       */
+
+let readflags: ZipFlags = ZipFlags.>set(ZipRDOnly).>set(ZipCheckcons)
+
+/* Now we need to open the archive itself.                  */
+let archive: PonyZip = PonyZip("test.zip", readflags)
+
+/* We need to ensure that the file was opened correctly     */
+if (not archive.valid()) then
+  env.out.print("We have failed to open said file: " + archive.errorstr)
+  error
+else
+  end.out.print("The zip file has been successfully opened  */
+```
+
+### Analyzing the contents of the archive
+
+```
+/* There are two basic ways to address files in an archive,
+   by name and by index. In this example we are going to
+   use the index.                                           */
+
+let count: USize = archive.count()
+
+/* Now let's display each of the filenames in the archive   */
+
+for index in Range(0, count) do
+  /* The Zipstat is a struct that contains the basic info
+     for file inside the archive.                           */
+  let zipstat: Zipstat = archive.zip_stat_index(index)?
+  env.out.print("The filename at index: " + index.string()
+    + " is: " + zipstat.name())
+end
+```
+
+### Closing the archive
+
+```pony
+archive.close(), 0)
+```
+
+### Questions? Issues? Requests? Contributions?
+
+Please feel free to open Issues and Pull Requests as needed.
+
+
+
+Red
+
