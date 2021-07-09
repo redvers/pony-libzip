@@ -368,6 +368,15 @@
 </li>
           
         
+          
+            <li class="md-nav__item">
+    <a href="#create_from_source" title="create_from_source" class="md-nav__link">
+    create_from_source
+  </a>
+  
+</li>
+          
+        
       </ul>
     </nav>
   
@@ -394,8 +403,8 @@
         
           
             <li class="md-nav__item">
-    <a href="#var-errorno-i32-val" title="var errorno: I32 val" class="md-nav__link">
-    var errorno: I32 val
+    <a href="#var-errortype-ziperok-val-zipermultidisk-val-ziperrename-val" title="var errortype: (ZipEROK val | ZipERMultidisk val | ZipERRename val |" class="md-nav__link">
+    var errortype: (ZipEROK val | ZipERMultidisk val | ZipERRename val |
   </a>
   
 </li>
@@ -474,6 +483,24 @@
             <li class="md-nav__item">
     <a href="#add_file" title="add_file" class="md-nav__link">
     add_file
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+    <a href="#add_file_from_source" title="add_file_from_source" class="md-nav__link">
+    add_file_from_source
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+    <a href="#zip_source_file" title="zip_source_file" class="md-nav__link">
+    zip_source_file
   </a>
   
 </li>
@@ -801,6 +828,18 @@
   <li class="md-nav__item">
     <a href="../ponyzip-ZipER/" title="type ZipER" class="md-nav__link">
       type ZipER
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponyzip-ZipERR/" title="primitive ZipERR" class="md-nav__link">
+      primitive ZipERR
     </a>
   </li>
 
@@ -2425,6 +2464,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ponyzip-CRC32/" title="primitive CRC32" class="md-nav__link">
+      primitive CRC32
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2470,6 +2521,15 @@
 </li>
           
         
+          
+            <li class="md-nav__item">
+    <a href="#create_from_source" title="create_from_source" class="md-nav__link">
+    create_from_source
+  </a>
+  
+</li>
+          
+        
       </ul>
     </nav>
   
@@ -2496,8 +2556,8 @@
         
           
             <li class="md-nav__item">
-    <a href="#var-errorno-i32-val" title="var errorno: I32 val" class="md-nav__link">
-    var errorno: I32 val
+    <a href="#var-errortype-ziperok-val-zipermultidisk-val-ziperrename-val" title="var errortype: (ZipEROK val | ZipERMultidisk val | ZipERRename val |" class="md-nav__link">
+    var errortype: (ZipEROK val | ZipERMultidisk val | ZipERRename val |
   </a>
   
 </li>
@@ -2583,6 +2643,24 @@
         
           
             <li class="md-nav__item">
+    <a href="#add_file_from_source" title="add_file_from_source" class="md-nav__link">
+    add_file_from_source
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
+    <a href="#zip_source_file" title="zip_source_file" class="md-nav__link">
+    zip_source_file
+  </a>
+  
+</li>
+          
+        
+          
+            <li class="md-nav__item">
     <a href="#close" title="close" class="md-nav__link">
     close
   </a>
@@ -2647,11 +2725,51 @@ successful by calling the valid() function.</p>
 <li><a href="./">PonyZip</a> ref^</li>
 </ul>
 <hr />
+<h3 id="create_from_source">create_from_source<a class="headerlink" href="#create_from_source" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L63">[Source]</a></span></p>
+<p>The create_from_source() constructor opens the zip archive referenced
+by the provided Zipsource and returns a PonyZip object instance.</p>
+<p>The flags available are:
+* ZipCheckcons Perform additional stricter consistency checks on the
+archive, and error if they fail.
+* ZipCreate Create the archive if it does not exist.
+* ZipExcl Error if archive already exists.
+* ZipTruncate If archive exists, ignore its current contents. In other
+words, handle it the same way as an empty archive.
+* ZipRDOnly Open archive in read-only mode.</p>
+<p>After creation you should immediately verify that the creation was
+successful by calling the valid() function.</p>
+<pre><code class="language-pony">new ref create_from_source(
+  source: NullablePointer[Zipsource ref] ref,
+  flags: Flags[(ZipCreate val | ZipExcl val | ZipCheckcons val | ZipTruncate val | ZipRDOnly val), U32 val] ref)
+: PonyZip ref^
+</code></pre>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>source: <a href="https://stdlib.ponylang.io/builtin-NullablePointer/">NullablePointer</a>[<a href="../ponyzip-Zipsource/">Zipsource</a> ref] ref</li>
+<li>flags: <a href="https://stdlib.ponylang.io/collections-Flags/">Flags</a>[(<a href="../ponyzip-ZipCreate/">ZipCreate</a> val | <a href="../ponyzip-ZipExcl/">ZipExcl</a> val | <a href="../ponyzip-ZipCheckcons/">ZipCheckcons</a> val | <a href="../ponyzip-ZipTruncate/">ZipTruncate</a> val | <a href="../ponyzip-ZipRDOnly/">ZipRDOnly</a> val), <a href="https://stdlib.ponylang.io/builtin-U32/">U32</a> val] ref</li>
+</ul>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="./">PonyZip</a> ref^</li>
+</ul>
+<hr />
 <h2 id="public-fields">Public fields<a class="headerlink" href="#public-fields" title="Permanent link">&para;</a></h2>
 <h3 id="var-zip-nullablepointerzip-ref-ref">var zip: <a href="https://stdlib.ponylang.io/builtin-NullablePointer/">NullablePointer</a>[<a href="../ponyzip-Zip/">Zip</a> ref] ref<a class="headerlink" href="#var-zip-nullablepointerzip-ref-ref" title="Permanent link">&para;</a></h3>
 <p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L24">[Source]</a></span></p>
 <hr />
-<h3 id="var-errorno-i32-val">var errorno: <a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val<a class="headerlink" href="#var-errorno-i32-val" title="Permanent link">&para;</a></h3>
+<h3 id="var-errortype-ziperok-val-zipermultidisk-val-ziperrename-val">var errortype: (<a href="../ponyzip-ZipEROK/">ZipEROK</a> val | <a href="../ponyzip-ZipERMultidisk/">ZipERMultidisk</a> val | <a href="../ponyzip-ZipERRename/">ZipERRename</a> val |<a class="headerlink" href="#var-errortype-ziperok-val-zipermultidisk-val-ziperrename-val" title="Permanent link">&para;</a></h3>
+<pre><code>[ZipERClose](ponyzip-ZipERClose.md) val | [ZipERSeek](ponyzip-ZipERSeek.md) val | [ZipERRead](ponyzip-ZipERRead.md) val | 
+[ZipERWrite](ponyzip-ZipERWrite.md) val | [ZipERCRC](ponyzip-ZipERCRC.md) val | [ZipERZipclosed](ponyzip-ZipERZipclosed.md) val | 
+[ZipERNoent](ponyzip-ZipERNoent.md) val | [ZipERExists](ponyzip-ZipERExists.md) val | [ZipEROpen](ponyzip-ZipEROpen.md) val | 
+[ZipERTmpopen](ponyzip-ZipERTmpopen.md) val | [ZipERZlib](ponyzip-ZipERZlib.md) val | [ZipERMemory](ponyzip-ZipERMemory.md) val | 
+[ZipERChanged](ponyzip-ZipERChanged.md) val | [ZipERCompnotsupp](ponyzip-ZipERCompnotsupp.md) val | [ZipEREof](ponyzip-ZipEREof.md) val | 
+[ZipERInval](ponyzip-ZipERInval.md) val | [ZipERNozip](ponyzip-ZipERNozip.md) val | [ZipERInternal](ponyzip-ZipERInternal.md) val | 
+[ZipERIncons](ponyzip-ZipERIncons.md) val | [ZipERRemove](ponyzip-ZipERRemove.md) val | [ZipERDeleted](ponyzip-ZipERDeleted.md) val | 
+[ZipEREncrnotsupp](ponyzip-ZipEREncrnotsupp.md) val | [ZipERRDOnly](ponyzip-ZipERRDOnly.md) val | [ZipERNopasswd](ponyzip-ZipERNopasswd.md) val | 
+[ZipERWrongpasswd](ponyzip-ZipERWrongpasswd.md) val | [ZipEROpnotsupp](ponyzip-ZipEROpnotsupp.md) val | [ZipERInuse](ponyzip-ZipERInuse.md) val | 
+[ZipERTell](ponyzip-ZipERTell.md) val | [ZipERCompresseddata](ponyzip-ZipERCompresseddata.md) val | [ZipERCancelled](ponyzip-ZipERCancelled.md) val)
+</code></pre>
 <p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L25">[Source]</a></span></p>
 <hr />
 <h3 id="var-errorstr-string-val">var errorstr: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val<a class="headerlink" href="#var-errorstr-string-val" title="Permanent link">&para;</a></h3>
@@ -2662,7 +2780,7 @@ successful by calling the valid() function.</p>
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="valid">valid<a class="headerlink" href="#valid" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L62">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L97">[Source]</a></span></p>
 <p>Validatates if the associated open* creator was successful in opening
 the specified zip archive.  Returns boolean true/false.</p>
 <p>If creation was unsuccessful, the cause of the error can be accessed
@@ -2670,63 +2788,63 @@ via the errorstr field.</p>
 <pre><code class="language-pony">fun box valid()
 : Bool val
 </code></pre>
-<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
 <h3 id="count">count<a class="headerlink" href="#count" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L76">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L111">[Source]</a></span></p>
 <p>Returns the total number of entries in the provided zip archive.</p>
 <pre><code class="language-pony">fun box count(
   flags: Flags[(ZipFLNocase val | ZipFLNodir val | ZipFLCompressed val | ZipFLUnchanged val | ZipFLRecompress val | ZipFLEncrypted val | ZipFLEncGuess val | ZipFLEncRaw val | ZipFLEncStrict val | ZipFLLocal val | ZipFLCentral val | ZipFLEncUtf8 val | ZipFLEncCp437 val | ZipFLOverwrite val), U32 val] ref = reference)
 : USize val ?
 </code></pre>
-<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li>flags: <a href="https://stdlib.ponylang.io/collections-Flags/">Flags</a>[(<a href="../ponyzip-ZipFLNocase/">ZipFLNocase</a> val | <a href="../ponyzip-ZipFLNodir/">ZipFLNodir</a> val | <a href="../ponyzip-ZipFLCompressed/">ZipFLCompressed</a> val | <a href="../ponyzip-ZipFLUnchanged/">ZipFLUnchanged</a> val | <a href="../ponyzip-ZipFLRecompress/">ZipFLRecompress</a> val | <a href="../ponyzip-ZipFLEncrypted/">ZipFLEncrypted</a> val | <a href="../ponyzip-ZipFLEncGuess/">ZipFLEncGuess</a> val | <a href="../ponyzip-ZipFLEncRaw/">ZipFLEncRaw</a> val | <a href="../ponyzip-ZipFLEncStrict/">ZipFLEncStrict</a> val | <a href="../ponyzip-ZipFLLocal/">ZipFLLocal</a> val | <a href="../ponyzip-ZipFLCentral/">ZipFLCentral</a> val | <a href="../ponyzip-ZipFLEncUtf8/">ZipFLEncUtf8</a> val | <a href="../ponyzip-ZipFLEncCp437/">ZipFLEncCp437</a> val | <a href="../ponyzip-ZipFLOverwrite/">ZipFLOverwrite</a> val), <a href="https://stdlib.ponylang.io/builtin-U32/">U32</a> val] ref = reference</li>
 </ul>
-<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-USize/">USize</a> val ?</li>
 </ul>
 <hr />
 <h3 id="zip_stat_index">zip_stat_index<a class="headerlink" href="#zip_stat_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L86">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L121">[Source]</a></span></p>
 <p>Returns a Zipstat struct containing the file metadata for the file at
 the provided index value.</p>
 <pre><code class="language-pony">fun box zip_stat_index(
   index: USize val)
 : Zipstat ref ?
 </code></pre>
-<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>index: <a href="https://stdlib.ponylang.io/builtin-USize/">USize</a> val</li>
 </ul>
-<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="../ponyzip-Zipstat/">Zipstat</a> ref ?</li>
 </ul>
 <hr />
 <h3 id="readfile">readfile<a class="headerlink" href="#readfile" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L103">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L138">[Source]</a></span></p>
 <p>Returns the contents of the file defined by the provided
 Zipstat.  Currently only supports unencrypted files.</p>
 <pre><code class="language-pony">fun ref readfile(
   zipstat: Zipstat ref)
 : Array[U8 val] iso^ ?
 </code></pre>
-<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>zipstat: <a href="../ponyzip-Zipstat/">Zipstat</a> ref</li>
 </ul>
-<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-Array/">Array</a>[<a href="https://stdlib.ponylang.io/builtin-U8/">U8</a> val] iso^ ?</li>
 </ul>
 <hr />
 <h3 id="add_file">add_file<a class="headerlink" href="#add_file" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L126">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L161">[Source]</a></span></p>
 <p>Adds the contents of the provided data-field to the archive
 with the specified filename.</p>
 <p>This is a convenience function which combines Source creation
@@ -2737,26 +2855,70 @@ and file addition.</p>
   flags: Array[Flags[(ZipFLNocase val | ZipFLNodir val | ZipFLCompressed val | ZipFLUnchanged val | ZipFLRecompress val | ZipFLEncrypted val | ZipFLEncGuess val | ZipFLEncRaw val | ZipFLEncStrict val | ZipFLLocal val | ZipFLCentral val | ZipFLEncUtf8 val | ZipFLEncCp437 val | ZipFLOverwrite val), U32 val] ref] ref)
 : USize val ?
 </code></pre>
-<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>filename: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
 <li>data: <a href="https://stdlib.ponylang.io/builtin-Array/">Array</a>[<a href="https://stdlib.ponylang.io/builtin-U8/">U8</a> val] val</li>
 <li>flags: <a href="https://stdlib.ponylang.io/builtin-Array/">Array</a>[<a href="https://stdlib.ponylang.io/collections-Flags/">Flags</a>[(<a href="../ponyzip-ZipFLNocase/">ZipFLNocase</a> val | <a href="../ponyzip-ZipFLNodir/">ZipFLNodir</a> val | <a href="../ponyzip-ZipFLCompressed/">ZipFLCompressed</a> val | <a href="../ponyzip-ZipFLUnchanged/">ZipFLUnchanged</a> val | <a href="../ponyzip-ZipFLRecompress/">ZipFLRecompress</a> val | <a href="../ponyzip-ZipFLEncrypted/">ZipFLEncrypted</a> val | <a href="../ponyzip-ZipFLEncGuess/">ZipFLEncGuess</a> val | <a href="../ponyzip-ZipFLEncRaw/">ZipFLEncRaw</a> val | <a href="../ponyzip-ZipFLEncStrict/">ZipFLEncStrict</a> val | <a href="../ponyzip-ZipFLLocal/">ZipFLLocal</a> val | <a href="../ponyzip-ZipFLCentral/">ZipFLCentral</a> val | <a href="../ponyzip-ZipFLEncUtf8/">ZipFLEncUtf8</a> val | <a href="../ponyzip-ZipFLEncCp437/">ZipFLEncCp437</a> val | <a href="../ponyzip-ZipFLOverwrite/">ZipFLOverwrite</a> val), <a href="https://stdlib.ponylang.io/builtin-U32/">U32</a> val] ref] ref</li>
 </ul>
-<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-USize/">USize</a> val ?</li>
 </ul>
 <hr />
+<h3 id="add_file_from_source">add_file_from_source<a class="headerlink" href="#add_file_from_source" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L184">[Source]</a></span></p>
+<p>Adds the file represented by the provided NullablePointer[Zipsource]
+to the archive.</p>
+<pre><code class="language-pony">fun box add_file_from_source(
+  filename: String val,
+  source: NullablePointer[Zipsource ref] ref,
+  flags: Flags[(ZipFLNocase val | ZipFLNodir val | ZipFLCompressed val | ZipFLUnchanged val | ZipFLRecompress val | ZipFLEncrypted val | ZipFLEncGuess val | ZipFLEncRaw val | ZipFLEncStrict val | ZipFLLocal val | ZipFLCentral val | ZipFLEncUtf8 val | ZipFLEncCp437 val | ZipFLOverwrite val), U32 val] ref = reference)
+: I64 val ?
+</code></pre>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>filename: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
+<li>source: <a href="https://stdlib.ponylang.io/builtin-NullablePointer/">NullablePointer</a>[<a href="../ponyzip-Zipsource/">Zipsource</a> ref] ref</li>
+<li>flags: <a href="https://stdlib.ponylang.io/collections-Flags/">Flags</a>[(<a href="../ponyzip-ZipFLNocase/">ZipFLNocase</a> val | <a href="../ponyzip-ZipFLNodir/">ZipFLNodir</a> val | <a href="../ponyzip-ZipFLCompressed/">ZipFLCompressed</a> val | <a href="../ponyzip-ZipFLUnchanged/">ZipFLUnchanged</a> val | <a href="../ponyzip-ZipFLRecompress/">ZipFLRecompress</a> val | <a href="../ponyzip-ZipFLEncrypted/">ZipFLEncrypted</a> val | <a href="../ponyzip-ZipFLEncGuess/">ZipFLEncGuess</a> val | <a href="../ponyzip-ZipFLEncRaw/">ZipFLEncRaw</a> val | <a href="../ponyzip-ZipFLEncStrict/">ZipFLEncStrict</a> val | <a href="../ponyzip-ZipFLLocal/">ZipFLLocal</a> val | <a href="../ponyzip-ZipFLCentral/">ZipFLCentral</a> val | <a href="../ponyzip-ZipFLEncUtf8/">ZipFLEncUtf8</a> val | <a href="../ponyzip-ZipFLEncCp437/">ZipFLEncCp437</a> val | <a href="../ponyzip-ZipFLOverwrite/">ZipFLOverwrite</a> val), <a href="https://stdlib.ponylang.io/builtin-U32/">U32</a> val] ref = reference</li>
+</ul>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://stdlib.ponylang.io/builtin-I64/">I64</a> val ?</li>
+</ul>
+<hr />
+<h3 id="zip_source_file">zip_source_file<a class="headerlink" href="#zip_source_file" title="Permanent link">&para;</a></h3>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L197">[Source]</a></span></p>
+<p>Creates a NullablePointer[Zipsource] for a specified file. This can
+either be used to read a zip archive in a zip archive... Zipception!
+... or to directly write files into a zip archive without having to
+do the memory allocation yourself.</p>
+<pre><code class="language-pony">fun ref zip_source_file(
+  filename: String val,
+  start: U64 val,
+  length: I64 val)
+: NullablePointer[Zipsource ref] ref ?
+</code></pre>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>filename: <a href="https://stdlib.ponylang.io/builtin-String/">String</a> val</li>
+<li>start: <a href="https://stdlib.ponylang.io/builtin-U64/">U64</a> val</li>
+<li>length: <a href="https://stdlib.ponylang.io/builtin-I64/">I64</a> val</li>
+</ul>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://stdlib.ponylang.io/builtin-NullablePointer/">NullablePointer</a>[<a href="../ponyzip-Zipsource/">Zipsource</a> ref] ref ?</li>
+</ul>
+<hr />
 <h3 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L148">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/ponyzip/#L220">[Source]</a></span></p>
 <p>Closes the specified archive. Will not complete until any changes
 to the archive have been committed to disk.</p>
 <p>Success results in a return-code of 0.</p>
 <pre><code class="language-pony">fun box close()
 : I32 val
 </code></pre>
-<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val</li>
 </ul>

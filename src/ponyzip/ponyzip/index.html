@@ -628,6 +628,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipERR/" title="primitive ZipERR" class="md-nav__link">
+      primitive ZipERR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponyzip-ZipEROK/" title="primitive ZipEROK" class="md-nav__link">
       primitive ZipEROK
     </a>
@@ -2242,6 +2254,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponyzip-CRC32/" title="primitive CRC32" class="md-nav__link">
+      primitive CRC32
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2286,7 +2310,7 @@ use @printf[I32](...)
 
 class PonyZip
   var zip: NullablePointer[Zip] = NullablePointer[Zip].none()
-  var errorno: I32 = 0
+  var errortype: ZipER = ZipEROK
   var errorstr: String = &quot;&quot;
   var initflags: U32 = 0
 
@@ -2309,14 +2333,49 @@ class PonyZip
     &quot;&quot;&quot;
     initflags = flags.value()
 
-    var errno: Array[I32] = [I32(42)]
+    var errno: Array[I32] = [I32(0)]
     zip = ABLibZIP.pzip_open(filename, initflags, errno.cpointer())
 
     if (zip.is_none()) then
       try
-        errorno = errno.apply(0)?
+        var errorno = errno.apply(0)?
         var ziperr: Ziperror = Ziperror
         var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+        errortype = ZipERR.decode(errorno)
+
+        ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
+        errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
+      end
+    end
+
+  new create_from_source(source: NullablePointer[Zipsource], flags: ZipFlags) =&gt;
+    &quot;&quot;&quot;
+    The create_from_source() constructor opens the zip archive referenced
+    by the provided Zipsource and returns a PonyZip object instance.
+
+    The flags available are:
+    * ZipCheckcons Perform additional stricter consistency checks on the
+    archive, and error if they fail.
+    * ZipCreate Create the archive if it does not exist.
+    * ZipExcl Error if archive already exists.
+    * ZipTruncate If archive exists, ignore its current contents. In other
+    words, handle it the same way as an empty archive.
+    * ZipRDOnly Open archive in read-only mode.
+
+    After creation you should immediately verify that the creation was
+    successful by calling the valid() function.
+    &quot;&quot;&quot;
+    initflags = flags.value()
+
+    var errno: Array[I32] = [I32(0)]
+    zip = ABLibZIP.pzip_open_from_source(source, initflags, errno.cpointer())
+
+    if (zip.is_none()) then
+      try
+        var errorno = errno.apply(0)?
+        var ziperr: Ziperror = Ziperror
+        var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+        errortype = ZipERR.decode(errorno)
 
         ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
         errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
@@ -2409,6 +2468,43 @@ class PonyZip
     ABLibZIP.pzip_file_add(zip, filename, zs, U32(0)).usize() // FIXME
     //// Check here for -1 too for writing issues...
 
+
+  fun add_file_from_source(filename: String, source: NullablePointer[Zipsource], flags: ZipFLFlags = ZipFLFlags): I64 ? =&gt;
+    &quot;&quot;&quot;
+    Adds the file represented by the provided NullablePointer[Zipsource]
+    to the archive.
+    &quot;&quot;&quot;
+    if (zip.is_none()) then
+      error
+    end
+    if (source.is_none()) then
+      error
+    end
+    ABLibZIP.pzip_file_add(zip, filename, source, flags.value())
+
+  fun ref zip_source_file(filename: String, start: U64, length: I64): NullablePointer[Zipsource] ? =&gt;
+    &quot;&quot;&quot;
+    Creates a NullablePointer[Zipsource] for a specified file. This can
+    either be used to read a zip archive in a zip archive... Zipception!
+    ... or to directly write files into a zip archive without having to
+    do the memory allocation yourself.
+    &quot;&quot;&quot;
+    let rs: NullablePointer[Zipsource] = ABLibZIP.pzip_source_file(zip, filename, start, length)
+    var errno: Array[I32] = [I32(0)]
+    if (rs.is_none()) then
+      var errorno = errno.apply(0)?
+      var ziperr: Ziperror = Ziperror
+      var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+      errortype = ZipERR.decode(errorno)
+
+      ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
+      errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
+      error
+    end
+    rs
+
+
+
   fun close(): I32 =&gt;
     &quot;&quot;&quot;
     Closes the specified archive. Will not complete until any changes
@@ -2417,7 +2513,6 @@ class PonyZip
     Success results in a return-code of 0.
     &quot;&quot;&quot;
     ABLibZIP.pzip_close(zip)
-
 
 
 </code></pre>

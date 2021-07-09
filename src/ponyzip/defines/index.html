@@ -628,6 +628,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipERR/" title="primitive ZipERR" class="md-nav__link">
+      primitive ZipERR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponyzip-ZipEROK/" title="primitive ZipEROK" class="md-nav__link">
       primitive ZipEROK
     </a>
@@ -2242,6 +2254,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponyzip-CRC32/" title="primitive CRC32" class="md-nav__link">
+      primitive CRC32
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2299,6 +2323,46 @@ primitive ZipAFLRDOnly fun value(): U32 =&gt; 2
 
 /* libzip error codes */
 type ZipER is (ZipEROK|ZipERMultidisk|ZipERRename|ZipERClose|ZipERSeek|ZipERRead|ZipERWrite|ZipERCRC|ZipERZipclosed|ZipERNoent|ZipERExists|ZipEROpen|ZipERTmpopen|ZipERZlib|ZipERMemory|ZipERChanged|ZipERCompnotsupp|ZipEREof|ZipERInval|ZipERNozip|ZipERInternal|ZipERIncons|ZipERRemove|ZipERDeleted|ZipEREncrnotsupp|ZipERRDOnly|ZipERNopasswd|ZipERWrongpasswd|ZipEROpnotsupp|ZipERInuse|ZipERTell|ZipERCompresseddata|ZipERCancelled)
+primitive ZipERR
+  fun decode(value: I32): ZipER =&gt;
+    match value
+    | let x: I32 if (x ==  0) =&gt; ZipEROK
+    | let x: I32 if (x ==  1) =&gt; ZipERMultidisk
+    | let x: I32 if (x ==  2) =&gt; ZipERRename
+    | let x: I32 if (x ==  3) =&gt; ZipERClose
+    | let x: I32 if (x ==  4) =&gt; ZipERSeek
+    | let x: I32 if (x ==  5) =&gt; ZipERRead
+    | let x: I32 if (x ==  6) =&gt; ZipERWrite
+    | let x: I32 if (x ==  7) =&gt; ZipERCRC
+    | let x: I32 if (x ==  8) =&gt; ZipERZipclosed
+    | let x: I32 if (x ==  9) =&gt; ZipERNoent
+    | let x: I32 if (x == 10) =&gt; ZipERExists
+    | let x: I32 if (x == 11) =&gt; ZipEROpen
+    | let x: I32 if (x == 12) =&gt; ZipERTmpopen
+    | let x: I32 if (x == 13) =&gt; ZipERZlib
+    | let x: I32 if (x == 14) =&gt; ZipERMemory
+    | let x: I32 if (x == 15) =&gt; ZipERChanged
+    | let x: I32 if (x == 16) =&gt; ZipERCompnotsupp
+    | let x: I32 if (x == 17) =&gt; ZipEREof
+    | let x: I32 if (x == 18) =&gt; ZipERInval
+    | let x: I32 if (x == 19) =&gt; ZipERNozip
+    | let x: I32 if (x == 20) =&gt; ZipERInternal
+    | let x: I32 if (x == 21) =&gt; ZipERIncons
+    | let x: I32 if (x == 22) =&gt; ZipERRemove
+    | let x: I32 if (x == 23) =&gt; ZipERDeleted
+    | let x: I32 if (x == 24) =&gt; ZipEREncrnotsupp
+    | let x: I32 if (x == 25) =&gt; ZipERRDOnly
+    | let x: I32 if (x == 26) =&gt; ZipERNopasswd
+    | let x: I32 if (x == 27) =&gt; ZipERWrongpasswd
+    | let x: I32 if (x == 28) =&gt; ZipEROpnotsupp
+    | let x: I32 if (x == 29) =&gt; ZipERInuse
+    | let x: I32 if (x == 30) =&gt; ZipERTell
+    | let x: I32 if (x == 31) =&gt; ZipERCompresseddata
+    | let x: I32 if (x == 32) =&gt; ZipERCancelled
+    else
+      ZipEROK
+    end
+
 primitive ZipEROK fun value(): I32 =&gt; 0               /* N No error */
 primitive ZipERMultidisk fun value(): I32 =&gt; 1        /* N Multi-disk zip archives not supported */
 primitive ZipERRename fun value(): I32 =&gt; 2           /* S Renaming temporary file failed */

@@ -628,6 +628,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../ponyzip-ZipERR/" title="primitive ZipERR" class="md-nav__link">
+      primitive ZipERR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../ponyzip-ZipEROK/" title="primitive ZipEROK" class="md-nav__link">
       primitive ZipEROK
     </a>
@@ -2242,6 +2254,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ponyzip-CRC32/" title="primitive CRC32" class="md-nav__link">
+      primitive CRC32
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2263,6 +2287,9 @@
                   <h1>Functions</h1>
                 
                 <pre><code class="language-pony-full-source">use &quot;lib:zip&quot;
+use &quot;lib:z&quot;
+
+use @crc32[U32](crc32: U32, data: Pointer[U8] tag, length: I32)
 
 primitive ABLibZIP
   /* Open Archive */
@@ -2311,246 +2338,242 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 &quot;&quot;&quot;
     @zip_open(path.cstring(), flags, errorp)
 
-  fun pzip_fdopen(pparg0: I32, pparg1: I32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =&gt;
-    @zip_fdopen(pparg0, pparg1, pparg2)
+  fun pzip_fdopen(filedescriptor: I32, flags: I32, errorp: Pointer[I32] tag): NullablePointer[Zip] =&gt;
+    @zip_fdopen(filedescriptor, flags, errorp)
 
-  fun pzip_open_from_source(pparg0: NullablePointer[Zipsource] tag, pparg1: I32, pparg2: NullablePointer[Ziperror] tag): NullablePointer[Zip] =&gt;
-    @zip_open_from_source(pparg0, pparg1, pparg2)
+  fun pzip_open_from_source(zipsource: NullablePointer[Zipsource] tag, flags: U32, errorp: Pointer[I32] tag): NullablePointer[Zip] =&gt;
+    @zip_open_from_source(zipsource, flags, errorp)
 
   /* Find Files */
-  fun pzip_name_locate(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32): I64 =&gt;
-    @zip_name_locate(pparg0, pparg1.cstring(), pparg2)
+  fun pzip_name_locate(archive: NullablePointer[Zip] tag, filename: String, flags: U32): I64 =&gt;
+    @zip_name_locate(archive, filename.cstring(), flags)
 
 
   /* Read Files */
-  fun pzip_stat(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32, pparg3: NullablePointer[Zipstat] tag): I32 =&gt;
-    @zip_stat(pparg0, pparg1.cstring(), pparg2, pparg3)
+  fun pzip_stat(archive: NullablePointer[Zip] tag, filename: String, flags: U32, zipstat: NullablePointer[Zipstat] tag): I32 =&gt;
+    @zip_stat(archive, filename.cstring(), flags, zipstat)
 
-  fun pzip_stat_index(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32, pparg3: NullablePointer[Zipstat] tag): I32 =&gt;
-    @zip_stat_index(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_stat_index(archive: NullablePointer[Zip] tag, index: U64, flags: U32, zipstat: NullablePointer[Zipstat] tag): I32 =&gt;
+    @zip_stat_index(archive, index, flags, zipstat)
 
-  fun pzip_stat_init(pparg0: NullablePointer[Zipstat] tag): None =&gt;
-    @zip_stat_init(pparg0)
+  fun pzip_stat_init(zipstat: NullablePointer[Zipstat] tag): None =&gt;
+    @zip_stat_init(zipstat)
 
-  fun pzip_fopen(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32): NullablePointer[Zipfile] =&gt;
-    @zip_fopen(pparg0, pparg1.cstring(), pparg2)
+  fun pzip_fopen(archive: NullablePointer[Zip] tag, filename: String, flags: U32): NullablePointer[Zipfile] =&gt;
+    @zip_fopen(archive, filename.cstring(), flags)
 
-  fun pzip_fopen_encrypted(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32, pparg3: String): NullablePointer[Zipfile] =&gt;
-    @zip_fopen_encrypted(pparg0, pparg1.cstring(), pparg2, pparg3.cstring())
+  fun pzip_fopen_encrypted(archive: NullablePointer[Zip] tag, filename: String, flags: U32, password: String): NullablePointer[Zipfile] =&gt;
+    @zip_fopen_encrypted(archive, filename.cstring(), flags, password.cstring())
 
-  fun pzip_fopen_index(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32): NullablePointer[Zipfile] =&gt;
-    @zip_fopen_index(pparg0, pparg1, pparg2)
+  fun pzip_fopen_index(archive: NullablePointer[Zip] tag, index: U64, flags: U32): NullablePointer[Zipfile] =&gt;
+    @zip_fopen_index(archive, index, flags)
 
-  fun pzip_fopen_index_encrypted(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32, pparg3: String): NullablePointer[Zipfile] =&gt;
-    @zip_fopen_index_encrypted(pparg0, pparg1, pparg2, pparg3.cstring())
+  fun pzip_fopen_index_encrypted(archive: NullablePointer[Zip] tag, index: U64, flags: U32, password: String): NullablePointer[Zipfile] =&gt;
+    @zip_fopen_index_encrypted(archive, index, flags, password.cstring())
 
-  fun pzip_fread(pparg0: NullablePointer[Zipfile] tag, pparg1: Pointer[U8] tag, pparg2: U64): I64 =&gt;
-    @zip_fread(pparg0, pparg1, pparg2)
+  fun pzip_fread(file: NullablePointer[Zipfile] tag, buffer: Pointer[U8] tag, length: U64): I64 =&gt;
+    @zip_fread(file, buffer, length)
 
-  fun pzip_fseek(pparg0: NullablePointer[Zipfile] tag, pparg1: I64, pparg2: I32): I8 =&gt;
-    @zip_fseek(pparg0, pparg1, pparg2)
+  fun pzip_fseek(file: NullablePointer[Zipfile] tag, offset: I64, whence: I32): I8 =&gt;
+    @zip_fseek(file, offset, whence)
 
-  fun pzip_ftell(pparg0: NullablePointer[Zipfile] tag): I64 =&gt;
-    @zip_ftell(pparg0)
+  fun pzip_ftell(file: NullablePointer[Zipfile] tag): I64 =&gt;
+    @zip_ftell(file)
 
-  fun pzip_fclose(pparg0: NullablePointer[Zipfile] tag): I32 =&gt;
-    @zip_fclose(pparg0)
+  fun pzip_fclose(file: NullablePointer[Zipfile] tag): I32 =&gt;
+    @zip_fclose(file)
 
-  fun pzip_file_extra_fields_count(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32): I16 =&gt;
-    @zip_file_extra_fields_count(pparg0, pparg1, pparg2)
+  fun pzip_file_extra_fields_count(archive: NullablePointer[Zip] tag, index: U64, flags: U32): I16 =&gt;
+    @zip_file_extra_fields_count(archive, index, flags)
 
-  fun pzip_file_extra_fields_count_by_id(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U32): I16 =&gt;
-    @zip_file_extra_fields_count_by_id(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_file_extra_fields_count_by_id(archive: NullablePointer[Zip] tag, index: U64, extra_field_id: U16, flags: U32): I16 =&gt;
+    @zip_file_extra_fields_count_by_id(archive, index, extra_field_id, flags)
 
-  fun pzip_file_extra_field_get(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: Pointer[U16] tag, pparg4: Pointer[U16] tag, pparg5: U32): String =&gt;
-    var pcstring: Pointer[U8] = @zip_file_extra_field_get(pparg0, pparg1, pparg2, pparg3, pparg4, pparg5)
+  fun pzip_file_extra_field_get(archive: NullablePointer[Zip] tag, index: U64, extra_field_index: U16, idp: Pointer[U16] tag, lenp: Pointer[U16] tag, flags: U32): String =&gt;
+    var pcstring: Pointer[U8] = @zip_file_extra_field_get(archive, index, extra_field_index, idp, lenp, flags)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_file_extra_field_get_by_id(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U16, pparg4: Pointer[U16] tag, pparg5: U32): String =&gt;
-    var pcstring: Pointer[U8] = @zip_file_extra_field_get_by_id(pparg0, pparg1, pparg2, pparg3, pparg4, pparg5)
+  fun pzip_file_extra_field_get_by_id(archive: NullablePointer[Zip] tag, index: U64, extra_field_id: U16, extra_field_index: U16, lenp: Pointer[U16] tag, flags: U32): String =&gt;
+    var pcstring: Pointer[U8] = @zip_file_extra_field_get_by_id(archive, index, extra_field_id, extra_field_index, lenp, flags)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_file_get_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: Pointer[U32] tag, pparg3: U32): String =&gt;
-    var pcstring: Pointer[U8] = @zip_file_get_comment(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_file_get_comment(archive: NullablePointer[Zip] tag, index: U64, lenp: Pointer[U32] tag, flags: U32): String =&gt;
+    var pcstring: Pointer[U8] = @zip_file_get_comment(archive, index, lenp, flags)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_file_get_external_attributes(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32, pparg3: String, pparg4: Pointer[U32] tag): I32 =&gt;
-    @zip_file_get_external_attributes(pparg0, pparg1, pparg2, pparg3.cstring(), pparg4)
+  fun pzip_file_get_external_attributes(archive: NullablePointer[Zip] tag, index: U64, flags: U32, opsys: String, attributes: Pointer[U32] tag): I32 =&gt;
+    @zip_file_get_external_attributes(archive, index, flags, opsys.cstring(), attributes) // String -&gt; Aray[U8](1)
 
-  fun pzip_get_archive_comment(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[I32] tag, pparg2: U32): String =&gt;
-    var pcstring: Pointer[U8] = @zip_get_archive_comment(pparg0, pparg1, pparg2)
+  fun pzip_get_archive_comment(archive: NullablePointer[Zip] tag, lenp: Pointer[I32] tag, flags: U32): String =&gt;
+    var pcstring: Pointer[U8] = @zip_get_archive_comment(archive, lenp, flags)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_get_archive_flag(pparg0: NullablePointer[Zip] tag, pparg1: U32, pparg2: U32): I32 =&gt;
-    @zip_get_archive_flag(pparg0, pparg1, pparg2)
+  fun pzip_get_archive_flag(archive: NullablePointer[Zip] tag, flag: U32, flags: U32): I32 =&gt;
+    @zip_get_archive_flag(archive, flag, flags)
 
-  fun pzip_get_name(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32): String =&gt;
-    var pcstring: Pointer[U8] = @zip_get_name(pparg0, pparg1, pparg2)
+  fun pzip_get_name(archive: NullablePointer[Zip] tag, index: U64, flags: U32): String =&gt;
+    var pcstring: Pointer[U8] = @zip_get_name(archive, index, flags)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_get_num_entries(pparg0: NullablePointer[Zip] tag, pparg1: U32): I64 =&gt;
-    @zip_get_num_entries(pparg0, pparg1)
+  fun pzip_get_num_entries(archive: NullablePointer[Zip] tag, flags: U32): I64 =&gt;
+    @zip_get_num_entries(archive, flags)
 
-  fun pzip_source_get_file_attributes(pparg0: NullablePointer[Zipsource] tag, pparg1: NullablePointer[Zipfileattributes] tag): I32 =&gt;
-    @zip_source_get_file_attributes(pparg0, pparg1)
+  fun pzip_source_get_file_attributes(archive: NullablePointer[Zipsource] tag, attributes: NullablePointer[Zipfileattributes] tag): I32 =&gt;
+    @zip_source_get_file_attributes(archive, attributes)
 
 
 
 
   /* Close Archive */
-  fun pzip_close(pparg0: NullablePointer[Zip] tag): I32 =&gt;
-    @zip_close(pparg0)
+  fun pzip_close(archive: NullablePointer[Zip] tag): I32 =&gt;
+    @zip_close(archive)
 
-  fun pzip_discard(pparg0: NullablePointer[Zip] tag): None =&gt;
-    @zip_discard(pparg0)
+  fun pzip_discard(archive: NullablePointer[Zip] tag): None =&gt;
+    @zip_discard(archive)
 
 
   /* Creating / Modifying Archives */
-  fun pzip_delete(pparg0: NullablePointer[Zip] tag, pparg1: U64): I32 =&gt;
-    @zip_delete(pparg0, pparg1)
+  fun pzip_delete(archive: NullablePointer[Zip] tag, index: U64): I32 =&gt;
+    @zip_delete(archive, index)
 
-  fun pzip_dir_add(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U32): I64 =&gt;
-    @zip_dir_add(pparg0, pparg1.cstring(), pparg2)
+  fun pzip_dir_add(archive: NullablePointer[Zip] tag, filename: String, flags: U32): I64 =&gt;
+    @zip_dir_add(archive, filename.cstring(), flags)
 
-  fun pzip_file_add(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: NullablePointer[Zipsource] tag, pparg3: U32): I64 =&gt;
-    @zip_file_add(pparg0, pparg1.cstring(), pparg2, pparg3)
+  fun pzip_file_add(archive: NullablePointer[Zip] tag, filename: String, zipsource: NullablePointer[Zipsource] tag, flags: U32): I64 =&gt;
+    @zip_file_add(archive, filename.cstring(), zipsource, flags)
 
-  fun pzip_file_attributes_init(pparg0: NullablePointer[Zipfileattributes] tag): None =&gt;
-    @zip_file_attributes_init(pparg0)
+  fun pzip_file_replace(archive: NullablePointer[Zip] tag, index: U64, zipsource: NullablePointer[Zipsource] tag, flags: U32): I32 =&gt;
+    @zip_file_replace(archive, index, zipsource, flags)
 
-  fun pzip_file_extra_field_delete(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U32): I32 =&gt;
-    @zip_file_extra_field_delete(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_file_attributes_init(attributes: NullablePointer[Zipfileattributes] tag): None =&gt;
+    @zip_file_attributes_init(attributes)
 
-  fun pzip_file_extra_field_delete_by_id(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U16, pparg4: U32): I32 =&gt;
-    @zip_file_extra_field_delete_by_id(pparg0, pparg1, pparg2, pparg3, pparg4)
+  fun pzip_file_extra_field_delete(archive: NullablePointer[Zip] tag, index: U64, extra_field_index: U16, flags: U32): I32 =&gt;
+    @zip_file_extra_field_delete(archive, index, extra_field_index, flags)
 
-  fun pzip_file_extra_field_set(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U16, pparg4: String, pparg5: U16, pparg6: U32): I32 =&gt;
-    @zip_file_extra_field_set(pparg0, pparg1, pparg2, pparg3, pparg4.cstring(), pparg5, pparg6)
+  fun pzip_file_extra_field_delete_by_id(archive: NullablePointer[Zip] tag, index: U64, extra_field_id: U16, extra_field_index: U16, flags: U32): I32 =&gt;
+    @zip_file_extra_field_delete_by_id(archive, index, extra_field_id, extra_field_index, flags)
 
-  fun pzip_file_rename(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: U32): I32 =&gt;
-    @zip_file_rename(pparg0, pparg1, pparg2.cstring(), pparg3)
+  fun pzip_file_extra_field_set(archive: NullablePointer[Zip] tag, index: U64, extra_field_id: U16, extra_field_index: U16, extra_field_data: String, len: U16, flags: U32): I32 =&gt;
+    @zip_file_extra_field_set(archive, index, extra_field_id, extra_field_index, extra_field_data.cstring(), len, flags) // FIXME - not a string
 
-  fun pzip_file_replace(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: NullablePointer[Zipsource] tag, pparg3: U32): I32 =&gt;
-    @zip_file_replace(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_file_rename(archive: NullablePointer[Zip] tag, index: U64, filename: String, flags: U32): I32 =&gt;
+    @zip_file_rename(archive, index, filename.cstring(), flags)
 
-  fun pzip_file_set_comment(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: String, pparg3: U16, pparg4: U32): I32 =&gt;
-    @zip_file_set_comment(pparg0, pparg1, pparg2.cstring(), pparg3, pparg4)
 
-  fun pzip_file_set_dostime(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: U16, pparg4: U32): I32 =&gt;
-    @zip_file_set_dostime(pparg0, pparg1, pparg2, pparg3, pparg4)
+  fun pzip_file_set_comment(archive: NullablePointer[Zip] tag, index: U64, comment: String, length: U16, flags: U32): I32 =&gt;
+    @zip_file_set_comment(archive, index, comment.cstring(), length, flags)
 
-  fun pzip_file_set_encryption(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U16, pparg3: String): I32 =&gt;
-    @zip_file_set_encryption(pparg0, pparg1, pparg2, pparg3.cstring())
+  fun pzip_file_set_dostime(archive: NullablePointer[Zip] tag, index: U64, dostime: U16, dosdate: U16, flags: U32): I32 =&gt;
+    @zip_file_set_dostime(archive, index, dostime, dosdate, flags)
 
-  fun pzip_file_set_external_attributes(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: U32, pparg3: U8, pparg4: U32): I32 =&gt;
-    @zip_file_set_external_attributes(pparg0, pparg1, pparg2, pparg3, pparg4)
+  fun pzip_file_set_mtime(archive: NullablePointer[Zip] tag, index: U64, mtime: I64, flags: U32): I32 =&gt;
+    @zip_file_set_mtime(archive, index, mtime, flags)
 
-  fun pzip_file_set_mtime(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: I64, pparg3: U32): I32 =&gt;
-    @zip_file_set_mtime(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_file_set_encryption(archive: NullablePointer[Zip] tag, index: U64, method: U16, password: String): I32 =&gt;
+    @zip_file_set_encryption(archive, index, method, password.cstring())
 
-  fun pzip_set_archive_comment(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U16): I32 =&gt;
-    @zip_set_archive_comment(pparg0, pparg1.cstring(), pparg2)
+  fun pzip_file_set_external_attributes(archive: NullablePointer[Zip] tag, index: U64, flags: U32, opsys: U8, attributes: U32): I32 =&gt;
+    @zip_file_set_external_attributes(archive, index, flags, opsys, attributes)
 
-  fun pzip_set_archive_flag(pparg0: NullablePointer[Zip] tag, pparg1: U32, pparg2: I32): I32 =&gt;
-    @zip_set_archive_flag(pparg0, pparg1, pparg2)
 
-  fun pzip_set_default_password(pparg0: NullablePointer[Zip] tag, pparg1: String): I32 =&gt;
-    @zip_set_default_password(pparg0, pparg1.cstring())
+  fun pzip_set_archive_comment(archive: NullablePointer[Zip] tag, comment: String, length: U16): I32 =&gt;
+    @zip_set_archive_comment(archive, comment.cstring(), length)
 
-  fun pzip_set_file_compression(pparg0: NullablePointer[Zip] tag, pparg1: U64, pparg2: I32, pparg3: U32): I32 =&gt;
-    @zip_set_file_compression(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_set_archive_flag(archive: NullablePointer[Zip] tag, flags: U32, value: I32): I32 =&gt;
+    @zip_set_archive_flag(archive, flags, value)
 
-  fun pzip_source_begin_write(pparg0: NullablePointer[Zipsource] tag): I32 =&gt;
-    @zip_source_begin_write(pparg0)
+  fun pzip_set_default_password(archive: NullablePointer[Zip] tag, password: String): I32 =&gt;
+    @zip_set_default_password(archive, password.cstring())
 
-  fun pzip_source_begin_write_cloning(pparg0: NullablePointer[Zipsource] tag, pparg1: U64): I32 =&gt;
-    @zip_source_begin_write_cloning(pparg0, pparg1)
+  fun pzip_set_file_compression(archive: NullablePointer[Zip] tag, index: U64, comp: I32, compflags: U32): I32 =&gt;
+    @zip_set_file_compression(archive, index, comp, compflags)
 
-  fun pzip_source_buffer(pparg0: NullablePointer[Zip] tag, pparg1: Pointer[U8] tag, pparg2: U64, pparg3: I32): NullablePointer[Zipsource] =&gt;
-    @zip_source_buffer(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_begin_write(source: NullablePointer[Zipsource] tag): I32 =&gt;
+    @zip_source_begin_write(source)
 
-  fun pzip_source_buffer_create(pparg0: Pointer[U8] tag, pparg1: U64, pparg2: I32, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
-    @zip_source_buffer_create(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_begin_write_cloning(source: NullablePointer[Zipsource] tag, offset: U64): I32 =&gt;
+    @zip_source_begin_write_cloning(source, offset)
 
-  fun pzip_source_buffer_fragment(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[Zipbufferfragment] tag, pparg2: U64, pparg3: I32): NullablePointer[Zipsource] =&gt;
-    @zip_source_buffer_fragment(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_buffer(archive: NullablePointer[Zip] tag, data: Pointer[U8] tag, length: U64, free: I32): NullablePointer[Zipsource] =&gt;
+    @zip_source_buffer(archive, data, length, free)
 
-  fun pzip_source_buffer_fragment_create(pparg0: NullablePointer[Zipbufferfragment] tag, pparg1: U64, pparg2: I32, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
-    @zip_source_buffer_fragment_create(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_buffer_create(data: Pointer[U8] tag, length: U64, free: I32, errorp: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
+    @zip_source_buffer_create(data, length, free, errorp)
 
-  fun pzip_source_close(pparg0: NullablePointer[Zipsource] tag): I32 =&gt;
-    @zip_source_close(pparg0)
+  fun pzip_source_buffer_fragment(archive: NullablePointer[Zip] tag, fragment: NullablePointer[Zipbufferfragment] tag, nfrags: U64, free: I32): NullablePointer[Zipsource] =&gt;
+    @zip_source_buffer_fragment(archive, fragment, nfrags, free)
 
-  fun pzip_source_commit_write(pparg0: NullablePointer[Zipsource] tag): I32 =&gt;
-    @zip_source_commit_write(pparg0)
+  fun pzip_source_buffer_fragment_create(fragment: NullablePointer[Zipbufferfragment] tag, nfrags: U64, free: I32, errorp: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
+    @zip_source_buffer_fragment_create(fragment, nfrags, free, errorp)
 
-  fun pzip_source_error(pparg0: NullablePointer[Zipsource] tag): NullablePointer[Ziperror] =&gt;
-    @zip_source_error(pparg0)
+  fun pzip_source_close(source: NullablePointer[Zipsource] tag): I32 =&gt;
+    @zip_source_close(source)
 
-  fun pzip_source_file(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U64, pparg3: I64): NullablePointer[Zipsource] =&gt;
-    @zip_source_file(pparg0, pparg1.cstring(), pparg2, pparg3)
+  fun pzip_source_commit_write(source: NullablePointer[Zipsource] tag): I32 =&gt;
+    @zip_source_commit_write(source)
 
-  fun pzip_source_file_create(pparg0: String, pparg1: U64, pparg2: I64, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
-    @zip_source_file_create(pparg0.cstring(), pparg1, pparg2, pparg3)
+  fun pzip_source_error(source: NullablePointer[Zipsource] tag): NullablePointer[Ziperror] =&gt;
+    @zip_source_error(source)
 
-  fun pzip_source_filep(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[IOFILE] tag, pparg2: U64, pparg3: I64): NullablePointer[Zipsource] =&gt;
-    @zip_source_filep(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_file(zip: NullablePointer[Zip] tag, filename: String, start: U64, length: I64): NullablePointer[Zipsource] =&gt;
+    @zip_source_file(zip, filename.cstring(), start, length)
 
-  fun pzip_source_filep_create(pparg0: NullablePointer[IOFILE] tag, pparg1: U64, pparg2: I64, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
-    @zip_source_filep_create(pparg0, pparg1, pparg2, pparg3)
+  fun pzip_source_file_create(filename: String, start: U64, length: I64, errorp: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =&gt;
+    @zip_source_file_create(filename.cstring(), start, length, errorp)
 
-  fun pzip_source_free(pparg0: NullablePointer[Zipsource] tag): None =&gt;
-    @zip_source_free(pparg0)
+  fun pzip_source_free(source: NullablePointer[Zipsource] tag): None =&gt;
+    @zip_source_free(source)
 
-  fun pzip_source_keep(pparg0: NullablePointer[Zipsource] tag): None =&gt;
-    @zip_source_keep(pparg0)
+  fun pzip_source_keep(source: NullablePointer[Zipsource] tag): None =&gt;
+    @zip_source_keep(source)
 
-  fun pzip_source_open(pparg0: NullablePointer[Zipsource] tag): I32 =&gt;
-    @zip_source_open(pparg0)
+  fun pzip_source_open(source: NullablePointer[Zipsource] tag): I32 =&gt;
+    @zip_source_open(source)
 
-  fun pzip_source_read(pparg0: NullablePointer[Zipsource] tag, pparg1: Pointer[U8] tag, pparg2: U64): I64 =&gt;
-    @zip_source_read(pparg0, pparg1, pparg2)
+  fun pzip_source_read(source: NullablePointer[Zipsource] tag, data: Pointer[U8] tag, length: U64): I64 =&gt;
+    @zip_source_read(source, data, length)
 
-  fun pzip_source_rollback_write(pparg0: NullablePointer[Zipsource] tag): None =&gt;
-    @zip_source_rollback_write(pparg0)
+  fun pzip_source_rollback_write(source: NullablePointer[Zipsource] tag): None =&gt;
+    @zip_source_rollback_write(source)
 
-  fun pzip_source_seek(pparg0: NullablePointer[Zipsource] tag, pparg1: I64, pparg2: I32): I32 =&gt;
-    @zip_source_seek(pparg0, pparg1, pparg2)
+  fun pzip_source_seek(source: NullablePointer[Zipsource] tag, offset: I64, whence: I32): I32 =&gt;
+    @zip_source_seek(source, offset, whence)
 
-  fun pzip_source_seek_compute_offset(pparg0: U64, pparg1: U64, pparg2: Pointer[U8] tag, pparg3: U64, pparg4: NullablePointer[Ziperror] tag): I64 =&gt;
-    @zip_source_seek_compute_offset(pparg0, pparg1, pparg2, pparg3, pparg4)
+  fun pzip_source_seek_compute_offset(offset: U64, length: U64, data: Pointer[U8] tag, data_length: U64, errorp: NullablePointer[Ziperror] tag): I64 =&gt;
+    @zip_source_seek_compute_offset(offset, length, data, data_length, errorp)
 
-  fun pzip_source_seek_write(pparg0: NullablePointer[Zipsource] tag, pparg1: I64, pparg2: I32): I32 =&gt;
-    @zip_source_seek_write(pparg0, pparg1, pparg2)
+  fun pzip_source_seek_write(source: NullablePointer[Zipsource] tag, offset: I64, whence: I32): I32 =&gt;
+    @zip_source_seek_write(source, offset, whence)
 
-  fun pzip_source_stat(pparg0: NullablePointer[Zipsource] tag, pparg1: NullablePointer[Zipstat] tag): I32 =&gt;
-    @zip_source_stat(pparg0, pparg1)
+  fun pzip_source_stat(source: NullablePointer[Zipsource] tag, zipstat: NullablePointer[Zipstat] tag): I32 =&gt;
+    @zip_source_stat(source, zipstat)
 
-  fun pzip_source_tell(pparg0: NullablePointer[Zipsource] tag): I64 =&gt;
-    @zip_source_tell(pparg0)
+  fun pzip_source_tell(source: NullablePointer[Zipsource] tag): I64 =&gt;
+    @zip_source_tell(source)
 
-  fun pzip_source_tell_write(pparg0: NullablePointer[Zipsource] tag): I64 =&gt;
-    @zip_source_tell_write(pparg0)
+  fun pzip_source_tell_write(source: NullablePointer[Zipsource] tag): I64 =&gt;
+    @zip_source_tell_write(source)
 
-  fun pzip_source_write(pparg0: NullablePointer[Zipsource] tag, pparg1: Pointer[U8] tag, pparg2: U64): I64 =&gt;
-    @zip_source_write(pparg0, pparg1, pparg2)
+  fun pzip_source_write(source: NullablePointer[Zipsource] tag, data: Pointer[U8] tag, length: U64): I64 =&gt;
+    @zip_source_write(source, data, length)
 
-  fun pzip_source_zip(pparg0: NullablePointer[Zip] tag, pparg1: NullablePointer[Zip] tag, pparg2: U64, pparg3: U32, pparg4: U64, pparg5: I64): NullablePointer[Zipsource] =&gt;
-    @zip_source_zip(pparg0, pparg1, pparg2, pparg3, pparg4, pparg5)
+  fun pzip_source_zip(archive: NullablePointer[Zip] tag, sourcearchive: NullablePointer[Zip] tag, srcindex: U64, flags: U32, start: U64, length: I64): NullablePointer[Zipsource] =&gt;
+    @zip_source_zip(archive, sourcearchive, srcindex, flags, start, length)
 
-  fun pzip_unchange(pparg0: NullablePointer[Zip] tag, pparg1: U64): I32 =&gt;
-    @zip_unchange(pparg0, pparg1)
+  fun pzip_unchange(archive: NullablePointer[Zip] tag, index: U64): I32 =&gt;
+    @zip_unchange(archive, index)
 
-  fun pzip_unchange_all(pparg0: NullablePointer[Zip] tag): I32 =&gt;
-    @zip_unchange_all(pparg0)
+  fun pzip_unchange_all(archive: NullablePointer[Zip] tag): I32 =&gt;
+    @zip_unchange_all(archive)
 
-  fun pzip_unchange_archive(pparg0: NullablePointer[Zip] tag): I32 =&gt;
-    @zip_unchange_archive(pparg0)
+  fun pzip_unchange_archive(archive: NullablePointer[Zip] tag): I32 =&gt;
+    @zip_unchange_archive(archive)
 
   fun pzip_compression_method_supported(pmethod: I32, pcompress: I32): I32 =&gt;
     @zip_compression_method_supported(pmethod, pcompress)
@@ -2560,54 +2583,54 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 
 
   /* Error Handling */
-  fun pzip_get_error(pparg0: NullablePointer[Zip] tag): NullablePointer[Ziperror] =&gt;
-    @zip_get_error(pparg0)
+  fun pzip_get_error(archive: NullablePointer[Zip] tag): NullablePointer[Ziperror] =&gt;
+    @zip_get_error(archive)
 
-  fun pzip_error_clear(pparg0: NullablePointer[Zip] tag): None =&gt;
-    @zip_error_clear(pparg0)
+  fun pzip_error_clear(archive: NullablePointer[Zip] tag): None =&gt;
+    @zip_error_clear(archive)
 
-  fun pzip_error_code_zip(pparg0: NullablePointer[Ziperror] tag): I32 =&gt;
-    @zip_error_code_zip(pparg0)
+  fun pzip_error_code_zip(perror: NullablePointer[Ziperror] tag): I32 =&gt;
+    @zip_error_code_zip(perror)
 
-  fun pzip_error_code_system(pparg0: NullablePointer[Ziperror] tag): I32 =&gt;
-    @zip_error_code_system(pparg0)
+  fun pzip_error_code_system(perror: NullablePointer[Ziperror] tag): I32 =&gt;
+    @zip_error_code_system(perror)
 
-  fun pzip_error_fini(pparg0: NullablePointer[Ziperror] tag): None =&gt;
-    @zip_error_fini(pparg0)
+  fun pzip_error_fini(perror: NullablePointer[Ziperror] tag): None =&gt;
+    @zip_error_fini(perror)
 
-  fun pzip_error_init(pparg0: NullablePointer[Ziperror] tag): None =&gt;
-    @zip_error_init(pparg0)
+  fun pzip_error_init(perror: NullablePointer[Ziperror] tag): None =&gt;
+    @zip_error_init(perror)
 
-  fun pzip_error_init_with_code(pparg0: NullablePointer[Ziperror] tag, pparg1: I32): None =&gt;
-    @zip_error_init_with_code(pparg0, pparg1)
+  fun pzip_error_init_with_code(perror: NullablePointer[Ziperror] tag, errorno: I32): None =&gt;
+    @zip_error_init_with_code(perror, errorno)
 
-  fun pzip_error_set(pparg0: NullablePointer[Ziperror] tag, pparg1: I32, pparg2: I32): None =&gt;
-    @zip_error_set(pparg0, pparg1, pparg2)
+  fun pzip_error_set(errorp: NullablePointer[Ziperror] tag, le: I32, se: I32): None =&gt;
+    @zip_error_set(errorp, le, se)
 
-  fun pzip_error_strerror(pparg0: NullablePointer[Ziperror] tag): String =&gt;
-    var pcstring: Pointer[U8] = @zip_error_strerror(pparg0)
+  fun pzip_error_strerror(errorp: NullablePointer[Ziperror] tag): String =&gt;
+    var pcstring: Pointer[U8] = @zip_error_strerror(errorp)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_error_system_type(pparg0: NullablePointer[Ziperror] tag): I32 =&gt;
-    @zip_error_system_type(pparg0)
+  fun pzip_error_system_type(errorp: NullablePointer[Ziperror] tag): I32 =&gt;
+    @zip_error_system_type(errorp)
 
-  fun pzip_error_to_data(pparg0: NullablePointer[Ziperror] tag, pparg1: Pointer[U8] tag, pparg2: U64): I64 =&gt;
-    @zip_error_to_data(pparg0, pparg1, pparg2)
+  fun pzip_error_to_data(errorp: NullablePointer[Ziperror] tag, data: Pointer[U8] tag, length: U64): I64 =&gt;
+    @zip_error_to_data(errorp, data, length)
 
-  fun pzip_file_error_clear(pparg0: NullablePointer[Zipfile] tag): None =&gt;
-    @zip_file_error_clear(pparg0)
+  fun pzip_file_error_clear(file: NullablePointer[Zipfile] tag): None =&gt;
+    @zip_file_error_clear(file)
 
-  fun pzip_file_get_error(pparg0: NullablePointer[Zipfile] tag): NullablePointer[Ziperror] =&gt;
-    @zip_file_get_error(pparg0)
+  fun pzip_file_get_error(file: NullablePointer[Zipfile] tag): NullablePointer[Ziperror] =&gt;
+    @zip_file_get_error(file)
 
-  fun pzip_file_strerror(pparg0: NullablePointer[Zipfile] tag): String =&gt;
-    var pcstring: Pointer[U8] = @zip_file_strerror(pparg0)
+  fun pzip_file_strerror(file: NullablePointer[Zipfile] tag): String =&gt;
+    var pcstring: Pointer[U8] = @zip_file_strerror(file)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_strerror(pparg0: NullablePointer[Zip] tag): String =&gt;
-    var pcstring: Pointer[U8] = @zip_strerror(pparg0)
+  fun pzip_strerror(archive: NullablePointer[Zip] tag): String =&gt;
+    var pcstring: Pointer[U8] = @zip_strerror(archive)
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
@@ -2617,8 +2640,8 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
     let p: String iso = String.from_cstring(pcstring).clone()
     consume p
 
-  fun pzip_source_is_deleted(pparg0: NullablePointer[Zipsource] tag): I32 =&gt;
-    @zip_source_is_deleted(pparg0)
+  fun pzip_source_is_deleted(source: NullablePointer[Zipsource] tag): I32 =&gt;
+    @zip_source_is_deleted(source)
 
 
   /* Obsolete Functions */
