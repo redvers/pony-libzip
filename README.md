@@ -41,11 +41,12 @@ if (not archive.valid()) then
   error
 else
   end.out.print("The zip file has been successfully opened  */
+end
 ```
 
 ### Analyzing the contents of the archive
 
-```
+```pony
 /* There are two basic ways to address files in an archive,
    by name and by index. In this example we are going to
    use the index.                                           */
@@ -58,15 +59,14 @@ for index in Range(0, count) do
   /* The Zipstat is a struct that contains the basic info
      for file inside the archive.                           */
   let zipstat: Zipstat = archive.zip_stat_index(index)?
-  env.out.print("The filename at index: " + index.string()
-    + " is: " + zipstat.name())
+  env.out.print("The filename at index: " + index.string() + " is: " + zipstat.name())
 end
 ```
 
 ### Closing the archive
 
 ```pony
-archive.close(), 0)
+archive.close()
 ```
 
 ### Questions? Issues? Requests? Contributions?

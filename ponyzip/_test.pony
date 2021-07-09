@@ -18,7 +18,7 @@ class iso _TestZipOpen is UnitTest
     let rdf: ZipFlags = ZipFlags.>set(ZipRDOnly).>set(ZipCheckcons)
     h.assert_eq[U32](rdf.value(), 20)
     let nofilezip: PonyZip = PonyZip("idonotexist.zip", rdf)
-    h.assert_false(nofilezip.valid())
+    h.assert_true(not nofilezip.valid())
     h.assert_eq[String](nofilezip.errorstr, "No such file")
     h.assert_eq[I32](nofilezip.errortype.value(), 9)
 
