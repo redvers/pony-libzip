@@ -53,7 +53,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
   fun pzip_fdopen(pparg0: I32, pparg1: I32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =>
     @zip_fdopen(pparg0, pparg1, pparg2)
 
-  fun pzip_open_from_source(pparg0: NullablePointer[Zipsource] tag, pparg1: I32, pparg2: NullablePointer[Ziperror] tag): NullablePointer[Zip] =>
+  fun pzip_open_from_source(pparg0: NullablePointer[Zipsource] tag, pparg1: U32, pparg2: Pointer[I32] tag): NullablePointer[Zip] =>
     @zip_open_from_source(pparg0, pparg1, pparg2)
 
   /* Find Files */
@@ -231,8 +231,8 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
   fun pzip_source_error(pparg0: NullablePointer[Zipsource] tag): NullablePointer[Ziperror] =>
     @zip_source_error(pparg0)
 
-  fun pzip_source_file(pparg0: NullablePointer[Zip] tag, pparg1: String, pparg2: U64, pparg3: I64): NullablePointer[Zipsource] =>
-    @zip_source_file(pparg0, pparg1.cstring(), pparg2, pparg3)
+  fun pzip_source_file(zip: NullablePointer[Zip] tag, filename: String, start: U64, length: I64): NullablePointer[Zipsource] =>
+    @zip_source_file(zip, filename.cstring(), start, length)
 
   fun pzip_source_file_create(pparg0: String, pparg1: U64, pparg2: I64, pparg3: NullablePointer[Ziperror] tag): NullablePointer[Zipsource] =>
     @zip_source_file_create(pparg0.cstring(), pparg1, pparg2, pparg3)

@@ -60,6 +60,40 @@ class PonyZip
       end
     end
 
+  new create_from_source(source: NullablePointer[Zipsource], flags: ZipFlags) =>
+    """
+    The create_from_source() constructor opens the zip archive referenced
+    by the provided Zipsource and returns a PonyZip object instance.
+
+    The flags available are:
+    * ZipCheckcons Perform additional stricter consistency checks on the
+    archive, and error if they fail.
+    * ZipCreate Create the archive if it does not exist.
+    * ZipExcl Error if archive already exists.
+    * ZipTruncate If archive exists, ignore its current contents. In other
+    words, handle it the same way as an empty archive.
+    * ZipRDOnly Open archive in read-only mode.
+
+    After creation you should immediately verify that the creation was
+    successful by calling the valid() function.
+    """
+    initflags = flags.value()
+
+    var errno: Array[I32] = [I32(0)]
+    zip = ABLibZIP.pzip_open_from_source(source, initflags, errno.cpointer())
+
+    if (zip.is_none()) then
+      try
+        var errorno = errno.apply(0)?
+        var ziperr: Ziperror = Ziperror
+        var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+        errortype = ZipERR.decode(errorno)
+
+        ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
+        errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
+      end
+    end
+
   fun valid(): Bool =>
     """
     Validatates if the associated open* creator was successful in opening
@@ -145,6 +179,39 @@ class PonyZip
     end
     ABLibZIP.pzip_file_add(zip, filename, zs, U32(0)).usize() // FIXME
     //// Check here for -1 too for writing issues...
+
+
+  fun add_file_from_source(filename: String, source: NullablePointer[Zipsource], flags: ZipFLFlags = ZipFLFlags): I64 ? =>
+    if (zip.is_none()) then
+      error
+    end
+    if (source.is_none()) then
+      error
+    end
+    ABLibZIP.pzip_file_add(zip, filename, source, flags.value())
+
+  fun ref zip_source_file(filename: String, start: U64, length: I64): NullablePointer[Zipsource] ? =>
+    """
+    Creates a NullablePointer[Zipsource] for a specified file. This can
+    either be used to read a zip archive in a zip archive... Zipception!
+    ... or to directly write files into a zip archive without having to
+    do the memory allocation yourself.
+    """
+    let rs: NullablePointer[Zipsource] = ABLibZIP.pzip_source_file(zip, filename, start, length)
+    var errno: Array[I32] = [I32(0)]
+    if (rs.is_none()) then
+      var errorno = errno.apply(0)?
+      var ziperr: Ziperror = Ziperror
+      var ziperrp: NullablePointer[Ziperror] = NullablePointer[Ziperror](ziperr)
+      errortype = ZipERR.decode(errorno)
+
+      ABLibZIP.pzip_error_init_with_code(ziperrp, errorno)
+      errorstr = ABLibZIP.pzip_error_strerror(ziperrp)
+      error
+    end
+    rs
+
+
 
   fun close(): I32 =>
     """

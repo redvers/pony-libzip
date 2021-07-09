@@ -1,3 +1,4 @@
+use "files"
 use "ponytest"
 use "collections"
 
@@ -8,8 +9,7 @@ actor Main is TestList
       fun tag tests(test: PonyTest) =>
       test(_TestZipOpen)
       test(_TestZipRead)
-
-
+      test(_TestZipWrite)
 
 class iso _TestZipOpen is UnitTest
   fun name(): String => "PonyZip/zip_open"
@@ -68,3 +68,24 @@ class iso _TestZipRead is UnitTest
       h.assert_eq[U32](CRC32.calc(rdzip.readfile(zs)?), zs.crc())
     end
     h.assert_eq[I32](rdzip.close(), 0)
+
+class iso _TestZipWrite is UnitTest
+  fun name(): String => "PonyZip/zip_write"
+
+  fun apply(h: TestHelper) ? =>
+    let fn: String = "testwrite.zip"
+    let fp: FilePath = FilePath(h.env.root as AmbientAuth, fn)?
+    fp.remove()
+
+    let rdf: ZipFlags = ZipFlags.>set(ZipCreate).>set(ZipExcl)
+    let wrzip: PonyZip = PonyZip(fn, rdf)
+    h.assert_true(wrzip.valid())
+    h.assert_eq[String](wrzip.errorstr, "")
+    h.assert_eq[I32](wrzip.errortype.value(), 0)
+
+    h.assert_eq[I64](wrzip.add_file_from_source("testfile0.txt", wrzip.zip_source_file("/etc/hosts", 0, 0)?)?, 0)
+    h.assert_eq[I64](wrzip.add_file_from_source("testfile1.txt", wrzip.zip_source_file("/etc/hosts", 0, 0)?)?, 1)
+    h.assert_eq[I64](wrzip.add_file_from_source("testfile2.txt", wrzip.zip_source_file("/etc/hosts", 0, 0)?)?, 2)
+    h.assert_eq[I64](wrzip.add_file_from_source("testfile3.txt", wrzip.zip_source_file("/etc/hosts", 0, 0)?)?, 3)
+    h.assert_eq[I32](wrzip.close(), 0)
+
