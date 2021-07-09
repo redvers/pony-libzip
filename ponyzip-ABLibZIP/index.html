@@ -4319,6 +4319,9 @@
                 
                 <h1 id="ablibzip">ABLibZIP<a class="headerlink" href="#ablibzip" title="Permanent link">&para;</a></h1>
 <p><span class="source-link"><a href="../src/ponyzip/functions/#L6">[Source]</a></span></p>
+<p>The documentation here will be incomplete.</p>
+<p>Please refer to the C API instructions which can be found
+at <a href="https://libzip.org/documentation/">https://libzip.org/documentation/</a></p>
 <pre><code class="language-pony">primitive val ABLibZIP
 </code></pre>
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
@@ -4334,7 +4337,7 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="pzip_open">pzip_open<a class="headerlink" href="#pzip_open" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L8">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L15">[Source]</a></span></p>
 <h4 id="description">DESCRIPTION<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>The pzip_open() function opens the zip archive specified by path and returns
 a pointer to a struct zip, used to manipulate the archive. The flags are
@@ -4390,7 +4393,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fdopen">pzip_fdopen<a class="headerlink" href="#pzip_fdopen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L53">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L60">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fdopen(
   filedescriptor: I32 val,
   flags: I32 val,
@@ -4409,7 +4412,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_open_from_source">pzip_open_from_source<a class="headerlink" href="#pzip_open_from_source" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L56">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L63">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_open_from_source(
   zipsource: NullablePointer[Zipsource ref] tag,
   flags: U32 val,
@@ -4428,7 +4431,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_name_locate">pzip_name_locate<a class="headerlink" href="#pzip_name_locate" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L60">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L67">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_name_locate(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4447,7 +4450,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_stat">pzip_stat<a class="headerlink" href="#pzip_stat" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L65">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L72">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4468,7 +4471,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_stat_index">pzip_stat_index<a class="headerlink" href="#pzip_stat_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L68">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L75">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat_index(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4489,7 +4492,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_stat_init">pzip_stat_init<a class="headerlink" href="#pzip_stat_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L71">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L78">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_stat_init(
   zipstat: NullablePointer[Zipstat ref] tag)
 : None val
@@ -4504,7 +4507,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fopen">pzip_fopen<a class="headerlink" href="#pzip_fopen" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L74">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L81">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4523,7 +4526,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fopen_encrypted">pzip_fopen_encrypted<a class="headerlink" href="#pzip_fopen_encrypted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L77">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L84">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_encrypted(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4544,7 +4547,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fopen_index">pzip_fopen_index<a class="headerlink" href="#pzip_fopen_index" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L80">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L87">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_index(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4563,7 +4566,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fopen_index_encrypted">pzip_fopen_index_encrypted<a class="headerlink" href="#pzip_fopen_index_encrypted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L83">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L90">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fopen_index_encrypted(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4584,7 +4587,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fread">pzip_fread<a class="headerlink" href="#pzip_fread" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L86">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L93">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fread(
   file: NullablePointer[Zipfile ref] tag,
   buffer: Pointer[U8 val] tag,
@@ -4603,7 +4606,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fseek">pzip_fseek<a class="headerlink" href="#pzip_fseek" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L89">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L96">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fseek(
   file: NullablePointer[Zipfile ref] tag,
   offset: I64 val,
@@ -4622,7 +4625,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_ftell">pzip_ftell<a class="headerlink" href="#pzip_ftell" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L92">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L99">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_ftell(
   file: NullablePointer[Zipfile ref] tag)
 : I64 val
@@ -4637,7 +4640,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_fclose">pzip_fclose<a class="headerlink" href="#pzip_fclose" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L95">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L102">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_fclose(
   file: NullablePointer[Zipfile ref] tag)
 : I32 val
@@ -4652,7 +4655,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_fields_count">pzip_file_extra_fields_count<a class="headerlink" href="#pzip_file_extra_fields_count" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L98">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L105">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_fields_count(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4671,7 +4674,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_fields_count_by_id">pzip_file_extra_fields_count_by_id<a class="headerlink" href="#pzip_file_extra_fields_count_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L101">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L108">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_fields_count_by_id(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4692,7 +4695,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_get">pzip_file_extra_field_get<a class="headerlink" href="#pzip_file_extra_field_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L104">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L111">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_get(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4717,7 +4720,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_get_by_id">pzip_file_extra_field_get_by_id<a class="headerlink" href="#pzip_file_extra_field_get_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L109">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L116">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_get_by_id(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4742,7 +4745,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_get_comment">pzip_file_get_comment<a class="headerlink" href="#pzip_file_get_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L114">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L121">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_comment(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4763,7 +4766,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_get_external_attributes">pzip_file_get_external_attributes<a class="headerlink" href="#pzip_file_get_external_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L119">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L126">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_external_attributes(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4786,7 +4789,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_get_archive_comment">pzip_get_archive_comment<a class="headerlink" href="#pzip_get_archive_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L122">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L129">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_archive_comment(
   archive: NullablePointer[Zip ref] tag,
   lenp: Pointer[I32 val] tag,
@@ -4805,7 +4808,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_get_archive_flag">pzip_get_archive_flag<a class="headerlink" href="#pzip_get_archive_flag" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L127">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L134">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_archive_flag(
   archive: NullablePointer[Zip ref] tag,
   flag: U32 val,
@@ -4824,7 +4827,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_get_name">pzip_get_name<a class="headerlink" href="#pzip_get_name" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L130">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L137">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_name(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4843,7 +4846,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_get_num_entries">pzip_get_num_entries<a class="headerlink" href="#pzip_get_num_entries" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L135">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L142">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_num_entries(
   archive: NullablePointer[Zip ref] tag,
   flags: U32 val)
@@ -4860,7 +4863,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_get_file_attributes">pzip_source_get_file_attributes<a class="headerlink" href="#pzip_source_get_file_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L138">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L145">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_get_file_attributes(
   archive: NullablePointer[Zipsource ref] tag,
   attributes: NullablePointer[Zipfileattributes ref] tag)
@@ -4877,7 +4880,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_close">pzip_close<a class="headerlink" href="#pzip_close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L145">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L152">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_close(
   archive: NullablePointer[Zip ref] tag)
 : I32 val
@@ -4892,7 +4895,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_discard">pzip_discard<a class="headerlink" href="#pzip_discard" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L148">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L155">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_discard(
   archive: NullablePointer[Zip ref] tag)
 : None val
@@ -4907,7 +4910,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_delete">pzip_delete<a class="headerlink" href="#pzip_delete" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L153">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L160">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_delete(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val)
@@ -4924,7 +4927,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_dir_add">pzip_dir_add<a class="headerlink" href="#pzip_dir_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L156">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L163">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_dir_add(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4943,7 +4946,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_add">pzip_file_add<a class="headerlink" href="#pzip_file_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L159">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L166">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_add(
   archive: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -4964,7 +4967,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_replace">pzip_file_replace<a class="headerlink" href="#pzip_file_replace" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L162">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L169">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_replace(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -4985,7 +4988,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_attributes_init">pzip_file_attributes_init<a class="headerlink" href="#pzip_file_attributes_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L165">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L172">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_attributes_init(
   attributes: NullablePointer[Zipfileattributes ref] tag)
 : None val
@@ -5000,7 +5003,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_delete">pzip_file_extra_field_delete<a class="headerlink" href="#pzip_file_extra_field_delete" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L168">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L175">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_delete(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5021,7 +5024,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_delete_by_id">pzip_file_extra_field_delete_by_id<a class="headerlink" href="#pzip_file_extra_field_delete_by_id" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L171">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L178">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_delete_by_id(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5044,7 +5047,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_extra_field_set">pzip_file_extra_field_set<a class="headerlink" href="#pzip_file_extra_field_set" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L174">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L181">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_extra_field_set(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5071,7 +5074,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_rename">pzip_file_rename<a class="headerlink" href="#pzip_file_rename" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L177">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L184">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_rename(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5092,7 +5095,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_set_comment">pzip_file_set_comment<a class="headerlink" href="#pzip_file_set_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L181">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L188">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_comment(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5115,7 +5118,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_set_dostime">pzip_file_set_dostime<a class="headerlink" href="#pzip_file_set_dostime" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L184">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L191">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_dostime(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5138,7 +5141,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_set_mtime">pzip_file_set_mtime<a class="headerlink" href="#pzip_file_set_mtime" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L187">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L194">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_mtime(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5159,7 +5162,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_set_encryption">pzip_file_set_encryption<a class="headerlink" href="#pzip_file_set_encryption" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L190">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L197">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_encryption(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5180,7 +5183,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_set_external_attributes">pzip_file_set_external_attributes<a class="headerlink" href="#pzip_file_set_external_attributes" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L193">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L200">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_set_external_attributes(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5203,7 +5206,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_set_archive_comment">pzip_set_archive_comment<a class="headerlink" href="#pzip_set_archive_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L197">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L204">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_archive_comment(
   archive: NullablePointer[Zip ref] tag,
   comment: String val,
@@ -5222,7 +5225,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_set_archive_flag">pzip_set_archive_flag<a class="headerlink" href="#pzip_set_archive_flag" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L200">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L207">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_archive_flag(
   archive: NullablePointer[Zip ref] tag,
   flags: U32 val,
@@ -5241,7 +5244,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_set_default_password">pzip_set_default_password<a class="headerlink" href="#pzip_set_default_password" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L203">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L210">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_default_password(
   archive: NullablePointer[Zip ref] tag,
   password: String val)
@@ -5258,7 +5261,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_set_file_compression">pzip_set_file_compression<a class="headerlink" href="#pzip_set_file_compression" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L206">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L213">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_set_file_compression(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val,
@@ -5279,7 +5282,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_begin_write">pzip_source_begin_write<a class="headerlink" href="#pzip_source_begin_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L209">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L216">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_begin_write(
   source: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5294,7 +5297,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_begin_write_cloning">pzip_source_begin_write_cloning<a class="headerlink" href="#pzip_source_begin_write_cloning" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L212">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L219">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_begin_write_cloning(
   source: NullablePointer[Zipsource ref] tag,
   offset: U64 val)
@@ -5311,7 +5314,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_buffer">pzip_source_buffer<a class="headerlink" href="#pzip_source_buffer" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L215">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L222">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer(
   archive: NullablePointer[Zip ref] tag,
   data: Pointer[U8 val] tag,
@@ -5332,7 +5335,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_create">pzip_source_buffer_create<a class="headerlink" href="#pzip_source_buffer_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L218">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L225">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_create(
   data: Pointer[U8 val] tag,
   length: U64 val,
@@ -5353,7 +5356,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_fragment">pzip_source_buffer_fragment<a class="headerlink" href="#pzip_source_buffer_fragment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L221">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L228">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_fragment(
   archive: NullablePointer[Zip ref] tag,
   fragment: NullablePointer[Zipbufferfragment ref] tag,
@@ -5374,7 +5377,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_buffer_fragment_create">pzip_source_buffer_fragment_create<a class="headerlink" href="#pzip_source_buffer_fragment_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L224">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L231">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_buffer_fragment_create(
   fragment: NullablePointer[Zipbufferfragment ref] tag,
   nfrags: U64 val,
@@ -5395,7 +5398,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_close">pzip_source_close<a class="headerlink" href="#pzip_source_close" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L227">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L234">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_close(
   source: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5410,7 +5413,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_commit_write">pzip_source_commit_write<a class="headerlink" href="#pzip_source_commit_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L230">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L237">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_commit_write(
   source: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5425,7 +5428,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_error">pzip_source_error<a class="headerlink" href="#pzip_source_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L233">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L240">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_error(
   source: NullablePointer[Zipsource ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5440,7 +5443,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_file">pzip_source_file<a class="headerlink" href="#pzip_source_file" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L236">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L243">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_file(
   zip: NullablePointer[Zip ref] tag,
   filename: String val,
@@ -5461,7 +5464,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_file_create">pzip_source_file_create<a class="headerlink" href="#pzip_source_file_create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L239">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L246">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_file_create(
   filename: String val,
   start: U64 val,
@@ -5482,7 +5485,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_free">pzip_source_free<a class="headerlink" href="#pzip_source_free" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L242">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L249">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_free(
   source: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5497,7 +5500,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_keep">pzip_source_keep<a class="headerlink" href="#pzip_source_keep" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L245">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L252">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_keep(
   source: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5512,7 +5515,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_open">pzip_source_open<a class="headerlink" href="#pzip_source_open" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L248">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L255">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_open(
   source: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -5527,7 +5530,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_read">pzip_source_read<a class="headerlink" href="#pzip_source_read" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L251">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L258">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_read(
   source: NullablePointer[Zipsource ref] tag,
   data: Pointer[U8 val] tag,
@@ -5546,7 +5549,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_rollback_write">pzip_source_rollback_write<a class="headerlink" href="#pzip_source_rollback_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L254">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L261">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_rollback_write(
   source: NullablePointer[Zipsource ref] tag)
 : None val
@@ -5561,7 +5564,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_seek">pzip_source_seek<a class="headerlink" href="#pzip_source_seek" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L257">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L264">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek(
   source: NullablePointer[Zipsource ref] tag,
   offset: I64 val,
@@ -5580,7 +5583,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_seek_compute_offset">pzip_source_seek_compute_offset<a class="headerlink" href="#pzip_source_seek_compute_offset" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L260">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L267">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek_compute_offset(
   offset: U64 val,
   length: U64 val,
@@ -5603,7 +5606,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_seek_write">pzip_source_seek_write<a class="headerlink" href="#pzip_source_seek_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L263">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L270">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_seek_write(
   source: NullablePointer[Zipsource ref] tag,
   offset: I64 val,
@@ -5622,7 +5625,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_stat">pzip_source_stat<a class="headerlink" href="#pzip_source_stat" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L266">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L273">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_stat(
   source: NullablePointer[Zipsource ref] tag,
   zipstat: NullablePointer[Zipstat ref] tag)
@@ -5639,7 +5642,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_tell">pzip_source_tell<a class="headerlink" href="#pzip_source_tell" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L269">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L276">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_tell(
   source: NullablePointer[Zipsource ref] tag)
 : I64 val
@@ -5654,7 +5657,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_tell_write">pzip_source_tell_write<a class="headerlink" href="#pzip_source_tell_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L272">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L279">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_tell_write(
   source: NullablePointer[Zipsource ref] tag)
 : I64 val
@@ -5669,7 +5672,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_write">pzip_source_write<a class="headerlink" href="#pzip_source_write" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L275">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L282">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_write(
   source: NullablePointer[Zipsource ref] tag,
   data: Pointer[U8 val] tag,
@@ -5688,7 +5691,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_zip">pzip_source_zip<a class="headerlink" href="#pzip_source_zip" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L278">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L285">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_zip(
   archive: NullablePointer[Zip ref] tag,
   sourcearchive: NullablePointer[Zip ref] tag,
@@ -5713,7 +5716,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_unchange">pzip_unchange<a class="headerlink" href="#pzip_unchange" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L281">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L288">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange(
   archive: NullablePointer[Zip ref] tag,
   index: U64 val)
@@ -5730,7 +5733,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_unchange_all">pzip_unchange_all<a class="headerlink" href="#pzip_unchange_all" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L284">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L291">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange_all(
   archive: NullablePointer[Zip ref] tag)
 : I32 val
@@ -5745,7 +5748,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_unchange_archive">pzip_unchange_archive<a class="headerlink" href="#pzip_unchange_archive" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L287">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L294">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_unchange_archive(
   archive: NullablePointer[Zip ref] tag)
 : I32 val
@@ -5760,7 +5763,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_compression_method_supported">pzip_compression_method_supported<a class="headerlink" href="#pzip_compression_method_supported" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L290">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L297">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_compression_method_supported(
   pmethod: I32 val,
   pcompress: I32 val)
@@ -5777,7 +5780,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_encryption_method_supported">pzip_encryption_method_supported<a class="headerlink" href="#pzip_encryption_method_supported" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L293">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L300">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_encryption_method_supported(
   pmethod: U16 val,
   pencode: I32 val)
@@ -5794,7 +5797,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_get_error">pzip_get_error<a class="headerlink" href="#pzip_get_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L298">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L305">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_get_error(
   archive: NullablePointer[Zip ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5809,7 +5812,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_clear">pzip_error_clear<a class="headerlink" href="#pzip_error_clear" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L301">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L308">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_clear(
   archive: NullablePointer[Zip ref] tag)
 : None val
@@ -5824,7 +5827,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_code_zip">pzip_error_code_zip<a class="headerlink" href="#pzip_error_code_zip" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L304">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L311">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_code_zip(
   perror: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5839,7 +5842,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_code_system">pzip_error_code_system<a class="headerlink" href="#pzip_error_code_system" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L307">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L314">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_code_system(
   perror: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5854,7 +5857,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_fini">pzip_error_fini<a class="headerlink" href="#pzip_error_fini" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L310">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L317">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_fini(
   perror: NullablePointer[Ziperror ref] tag)
 : None val
@@ -5869,7 +5872,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_init">pzip_error_init<a class="headerlink" href="#pzip_error_init" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L313">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L320">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_init(
   perror: NullablePointer[Ziperror ref] tag)
 : None val
@@ -5884,7 +5887,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_init_with_code">pzip_error_init_with_code<a class="headerlink" href="#pzip_error_init_with_code" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L316">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L323">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_init_with_code(
   perror: NullablePointer[Ziperror ref] tag,
   errorno: I32 val)
@@ -5901,7 +5904,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_set">pzip_error_set<a class="headerlink" href="#pzip_error_set" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L319">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L326">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_set(
   errorp: NullablePointer[Ziperror ref] tag,
   le: I32 val,
@@ -5920,7 +5923,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_strerror">pzip_error_strerror<a class="headerlink" href="#pzip_error_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L322">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L329">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_strerror(
   errorp: NullablePointer[Ziperror ref] tag)
 : String val
@@ -5935,7 +5938,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_system_type">pzip_error_system_type<a class="headerlink" href="#pzip_error_system_type" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L327">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L334">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_system_type(
   errorp: NullablePointer[Ziperror ref] tag)
 : I32 val
@@ -5950,7 +5953,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_error_to_data">pzip_error_to_data<a class="headerlink" href="#pzip_error_to_data" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L330">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L337">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_error_to_data(
   errorp: NullablePointer[Ziperror ref] tag,
   data: Pointer[U8 val] tag,
@@ -5969,7 +5972,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_error_clear">pzip_file_error_clear<a class="headerlink" href="#pzip_file_error_clear" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L333">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L340">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_error_clear(
   file: NullablePointer[Zipfile ref] tag)
 : None val
@@ -5984,7 +5987,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_get_error">pzip_file_get_error<a class="headerlink" href="#pzip_file_get_error" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L336">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L343">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_get_error(
   file: NullablePointer[Zipfile ref] tag)
 : NullablePointer[Ziperror ref] ref
@@ -5999,7 +6002,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_file_strerror">pzip_file_strerror<a class="headerlink" href="#pzip_file_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L339">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L346">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_file_strerror(
   file: NullablePointer[Zipfile ref] tag)
 : String val
@@ -6014,7 +6017,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_strerror">pzip_strerror<a class="headerlink" href="#pzip_strerror" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L344">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L351">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_strerror(
   archive: NullablePointer[Zip ref] tag)
 : String val
@@ -6029,7 +6032,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_libzip_version">pzip_libzip_version<a class="headerlink" href="#pzip_libzip_version" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L350">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L357">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_libzip_version()
 : String val
 </code></pre>
@@ -6039,7 +6042,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="pzip_source_is_deleted">pzip_source_is_deleted<a class="headerlink" href="#pzip_source_is_deleted" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L355">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L362">[Source]</a></span></p>
 <pre><code class="language-pony">fun box pzip_source_is_deleted(
   source: NullablePointer[Zipsource ref] tag)
 : I32 val
@@ -6054,7 +6057,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_add">obsolete_pzip_add<a class="headerlink" href="#obsolete_pzip_add" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L361">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L368">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_add(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val,
@@ -6073,7 +6076,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_add_dir">obsolete_pzip_add_dir<a class="headerlink" href="#obsolete_pzip_add_dir" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L365">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L372">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_add_dir(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: String val)
@@ -6090,7 +6093,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_get_file_comment">obsolete_pzip_get_file_comment<a class="headerlink" href="#obsolete_pzip_get_file_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L368">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L375">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_get_file_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6111,7 +6114,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_get_num_files">obsolete_pzip_get_num_files<a class="headerlink" href="#obsolete_pzip_get_num_files" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L373">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L380">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_get_num_files(
   pparg0: NullablePointer[Zip ref] tag)
 : I32 val
@@ -6126,7 +6129,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_rename">obsolete_pzip_rename<a class="headerlink" href="#obsolete_pzip_rename" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L377">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L384">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_rename(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6145,7 +6148,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_replace">obsolete_pzip_replace<a class="headerlink" href="#obsolete_pzip_replace" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L381">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L388">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_replace(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6164,7 +6167,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_set_file_comment">obsolete_pzip_set_file_comment<a class="headerlink" href="#obsolete_pzip_set_file_comment" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L385">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L392">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_set_file_comment(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: U64 val,
@@ -6185,7 +6188,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_get_sys_type">obsolete_pzip_error_get_sys_type<a class="headerlink" href="#obsolete_pzip_error_get_sys_type" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L389">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L396">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_get_sys_type(
   pparg0: I32 val)
 : I32 val
@@ -6200,7 +6203,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_get">obsolete_pzip_error_get<a class="headerlink" href="#obsolete_pzip_error_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L393">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L400">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_get(
   pparg0: NullablePointer[Zip ref] tag,
   pparg1: Pointer[I32 val] tag,
@@ -6219,7 +6222,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_error_to_str">obsolete_pzip_error_to_str<a class="headerlink" href="#obsolete_pzip_error_to_str" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L397">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L404">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_error_to_str(
   pparg0: String val,
   pparg1: U64 val,
@@ -6240,7 +6243,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="obsolete_pzip_file_error_get">obsolete_pzip_file_error_get<a class="headerlink" href="#obsolete_pzip_file_error_get" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L401">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L408">[Source]</a></span></p>
 <pre><code class="language-pony">fun box obsolete_pzip_file_error_get(
   pparg0: NullablePointer[Zipfile ref] tag,
   pparg1: Pointer[I32 val] tag,
@@ -6259,7 +6262,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L8">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L15">[Source]</a></span></p>
 <pre><code class="language-pony">fun box eq(
   that: ABLibZIP val)
 : Bool val
@@ -6274,7 +6277,7 @@ path. This error is often caused by specifying ZIP_CHECKCONS but can also happen
 </ul>
 <hr />
 <h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/functions/#L8">[Source]</a></span></p>
+<p><span class="source-link"><a href="../src/ponyzip/functions/#L15">[Source]</a></span></p>
 <pre><code class="language-pony">fun box ne(
   that: ABLibZIP val)
 : Bool val
