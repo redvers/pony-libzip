@@ -182,6 +182,10 @@ class PonyZip
 
 
   fun add_file_from_source(filename: String, source: NullablePointer[Zipsource], flags: ZipFLFlags = ZipFLFlags): I64 ? =>
+    """
+    Adds the file represented by the provided NullablePointer[Zipsource]
+    to the archive.
+    """
     if (zip.is_none()) then
       error
     end
