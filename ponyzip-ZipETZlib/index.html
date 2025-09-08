@@ -1,40 +1,24 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
       
       
         <link rel="canonical" href="https://redvers.github.io/pony-libzip/ponyzip-ZipETZlib/">
       
       
+        <link rel="prev" href="../ponyzip-ZipETSys/">
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+        <link rel="next" href="../ponyzip-ZipExcl/">
       
-        <meta name="lang:search.language" content="en">
       
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../assets/images/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-ponylang-0.2.8">
+      <link rel="icon" href="../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
     
     
       
@@ -42,122 +26,169 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.b80b25f7.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
       
     
     
-      <script src="../assets/javascripts/modernizr.0b5df86e.js"></script>
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      <link rel="stylesheet" href="../assets/ponylang.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     
     
     
   </head>
   
-    <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="ponylang" data-md-color-primary="brown" data-md-color-accent="amber">
+  
+    
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#zipetzlib" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-          <a href="https://redvers.github.io/pony-libzip/" title="ponyzip" class="md-header-nav__button md-logo">
-          
-            <img src="../assets/images/logo.png" width="24" height="24">
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zipetzlib" class="md-skip">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ponyzip" class="md-header__button md-logo" aria-label="ponyzip" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ponyzip
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-              <span class="md-header-nav__topic">
-                ponyzip
-              </span>
-              <span class="md-header-nav__topic">
-                primitive ZipETZlib
-              </span>
+              primitive ZipETZlib
             
-          
+          </span>
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
-<div class="md-search" data-md-component="search" role="dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
-          
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
+  
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
+          
+        
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ponyzip" class="md-nav__button md-logo" aria-label="ponyzip" data-md-component="logo">
       
-        <img src="../assets/images/logo.png" width="48" height="48">
-      
-    </span>
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
     ponyzip
   </label>
   
@@ -165,2215 +196,3652 @@
     
       
       
-      
-
-
-  <li class="md-nav__item">
-    <a href=".." title="ponyzip" class="md-nav__link">
-      ponyzip
-    </a>
-  </li>
-
-    
-      
-      
-      
-
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ponyzip
+  </span>
   
 
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      
+  
+  
     
-    <label class="md-nav__link" for="nav-2">
-      package ponyzip
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    package ponyzip
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            package ponyzip
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip--index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ABLibZIP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ABLibZIP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-CRC32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive CRC32
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-IOFILE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct IOFILE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Main/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    actor Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-PonyZip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class PonyZip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipAFLRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipAFLRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipAflFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipAflFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMBzip2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMBzip2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMDefault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDefault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMDeflate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDeflate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMDeflate64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDeflate64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMImplode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMImplode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMJpeg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMJpeg
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMLz77/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLz77
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMLzma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLzma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMLzma2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLzma2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMPkwareimplode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMPkwareimplode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMPpmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMPpmd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMReduce1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMReduce2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMReduce3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMReduce4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMShrink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMShrink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMStore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMStore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMTerse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMTerse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMWavpack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMWavpack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCMxz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMxz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCheckcons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCheckcons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipCreate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCreate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEM3des112/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEM3des112
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEM3des168/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEM3des168
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMAes128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes128
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMAes192/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes192
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMAes256/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes256
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMDes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMDes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMNone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMNone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMPkzipaes128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes128
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMPkzipaes192/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes192
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMPkzipaes256/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes256
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMRc2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMRc2old/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc2old
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMRc4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMTradpkware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMTradpkware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipEMType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEMUnknown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMUnknown
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERCRC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCRC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERCancelled/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCancelled
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERChanged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERChanged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERClose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERClose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERCompnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCompnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERCompresseddata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCompresseddata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERDeleted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERDeleted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEREncrnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEREncrnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEREof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEREof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERExists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERExists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERIncons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERIncons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERInternal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInternal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERInuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERInval/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInval
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERMemory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERMemory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERMultidisk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERMultidisk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERNoent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNoent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERNopasswd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNopasswd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERNozip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNozip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEROK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEROpen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROpen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipEROpnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROpnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERRead/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRead
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERRemove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRemove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERRename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRename
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERSeek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERSeek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERTell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERTell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERTmpopen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERTmpopen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERWrongpasswd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERWrongpasswd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERZipclosed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERZipclosed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipERZlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERZlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipETNone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETNone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipETSys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETSys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    primitive ZipETZlib
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETZlib
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        package ponyzip
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip--index/" title="Package" class="md-nav__link">
-      Package
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipsourceargsseek/" title="struct Zipsourceargsseek" class="md-nav__link">
-      struct Zipsourceargsseek
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Ziperror/" title="struct Ziperror" class="md-nav__link">
-      struct Ziperror
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipstat/" title="struct Zipstat" class="md-nav__link">
-      struct Zipstat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipbufferfragment/" title="struct Zipbufferfragment" class="md-nav__link">
-      struct Zipbufferfragment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipfileattributes/" title="struct Zipfileattributes" class="md-nav__link">
-      struct Zipfileattributes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zip/" title="struct Zip" class="md-nav__link">
-      struct Zip
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipfile/" title="struct Zipfile" class="md-nav__link">
-      struct Zipfile
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-Zipsource/" title="struct Zipsource" class="md-nav__link">
-      struct Zipsource
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-IOFILE/" title="struct IOFILE" class="md-nav__link">
-      struct IOFILE
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-PonyZip/" title="class PonyZip" class="md-nav__link">
-      class PonyZip
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ABLibZIP/" title="primitive ABLibZIP" class="md-nav__link">
-      primitive ABLibZIP
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFlags/" title="type ZipFlags" class="md-nav__link">
-      type ZipFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCreate/" title="primitive ZipCreate" class="md-nav__link">
-      primitive ZipCreate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipExcl/" title="primitive ZipExcl" class="md-nav__link">
-      primitive ZipExcl
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCheckcons/" title="primitive ZipCheckcons" class="md-nav__link">
-      primitive ZipCheckcons
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipTruncate/" title="primitive ZipTruncate" class="md-nav__link">
-      primitive ZipTruncate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipRDOnly/" title="primitive ZipRDOnly" class="md-nav__link">
-      primitive ZipRDOnly
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLFlags/" title="type ZipFLFlags" class="md-nav__link">
-      type ZipFLFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLNocase/" title="primitive ZipFLNocase" class="md-nav__link">
-      primitive ZipFLNocase
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLNodir/" title="primitive ZipFLNodir" class="md-nav__link">
-      primitive ZipFLNodir
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLCompressed/" title="primitive ZipFLCompressed" class="md-nav__link">
-      primitive ZipFLCompressed
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLUnchanged/" title="primitive ZipFLUnchanged" class="md-nav__link">
-      primitive ZipFLUnchanged
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLRecompress/" title="primitive ZipFLRecompress" class="md-nav__link">
-      primitive ZipFLRecompress
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncrypted/" title="primitive ZipFLEncrypted" class="md-nav__link">
-      primitive ZipFLEncrypted
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncGuess/" title="primitive ZipFLEncGuess" class="md-nav__link">
-      primitive ZipFLEncGuess
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncRaw/" title="primitive ZipFLEncRaw" class="md-nav__link">
-      primitive ZipFLEncRaw
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncStrict/" title="primitive ZipFLEncStrict" class="md-nav__link">
-      primitive ZipFLEncStrict
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLLocal/" title="primitive ZipFLLocal" class="md-nav__link">
-      primitive ZipFLLocal
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLCentral/" title="primitive ZipFLCentral" class="md-nav__link">
-      primitive ZipFLCentral
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncUtf8/" title="primitive ZipFLEncUtf8" class="md-nav__link">
-      primitive ZipFLEncUtf8
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLEncCp437/" title="primitive ZipFLEncCp437" class="md-nav__link">
-      primitive ZipFLEncCp437
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFLOverwrite/" title="primitive ZipFLOverwrite" class="md-nav__link">
-      primitive ZipFLOverwrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipAflFlags/" title="type ZipAflFlags" class="md-nav__link">
-      type ZipAflFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipAFLRDOnly/" title="primitive ZipAFLRDOnly" class="md-nav__link">
-      primitive ZipAFLRDOnly
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipER/" title="type ZipER" class="md-nav__link">
-      type ZipER
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERR/" title="primitive ZipERR" class="md-nav__link">
-      primitive ZipERR
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEROK/" title="primitive ZipEROK" class="md-nav__link">
-      primitive ZipEROK
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERMultidisk/" title="primitive ZipERMultidisk" class="md-nav__link">
-      primitive ZipERMultidisk
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERRename/" title="primitive ZipERRename" class="md-nav__link">
-      primitive ZipERRename
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERClose/" title="primitive ZipERClose" class="md-nav__link">
-      primitive ZipERClose
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERSeek/" title="primitive ZipERSeek" class="md-nav__link">
-      primitive ZipERSeek
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERRead/" title="primitive ZipERRead" class="md-nav__link">
-      primitive ZipERRead
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERWrite/" title="primitive ZipERWrite" class="md-nav__link">
-      primitive ZipERWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERCRC/" title="primitive ZipERCRC" class="md-nav__link">
-      primitive ZipERCRC
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERZipclosed/" title="primitive ZipERZipclosed" class="md-nav__link">
-      primitive ZipERZipclosed
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERNoent/" title="primitive ZipERNoent" class="md-nav__link">
-      primitive ZipERNoent
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERExists/" title="primitive ZipERExists" class="md-nav__link">
-      primitive ZipERExists
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEROpen/" title="primitive ZipEROpen" class="md-nav__link">
-      primitive ZipEROpen
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERTmpopen/" title="primitive ZipERTmpopen" class="md-nav__link">
-      primitive ZipERTmpopen
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERZlib/" title="primitive ZipERZlib" class="md-nav__link">
-      primitive ZipERZlib
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERMemory/" title="primitive ZipERMemory" class="md-nav__link">
-      primitive ZipERMemory
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERChanged/" title="primitive ZipERChanged" class="md-nav__link">
-      primitive ZipERChanged
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERCompnotsupp/" title="primitive ZipERCompnotsupp" class="md-nav__link">
-      primitive ZipERCompnotsupp
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEREof/" title="primitive ZipEREof" class="md-nav__link">
-      primitive ZipEREof
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERInval/" title="primitive ZipERInval" class="md-nav__link">
-      primitive ZipERInval
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERNozip/" title="primitive ZipERNozip" class="md-nav__link">
-      primitive ZipERNozip
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERInternal/" title="primitive ZipERInternal" class="md-nav__link">
-      primitive ZipERInternal
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERIncons/" title="primitive ZipERIncons" class="md-nav__link">
-      primitive ZipERIncons
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERRemove/" title="primitive ZipERRemove" class="md-nav__link">
-      primitive ZipERRemove
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERDeleted/" title="primitive ZipERDeleted" class="md-nav__link">
-      primitive ZipERDeleted
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEREncrnotsupp/" title="primitive ZipEREncrnotsupp" class="md-nav__link">
-      primitive ZipEREncrnotsupp
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERRDOnly/" title="primitive ZipERRDOnly" class="md-nav__link">
-      primitive ZipERRDOnly
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERNopasswd/" title="primitive ZipERNopasswd" class="md-nav__link">
-      primitive ZipERNopasswd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERWrongpasswd/" title="primitive ZipERWrongpasswd" class="md-nav__link">
-      primitive ZipERWrongpasswd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEROpnotsupp/" title="primitive ZipEROpnotsupp" class="md-nav__link">
-      primitive ZipEROpnotsupp
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERInuse/" title="primitive ZipERInuse" class="md-nav__link">
-      primitive ZipERInuse
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERTell/" title="primitive ZipERTell" class="md-nav__link">
-      primitive ZipERTell
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERCompresseddata/" title="primitive ZipERCompresseddata" class="md-nav__link">
-      primitive ZipERCompresseddata
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipERCancelled/" title="primitive ZipERCancelled" class="md-nav__link">
-      primitive ZipERCancelled
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipETNone/" title="primitive ZipETNone" class="md-nav__link">
-      primitive ZipETNone
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipETSys/" title="primitive ZipETSys" class="md-nav__link">
-      primitive ZipETSys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        primitive ZipETZlib
-      </label>
-    
-    <a href="./" title="primitive ZipETZlib" class="md-nav__link md-nav__link--active">
-      primitive ZipETZlib
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        
-          <li class="md-nav__item">
-    <a href="#constructors" title="Constructors" class="md-nav__link">
-    Constructors
+        <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Constructors">
       <ul class="md-nav__list">
         
-          
-            <li class="md-nav__item">
-    <a href="#create" title="create" class="md-nav__link">
-    create
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      create
+    </span>
   </a>
   
 </li>
-          
         
       </ul>
     </nav>
   
 </li>
-        
       
-        
-          <li class="md-nav__item">
-    <a href="#public-functions" title="Public Functions" class="md-nav__link">
-    Public Functions
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Functions
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Public Functions">
       <ul class="md-nav__list">
         
-          
-            <li class="md-nav__item">
-    <a href="#value" title="value" class="md-nav__link">
-    value
+          <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    <span class="md-ellipsis">
+      value
+    </span>
   </a>
   
 </li>
-          
         
-          
-            <li class="md-nav__item">
-    <a href="#eq" title="eq" class="md-nav__link">
-    eq
+          <li class="md-nav__item">
+  <a href="#eq" class="md-nav__link">
+    <span class="md-ellipsis">
+      eq
+    </span>
   </a>
   
 </li>
-          
         
-          
-            <li class="md-nav__item">
-    <a href="#ne" title="ne" class="md-nav__link">
-    ne
+          <li class="md-nav__item">
+  <a href="#ne" class="md-nav__link">
+    <span class="md-ellipsis">
+      ne
+    </span>
   </a>
   
 </li>
-          
         
       </ul>
     </nav>
   
 </li>
-        
-      
-      
-      
-      
       
     </ul>
   
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMDefault/" title="primitive ZipCMDefault" class="md-nav__link">
-      primitive ZipCMDefault
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMStore/" title="primitive ZipCMStore" class="md-nav__link">
-      primitive ZipCMStore
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMShrink/" title="primitive ZipCMShrink" class="md-nav__link">
-      primitive ZipCMShrink
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMReduce1/" title="primitive ZipCMReduce1" class="md-nav__link">
-      primitive ZipCMReduce1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMReduce2/" title="primitive ZipCMReduce2" class="md-nav__link">
-      primitive ZipCMReduce2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMReduce3/" title="primitive ZipCMReduce3" class="md-nav__link">
-      primitive ZipCMReduce3
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMReduce4/" title="primitive ZipCMReduce4" class="md-nav__link">
-      primitive ZipCMReduce4
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMImplode/" title="primitive ZipCMImplode" class="md-nav__link">
-      primitive ZipCMImplode
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMDeflate/" title="primitive ZipCMDeflate" class="md-nav__link">
-      primitive ZipCMDeflate
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMDeflate64/" title="primitive ZipCMDeflate64" class="md-nav__link">
-      primitive ZipCMDeflate64
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMPkwareimplode/" title="primitive ZipCMPkwareimplode" class="md-nav__link">
-      primitive ZipCMPkwareimplode
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMBzip2/" title="primitive ZipCMBzip2" class="md-nav__link">
-      primitive ZipCMBzip2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMLzma/" title="primitive ZipCMLzma" class="md-nav__link">
-      primitive ZipCMLzma
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMTerse/" title="primitive ZipCMTerse" class="md-nav__link">
-      primitive ZipCMTerse
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMLz77/" title="primitive ZipCMLz77" class="md-nav__link">
-      primitive ZipCMLz77
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMLzma2/" title="primitive ZipCMLzma2" class="md-nav__link">
-      primitive ZipCMLzma2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMxz/" title="primitive ZipCMxz" class="md-nav__link">
-      primitive ZipCMxz
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMJpeg/" title="primitive ZipCMJpeg" class="md-nav__link">
-      primitive ZipCMJpeg
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMWavpack/" title="primitive ZipCMWavpack" class="md-nav__link">
-      primitive ZipCMWavpack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipCMPpmd/" title="primitive ZipCMPpmd" class="md-nav__link">
-      primitive ZipCMPpmd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMType/" title="type ZipEMType" class="md-nav__link">
-      type ZipEMType
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMNone/" title="primitive ZipEMNone" class="md-nav__link">
-      primitive ZipEMNone
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMTradpkware/" title="primitive ZipEMTradpkware" class="md-nav__link">
-      primitive ZipEMTradpkware
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMDes/" title="primitive ZipEMDes" class="md-nav__link">
-      primitive ZipEMDes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMRc2old/" title="primitive ZipEMRc2old" class="md-nav__link">
-      primitive ZipEMRc2old
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEM3des168/" title="primitive ZipEM3des168" class="md-nav__link">
-      primitive ZipEM3des168
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEM3des112/" title="primitive ZipEM3des112" class="md-nav__link">
-      primitive ZipEM3des112
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMPkzipaes128/" title="primitive ZipEMPkzipaes128" class="md-nav__link">
-      primitive ZipEMPkzipaes128
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMPkzipaes192/" title="primitive ZipEMPkzipaes192" class="md-nav__link">
-      primitive ZipEMPkzipaes192
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMPkzipaes256/" title="primitive ZipEMPkzipaes256" class="md-nav__link">
-      primitive ZipEMPkzipaes256
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMRc2/" title="primitive ZipEMRc2" class="md-nav__link">
-      primitive ZipEMRc2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMRc4/" title="primitive ZipEMRc4" class="md-nav__link">
-      primitive ZipEMRc4
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMAes128/" title="primitive ZipEMAes128" class="md-nav__link">
-      primitive ZipEMAes128
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMAes192/" title="primitive ZipEMAes192" class="md-nav__link">
-      primitive ZipEMAes192
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMAes256/" title="primitive ZipEMAes256" class="md-nav__link">
-      primitive ZipEMAes256
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipEMUnknown/" title="primitive ZipEMUnknown" class="md-nav__link">
-      primitive ZipEMUnknown
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSDos/" title="primitive ZipOPSYSDos" class="md-nav__link">
-      primitive ZipOPSYSDos
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSAmiga/" title="primitive ZipOPSYSAmiga" class="md-nav__link">
-      primitive ZipOPSYSAmiga
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSOpenvms/" title="primitive ZipOPSYSOpenvms" class="md-nav__link">
-      primitive ZipOPSYSOpenvms
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSUnix/" title="primitive ZipOPSYSUnix" class="md-nav__link">
-      primitive ZipOPSYSUnix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSVmcms/" title="primitive ZipOPSYSVmcms" class="md-nav__link">
-      primitive ZipOPSYSVmcms
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSAtarist/" title="primitive ZipOPSYSAtarist" class="md-nav__link">
-      primitive ZipOPSYSAtarist
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSOs2/" title="primitive ZipOPSYSOs2" class="md-nav__link">
-      primitive ZipOPSYSOs2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSMacintosh/" title="primitive ZipOPSYSMacintosh" class="md-nav__link">
-      primitive ZipOPSYSMacintosh
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSZsystem/" title="primitive ZipOPSYSZsystem" class="md-nav__link">
-      primitive ZipOPSYSZsystem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSCpm/" title="primitive ZipOPSYSCpm" class="md-nav__link">
-      primitive ZipOPSYSCpm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSWindowsntfs/" title="primitive ZipOPSYSWindowsntfs" class="md-nav__link">
-      primitive ZipOPSYSWindowsntfs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSMvs/" title="primitive ZipOPSYSMvs" class="md-nav__link">
-      primitive ZipOPSYSMvs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSVse/" title="primitive ZipOPSYSVse" class="md-nav__link">
-      primitive ZipOPSYSVse
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSAcornrisc/" title="primitive ZipOPSYSAcornrisc" class="md-nav__link">
-      primitive ZipOPSYSAcornrisc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSVfat/" title="primitive ZipOPSYSVfat" class="md-nav__link">
-      primitive ZipOPSYSVfat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSAlternatemvs/" title="primitive ZipOPSYSAlternatemvs" class="md-nav__link">
-      primitive ZipOPSYSAlternatemvs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSBeos/" title="primitive ZipOPSYSBeos" class="md-nav__link">
-      primitive ZipOPSYSBeos
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSTandem/" title="primitive ZipOPSYSTandem" class="md-nav__link">
-      primitive ZipOPSYSTandem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSOs400/" title="primitive ZipOPSYSOs400" class="md-nav__link">
-      primitive ZipOPSYSOs400
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSOsx/" title="primitive ZipOPSYSOsx" class="md-nav__link">
-      primitive ZipOPSYSOsx
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipOPSYSDefault/" title="type ZipOPSYSDefault" class="md-nav__link">
-      type ZipOPSYSDefault
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsReadable/" title="type ZipSOURCESupportsReadable" class="md-nav__link">
-      type ZipSOURCESupportsReadable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsReadableFlags/" title="type ZipSOURCESupportsReadableFlags" class="md-nav__link">
-      type ZipSOURCESupportsReadableFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEOpen/" title="primitive ZipSOURCEOpen" class="md-nav__link">
-      primitive ZipSOURCEOpen
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCERead/" title="primitive ZipSOURCERead" class="md-nav__link">
-      primitive ZipSOURCERead
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEClose/" title="primitive ZipSOURCEClose" class="md-nav__link">
-      primitive ZipSOURCEClose
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEStat/" title="primitive ZipSOURCEStat" class="md-nav__link">
-      primitive ZipSOURCEStat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEError/" title="primitive ZipSOURCEError" class="md-nav__link">
-      primitive ZipSOURCEError
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEFree/" title="primitive ZipSOURCEFree" class="md-nav__link">
-      primitive ZipSOURCEFree
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsSeekable/" title="type ZipSOURCESupportsSeekable" class="md-nav__link">
-      type ZipSOURCESupportsSeekable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsSeekableFlags/" title="type ZipSOURCESupportsSeekableFlags" class="md-nav__link">
-      type ZipSOURCESupportsSeekableFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESeek/" title="primitive ZipSOURCESeek" class="md-nav__link">
-      primitive ZipSOURCESeek
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCETell/" title="primitive ZipSOURCETell" class="md-nav__link">
-      primitive ZipSOURCETell
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupports/" title="primitive ZipSOURCESupports" class="md-nav__link">
-      primitive ZipSOURCESupports
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsWritable/" title="type ZipSOURCESupportsWritable" class="md-nav__link">
-      type ZipSOURCESupportsWritable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESupportsWritableFlags/" title="type ZipSOURCESupportsWritableFlags" class="md-nav__link">
-      type ZipSOURCESupportsWritableFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEBeginWrite/" title="primitive ZipSOURCEBeginWrite" class="md-nav__link">
-      primitive ZipSOURCEBeginWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCECommitWrite/" title="primitive ZipSOURCECommitWrite" class="md-nav__link">
-      primitive ZipSOURCECommitWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCERollbackWrite/" title="primitive ZipSOURCERollbackWrite" class="md-nav__link">
-      primitive ZipSOURCERollbackWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEWrite/" title="primitive ZipSOURCEWrite" class="md-nav__link">
-      primitive ZipSOURCEWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCESeekWrite/" title="primitive ZipSOURCESeekWrite" class="md-nav__link">
-      primitive ZipSOURCESeekWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCETellWrite/" title="primitive ZipSOURCETellWrite" class="md-nav__link">
-      primitive ZipSOURCETellWrite
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCERemove/" title="primitive ZipSOURCERemove" class="md-nav__link">
-      primitive ZipSOURCERemove
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEReserved1/" title="primitive ZipSOURCEReserved1" class="md-nav__link">
-      primitive ZipSOURCEReserved1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEBeginWriteCloning/" title="primitive ZipSOURCEBeginWriteCloning" class="md-nav__link">
-      primitive ZipSOURCEBeginWriteCloning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEAcceptEmpty/" title="primitive ZipSOURCEAcceptEmpty" class="md-nav__link">
-      primitive ZipSOURCEAcceptEmpty
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSOURCEGetFileAttributes/" title="primitive ZipSOURCEGetFileAttributes" class="md-nav__link">
-      primitive ZipSOURCEGetFileAttributes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipStatFlags/" title="type ZipStatFlags" class="md-nav__link">
-      type ZipStatFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATName/" title="primitive ZipSTATName" class="md-nav__link">
-      primitive ZipSTATName
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATIndex/" title="primitive ZipSTATIndex" class="md-nav__link">
-      primitive ZipSTATIndex
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATSize/" title="primitive ZipSTATSize" class="md-nav__link">
-      primitive ZipSTATSize
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATCompSize/" title="primitive ZipSTATCompSize" class="md-nav__link">
-      primitive ZipSTATCompSize
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATMtime/" title="primitive ZipSTATMtime" class="md-nav__link">
-      primitive ZipSTATMtime
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATCrc/" title="primitive ZipSTATCrc" class="md-nav__link">
-      primitive ZipSTATCrc
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATCompMethod/" title="primitive ZipSTATCompMethod" class="md-nav__link">
-      primitive ZipSTATCompMethod
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATEncryptionMethod/" title="primitive ZipSTATEncryptionMethod" class="md-nav__link">
-      primitive ZipSTATEncryptionMethod
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipSTATFlag/" title="primitive ZipSTATFlag" class="md-nav__link">
-      primitive ZipSTATFlag
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesFlags/" title="type ZipFileAttributesFlags" class="md-nav__link">
-      type ZipFileAttributesFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesHostSystem/" title="primitive ZipFileAttributesHostSystem" class="md-nav__link">
-      primitive ZipFileAttributesHostSystem
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesAscii/" title="primitive ZipFileAttributesAscii" class="md-nav__link">
-      primitive ZipFileAttributesAscii
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesVersionNeeded/" title="primitive ZipFileAttributesVersionNeeded" class="md-nav__link">
-      primitive ZipFileAttributesVersionNeeded
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesExternalFileAttributes/" title="primitive ZipFileAttributesExternalFileAttributes" class="md-nav__link">
-      primitive ZipFileAttributesExternalFileAttributes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-ZipFileAttributesGeneralPurposeBitFlags/" title="primitive ZipFileAttributesGeneralPurposeBitFlags" class="md-nav__link">
-      primitive ZipFileAttributesGeneralPurposeBitFlags
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ponyzip-CRC32/" title="primitive CRC32" class="md-nav__link">
-      primitive CRC32
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipExcl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipExcl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLCentral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLCentral
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLCompressed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLCompressed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncCp437/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncCp437
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncGuess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncGuess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncRaw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncRaw
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncStrict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncStrict
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncUtf8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncUtf8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLEncrypted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncrypted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFLFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLLocal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLLocal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLNocase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLNocase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLNodir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLNodir
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLOverwrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLOverwrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLRecompress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLRecompress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFLUnchanged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLUnchanged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesAscii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesAscii
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesExternalFileAttributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesExternalFileAttributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFileAttributesFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesGeneralPurposeBitFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesGeneralPurposeBitFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesHostSystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesHostSystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFileAttributesVersionNeeded/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesVersionNeeded
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSAcornrisc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAcornrisc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSAlternatemvs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAlternatemvs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSAmiga/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAmiga
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSAtarist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAtarist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSBeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSBeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSCpm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSCpm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSDefault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipOPSYSDefault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSDos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSDos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSMacintosh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSMacintosh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSMvs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSMvs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSOpenvms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOpenvms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSOs2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOs2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSOs400/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOs400
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSOsx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOsx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSTandem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSTandem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSUnix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSUnix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSVfat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVfat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSVmcms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVmcms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSVse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSWindowsntfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSWindowsntfs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipOPSYSZsystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSZsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEAcceptEmpty/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEAcceptEmpty
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEBeginWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEBeginWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEBeginWriteCloning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEBeginWriteCloning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEClose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEClose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCECommitWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCECommitWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEFree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEFree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEGetFileAttributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEGetFileAttributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEOpen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEOpen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCERead/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERead
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCERemove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERemove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEReserved1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEReserved1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCERollbackWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERollbackWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESeek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESeek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESeekWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESeekWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEStat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEStat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESupports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsReadable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsReadable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsReadableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsReadableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsSeekable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsSeekable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsSeekableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsSeekableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsWritable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsWritable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCESupportsWritableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsWritableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCETell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCETell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCETellWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCETellWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSOURCEWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATCompMethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCompMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATCompSize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCompSize
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATCrc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCrc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATEncryptionMethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATEncryptionMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATFlag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATFlag
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATIndex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATIndex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATMtime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATMtime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATName/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATName
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipSTATSize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATSize
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipStatFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipStatFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-ZipTruncate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipTruncate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipbufferfragment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipbufferfragment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Ziperror/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Ziperror
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipfile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipfileattributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipfileattributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipsource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipsource
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipsourceargsseek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipsourceargsseek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ponyzip-Zipstat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipstat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
     
   </ul>
@@ -2383,90 +3851,90 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        
-          <li class="md-nav__item">
-    <a href="#constructors" title="Constructors" class="md-nav__link">
-    Constructors
+        <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Constructors">
       <ul class="md-nav__list">
         
-          
-            <li class="md-nav__item">
-    <a href="#create" title="create" class="md-nav__link">
-    create
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    <span class="md-ellipsis">
+      create
+    </span>
   </a>
   
 </li>
-          
         
       </ul>
     </nav>
   
 </li>
-        
       
-        
-          <li class="md-nav__item">
-    <a href="#public-functions" title="Public Functions" class="md-nav__link">
-    Public Functions
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Functions
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Public Functions">
       <ul class="md-nav__list">
         
-          
-            <li class="md-nav__item">
-    <a href="#value" title="value" class="md-nav__link">
-    value
+          <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    <span class="md-ellipsis">
+      value
+    </span>
   </a>
   
 </li>
-          
         
-          
-            <li class="md-nav__item">
-    <a href="#eq" title="eq" class="md-nav__link">
-    eq
+          <li class="md-nav__item">
+  <a href="#eq" class="md-nav__link">
+    <span class="md-ellipsis">
+      eq
+    </span>
   </a>
   
 </li>
-          
         
-          
-            <li class="md-nav__item">
-    <a href="#ne" title="ne" class="md-nav__link">
-    ne
+          <li class="md-nav__item">
+  <a href="#ne" class="md-nav__link">
+    <span class="md-ellipsis">
+      ne
+    </span>
   </a>
   
 </li>
-          
         
       </ul>
     </nav>
   
 </li>
-        
-      
-      
-      
-      
       
     </ul>
   
@@ -2476,21 +3944,23 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="zipetzlib">ZipETZlib<a class="headerlink" href="#zipetzlib" title="Permanent link">&para;</a></h1>
-<p><span class="source-link"><a href="../src/ponyzip/defines/#L116">[Source]</a></span></p>
-<pre><code class="language-pony">primitive val ZipETZlib
-</code></pre>
+                  
+
+
+<h1 id="zipetzlib">ZipETZlib<a class="headerlink" href="#zipetzlib" title="Permanent link">&para;</a></h1>
+<p><span class="source-link"><a href="../src/ponyzip/defines/#L-0-116">[Source]</a></span>
+<div class="highlight"><pre><span></span><code><a id="L-0-1" name="L-0-1" href="#L-0-1"></a><span class="k">primitive</span> <span class="k">val</span> <span class="nc">ZipETZlib</span>
+</code></pre></div></p>
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="create">create<a class="headerlink" href="#create" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/defines/#L116">[Source]</a></span></p>
-<pre><code class="language-pony">new val create()
-: ZipETZlib val^
-</code></pre>
+<p><span class="source-link"><a href="../src/ponyzip/defines/#L-0-116">[Source]</a></span></p>
+<div class="highlight"><pre><span></span><code><a id="L-1-1" name="L-1-1" href="#L-1-1"></a><span class="k">new</span> <span class="k">val</span> <span class="nf">create</span><span class="p">()</span>
+<a id="L-1-2" name="L-1-2" href="#L-1-2"></a><span class="p">:</span> <span class="n n-Type">ZipETZlib</span> <span class="k">val</span><span class="p">^</span>
+</code></pre></div>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="./">ZipETZlib</a> val^</li>
@@ -2498,21 +3968,21 @@
 <hr />
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&para;</a></h2>
 <h3 id="value">value<a class="headerlink" href="#value" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/defines/#L116">[Source]</a></span></p>
-<pre><code class="language-pony">fun box value()
-: I32 val
-</code></pre>
+<p><span class="source-link"><a href="../src/ponyzip/defines/#L-0-116">[Source]</a></span></p>
+<div class="highlight"><pre><span></span><code><a id="L-2-1" name="L-2-1" href="#L-2-1"></a><span class="k">fun</span> <span class="k">box</span> <span class="nf">value</span><span class="p">()</span>
+<a id="L-2-2" name="L-2-2" href="#L-2-2"></a><span class="p">:</span> <span class="nb nb-Type">I32</span> <span class="k">val</span>
+</code></pre></div>
 <h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><a href="https://stdlib.ponylang.io/builtin-I32/">I32</a> val</li>
 </ul>
 <hr />
 <h3 id="eq">eq<a class="headerlink" href="#eq" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/defines/#L116">[Source]</a></span></p>
-<pre><code class="language-pony">fun box eq(
-  that: ZipETZlib val)
-: Bool val
-</code></pre>
+<p><span class="source-link"><a href="../src/ponyzip/defines/#L-0-116">[Source]</a></span></p>
+<div class="highlight"><pre><span></span><code><a id="L-3-1" name="L-3-1" href="#L-3-1"></a><span class="k">fun</span> <span class="k">box</span> <span class="nf">eq</span><span class="p">(</span>
+<a id="L-3-2" name="L-3-2" href="#L-3-2"></a>  <span class="n">that</span><span class="p">:</span> <span class="n n-Type">ZipETZlib</span> <span class="k">val</span><span class="p">)</span>
+<a id="L-3-3" name="L-3-3" href="#L-3-3"></a><span class="p">:</span> <span class="nb nb-Type">Bool</span> <span class="k">val</span>
+</code></pre></div>
 <h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="./">ZipETZlib</a> val</li>
@@ -2523,11 +3993,11 @@
 </ul>
 <hr />
 <h3 id="ne">ne<a class="headerlink" href="#ne" title="Permanent link">&para;</a></h3>
-<p><span class="source-link"><a href="../src/ponyzip/defines/#L116">[Source]</a></span></p>
-<pre><code class="language-pony">fun box ne(
-  that: ZipETZlib val)
-: Bool val
-</code></pre>
+<p><span class="source-link"><a href="../src/ponyzip/defines/#L-0-116">[Source]</a></span></p>
+<div class="highlight"><pre><span></span><code><a id="L-4-1" name="L-4-1" href="#L-4-1"></a><span class="k">fun</span> <span class="k">box</span> <span class="nf">ne</span><span class="p">(</span>
+<a id="L-4-2" name="L-4-2" href="#L-4-2"></a>  <span class="n">that</span><span class="p">:</span> <span class="n n-Type">ZipETZlib</span> <span class="k">val</span><span class="p">)</span>
+<a id="L-4-3" name="L-4-3" href="#L-4-3"></a><span class="p">:</span> <span class="nb nb-Type">Bool</span> <span class="k">val</span>
+</code></pre></div>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>that: <a href="./">ZipETZlib</a> val</li>
@@ -2537,83 +4007,54 @@
 <li><a href="https://stdlib.ponylang.io/builtin-Bool/">Bool</a> val</li>
 </ul>
 <hr />
-                
-                  
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../ponyzip-ZipETSys/" title="primitive ZipETSys" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                primitive ZipETSys
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../ponyzip-ZipCMDefault/" title="primitive ZipCMDefault" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                primitive ZipCMDefault
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
-        
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
-    
-    <script src="../assets/javascripts/application.cb37bb38.js"></script>
-      
-      <script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
-      
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
     
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>

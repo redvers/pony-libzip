@@ -1,0 +1,4002 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://redvers.github.io/pony-libzip/src/ponyzip/_test/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
+    
+    
+      
+        <title>test - ponyzip</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/ponylang.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="ponylang" data-md-color-primary="brown" data-md-color-accent="amber">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ponyzip" class="md-header__button md-logo" aria-label="ponyzip" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ponyzip
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+               test
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ponyzip" class="md-nav__button md-logo" aria-label="ponyzip" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ponyzip
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ponyzip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    package ponyzip
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            package ponyzip
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip--index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ABLibZIP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ABLibZIP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-CRC32/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive CRC32
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-IOFILE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct IOFILE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Main/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    actor Main
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-PonyZip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    class PonyZip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipAFLRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipAFLRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipAflFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipAflFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMBzip2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMBzip2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMDefault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDefault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMDeflate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDeflate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMDeflate64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMDeflate64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMImplode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMImplode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMJpeg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMJpeg
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMLz77/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLz77
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMLzma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLzma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMLzma2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMLzma2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMPkwareimplode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMPkwareimplode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMPpmd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMPpmd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMReduce1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMReduce2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMReduce3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMReduce4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMReduce4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMShrink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMShrink
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMStore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMStore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMTerse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMTerse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMWavpack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMWavpack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCMxz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCMxz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCheckcons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCheckcons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipCreate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipCreate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEM3des112/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEM3des112
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEM3des168/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEM3des168
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMAes128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes128
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMAes192/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes192
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMAes256/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMAes256
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMDes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMDes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMNone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMNone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMPkzipaes128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes128
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMPkzipaes192/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes192
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMPkzipaes256/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMPkzipaes256
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMRc2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMRc2old/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc2old
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMRc4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMRc4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMTradpkware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMTradpkware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipEMType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEMUnknown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEMUnknown
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERCRC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCRC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERCancelled/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCancelled
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERChanged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERChanged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERClose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERClose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERCompnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCompnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERCompresseddata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERCompresseddata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERDeleted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERDeleted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEREncrnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEREncrnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEREof/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEREof
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERExists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERExists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERIncons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERIncons
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERInternal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInternal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERInuse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInuse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERInval/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERInval
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERMemory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERMemory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERMultidisk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERMultidisk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERNoent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNoent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERNopasswd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNopasswd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERNozip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERNozip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEROK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEROpen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROpen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipEROpnotsupp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipEROpnotsupp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERR
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERRead/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRead
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERRemove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRemove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERRename/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERRename
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERSeek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERSeek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERTell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERTell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERTmpopen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERTmpopen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERWrongpasswd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERWrongpasswd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERZipclosed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERZipclosed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipERZlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipERZlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipETNone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETNone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipETSys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETSys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipETZlib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipETZlib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipExcl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipExcl
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLCentral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLCentral
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLCompressed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLCompressed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncCp437/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncCp437
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncGuess/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncGuess
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncRaw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncRaw
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncStrict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncStrict
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncUtf8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncUtf8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLEncrypted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLEncrypted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFLFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLLocal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLLocal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLNocase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLNocase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLNodir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLNodir
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLOverwrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLOverwrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLRecompress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLRecompress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFLUnchanged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFLUnchanged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesAscii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesAscii
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesExternalFileAttributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesExternalFileAttributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFileAttributesFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesGeneralPurposeBitFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesGeneralPurposeBitFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesHostSystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesHostSystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFileAttributesVersionNeeded/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipFileAttributesVersionNeeded
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSAcornrisc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAcornrisc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSAlternatemvs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAlternatemvs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSAmiga/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAmiga
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSAtarist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSAtarist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSBeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSBeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSCpm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSCpm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSDefault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipOPSYSDefault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSDos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSDos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSMacintosh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSMacintosh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSMvs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSMvs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSOpenvms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOpenvms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSOs2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOs2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSOs400/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOs400
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSOsx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSOsx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSTandem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSTandem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSUnix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSUnix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSVfat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVfat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSVmcms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVmcms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSVse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSVse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSWindowsntfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSWindowsntfs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipOPSYSZsystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipOPSYSZsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipRDOnly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipRDOnly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEAcceptEmpty/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEAcceptEmpty
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEBeginWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEBeginWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEBeginWriteCloning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEBeginWriteCloning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEClose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEClose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCECommitWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCECommitWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEFree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEFree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEGetFileAttributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEGetFileAttributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEOpen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEOpen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCERead/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERead
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCERemove/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERemove
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEReserved1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEReserved1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCERollbackWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCERollbackWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESeek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESeek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESeekWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESeekWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEStat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEStat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupports/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCESupports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsReadable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsReadable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsReadableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsReadableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsSeekable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsSeekable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsSeekableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsSeekableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsWritable/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsWritable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCESupportsWritableFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipSOURCESupportsWritableFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCETell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCETell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCETellWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCETellWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSOURCEWrite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSOURCEWrite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATCompMethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCompMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATCompSize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCompSize
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATCrc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATCrc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATEncryptionMethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATEncryptionMethod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATFlag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATFlag
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATIndex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATIndex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATMtime/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATMtime
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATName/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATName
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipSTATSize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipSTATSize
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipStatFlags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    type ZipStatFlags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-ZipTruncate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    primitive ZipTruncate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipbufferfragment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipbufferfragment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Ziperror/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Ziperror
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipfile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipfileattributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipfileattributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipsource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipsource
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipsourceargsseek/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipsourceargsseek
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ponyzip-Zipstat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    struct Zipstat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1> test</h1>
+
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#L-0-1"> 1</a></span>
+<span class="normal"><a href="#L-0-2"> 2</a></span>
+<span class="normal"><a href="#L-0-3"> 3</a></span>
+<span class="normal"><a href="#L-0-4"> 4</a></span>
+<span class="normal"><a href="#L-0-5"> 5</a></span>
+<span class="normal"><a href="#L-0-6"> 6</a></span>
+<span class="normal"><a href="#L-0-7"> 7</a></span>
+<span class="normal"><a href="#L-0-8"> 8</a></span>
+<span class="normal"><a href="#L-0-9"> 9</a></span>
+<span class="normal"><a href="#L-0-10">10</a></span>
+<span class="normal"><a href="#L-0-11">11</a></span>
+<span class="normal"><a href="#L-0-12">12</a></span>
+<span class="normal"><a href="#L-0-13">13</a></span>
+<span class="normal"><a href="#L-0-14">14</a></span>
+<span class="normal"><a href="#L-0-15">15</a></span>
+<span class="normal"><a href="#L-0-16">16</a></span>
+<span class="normal"><a href="#L-0-17">17</a></span>
+<span class="normal"><a href="#L-0-18">18</a></span>
+<span class="normal"><a href="#L-0-19">19</a></span>
+<span class="normal"><a href="#L-0-20">20</a></span>
+<span class="normal"><a href="#L-0-21">21</a></span>
+<span class="normal"><a href="#L-0-22">22</a></span>
+<span class="normal"><a href="#L-0-23">23</a></span>
+<span class="normal"><a href="#L-0-24">24</a></span>
+<span class="normal"><a href="#L-0-25">25</a></span>
+<span class="normal"><a href="#L-0-26">26</a></span>
+<span class="normal"><a href="#L-0-27">27</a></span>
+<span class="normal"><a href="#L-0-28">28</a></span>
+<span class="normal"><a href="#L-0-29">29</a></span>
+<span class="normal"><a href="#L-0-30">30</a></span>
+<span class="normal"><a href="#L-0-31">31</a></span>
+<span class="normal"><a href="#L-0-32">32</a></span>
+<span class="normal"><a href="#L-0-33">33</a></span>
+<span class="normal"><a href="#L-0-34">34</a></span>
+<span class="normal"><a href="#L-0-35">35</a></span>
+<span class="normal"><a href="#L-0-36">36</a></span>
+<span class="normal"><a href="#L-0-37">37</a></span>
+<span class="normal"><a href="#L-0-38">38</a></span>
+<span class="normal"><a href="#L-0-39">39</a></span>
+<span class="normal"><a href="#L-0-40">40</a></span>
+<span class="normal"><a href="#L-0-41">41</a></span>
+<span class="normal"><a href="#L-0-42">42</a></span>
+<span class="normal"><a href="#L-0-43">43</a></span>
+<span class="normal"><a href="#L-0-44">44</a></span>
+<span class="normal"><a href="#L-0-45">45</a></span>
+<span class="normal"><a href="#L-0-46">46</a></span>
+<span class="normal"><a href="#L-0-47">47</a></span>
+<span class="normal"><a href="#L-0-48">48</a></span>
+<span class="normal"><a href="#L-0-49">49</a></span>
+<span class="normal"><a href="#L-0-50">50</a></span>
+<span class="normal"><a href="#L-0-51">51</a></span>
+<span class="normal"><a href="#L-0-52">52</a></span>
+<span class="normal"><a href="#L-0-53">53</a></span>
+<span class="normal"><a href="#L-0-54">54</a></span>
+<span class="normal"><a href="#L-0-55">55</a></span>
+<span class="normal"><a href="#L-0-56">56</a></span>
+<span class="normal"><a href="#L-0-57">57</a></span>
+<span class="normal"><a href="#L-0-58">58</a></span>
+<span class="normal"><a href="#L-0-59">59</a></span>
+<span class="normal"><a href="#L-0-60">60</a></span>
+<span class="normal"><a href="#L-0-61">61</a></span>
+<span class="normal"><a href="#L-0-62">62</a></span>
+<span class="normal"><a href="#L-0-63">63</a></span>
+<span class="normal"><a href="#L-0-64">64</a></span>
+<span class="normal"><a href="#L-0-65">65</a></span>
+<span class="normal"><a href="#L-0-66">66</a></span>
+<span class="normal"><a href="#L-0-67">67</a></span>
+<span class="normal"><a href="#L-0-68">68</a></span>
+<span class="normal"><a href="#L-0-69">69</a></span>
+<span class="normal"><a href="#L-0-70">70</a></span>
+<span class="normal"><a href="#L-0-71">71</a></span>
+<span class="normal"><a href="#L-0-72">72</a></span>
+<span class="normal"><a href="#L-0-73">73</a></span>
+<span class="normal"><a href="#L-0-74">74</a></span>
+<span class="normal"><a href="#L-0-75">75</a></span>
+<span class="normal"><a href="#L-0-76">76</a></span>
+<span class="normal"><a href="#L-0-77">77</a></span>
+<span class="normal"><a href="#L-0-78">78</a></span>
+<span class="normal"><a href="#L-0-79">79</a></span>
+<span class="normal"><a href="#L-0-80">80</a></span>
+<span class="normal"><a href="#L-0-81">81</a></span>
+<span class="normal"><a href="#L-0-82">82</a></span>
+<span class="normal"><a href="#L-0-83">83</a></span>
+<span class="normal"><a href="#L-0-84">84</a></span>
+<span class="normal"><a href="#L-0-85">85</a></span>
+<span class="normal"><a href="#L-0-86">86</a></span>
+<span class="normal"><a href="#L-0-87">87</a></span>
+<span class="normal"><a href="#L-0-88">88</a></span>
+<span class="normal"><a href="#L-0-89">89</a></span>
+<span class="normal"><a href="#L-0-90">90</a></span>
+<span class="normal"><a href="#L-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="L-0-1" name="L-0-1"></a><span class="k">use</span> <span class="s">&quot;files&quot;</span>
+<a id="L-0-2" name="L-0-2"></a><span class="k">use</span> <span class="s">&quot;pony_test&quot;</span>
+<a id="L-0-3" name="L-0-3"></a><span class="k">use</span> <span class="s">&quot;collections&quot;</span>
+<a id="L-0-4" name="L-0-4"></a>
+<a id="L-0-5" name="L-0-5"></a><span class="k">actor</span> <span class="nc">Main</span> <span class="ow">is</span> <span class="n n-Type">TestList</span>
+<a id="L-0-6" name="L-0-6"></a>    <span class="k">new</span> <span class="nf">create</span><span class="p">(</span><span class="n">env</span><span class="p">:</span> <span class="n n-Type">Env</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n n-Type">PonyTest</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="k">this</span><span class="p">)</span>
+<a id="L-0-7" name="L-0-7"></a>    <span class="k">new</span> <span class="nf">make</span><span class="p">()</span> <span class="p">=&gt;</span> <span class="nb nb-Type">None</span>
+<a id="L-0-8" name="L-0-8"></a>
+<a id="L-0-9" name="L-0-9"></a>      <span class="k">fun</span> <span class="k">tag</span> <span class="nf">tests</span><span class="p">(</span><span class="n">test</span><span class="p">:</span> <span class="n n-Type">PonyTest</span><span class="p">)</span> <span class="p">=&gt;</span>
+<a id="L-0-10" name="L-0-10"></a>      <span class="n">test</span><span class="p">(</span><span class="n n-Type">_TestZipOpen</span><span class="p">)</span>
+<a id="L-0-11" name="L-0-11"></a>      <span class="n">test</span><span class="p">(</span><span class="n n-Type">_TestZipRead</span><span class="p">)</span>
+<a id="L-0-12" name="L-0-12"></a>      <span class="n">test</span><span class="p">(</span><span class="n n-Type">_TestZipWrite</span><span class="p">)</span>
+<a id="L-0-13" name="L-0-13"></a>
+<a id="L-0-14" name="L-0-14"></a><span class="k">class</span> <span class="k">iso</span> <span class="nc">_TestZipOpen</span> <span class="ow">is</span> <span class="n n-Type">UnitTest</span>
+<a id="L-0-15" name="L-0-15"></a>  <span class="k">fun</span> <span class="nf">name</span><span class="p">():</span> <span class="nb nb-Type">String</span> <span class="p">=&gt;</span> <span class="s">&quot;PonyZip/zip_open&quot;</span>
+<a id="L-0-16" name="L-0-16"></a>
+<a id="L-0-17" name="L-0-17"></a>  <span class="k">fun</span> <span class="nf">apply</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="n n-Type">TestHelper</span><span class="p">)</span> <span class="p">?</span> <span class="p">=&gt;</span>
+<a id="L-0-18" name="L-0-18"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_true</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<a id="L-0-19" name="L-0-19"></a>    <span class="k">let</span> <span class="n">rdf</span><span class="p">:</span> <span class="n n-Type">ZipFlags</span> <span class="o">=</span> <span class="n n-Type">ZipFlags</span><span class="p">.</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipRDOnly</span><span class="p">).</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipCheckcons</span><span class="p">)</span>
+<a id="L-0-20" name="L-0-20"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">U32</span><span class="p">](</span><span class="n">rdf</span><span class="p">.</span><span class="n">value</span><span class="p">(),</span> <span class="mi">20</span><span class="p">)</span>
+<a id="L-0-21" name="L-0-21"></a>    <span class="k">let</span> <span class="n">nofilezip</span><span class="p">:</span> <span class="n n-Type">PonyZip</span> <span class="o">=</span> <span class="n n-Type">PonyZip</span><span class="p">(</span><span class="s">&quot;idonotexist.zip&quot;</span><span class="p">,</span> <span class="n">rdf</span><span class="p">)</span>
+<a id="L-0-22" name="L-0-22"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_true</span><span class="p">(</span><span class="ow">not</span> <span class="n">nofilezip</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span>
+<a id="L-0-23" name="L-0-23"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">nofilezip</span><span class="p">.</span><span class="n">errorstr</span><span class="p">,</span> <span class="s">&quot;No such file&quot;</span><span class="p">)</span>
+<a id="L-0-24" name="L-0-24"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">nofilezip</span><span class="p">.</span><span class="n">errortype</span><span class="p">.</span><span class="n">value</span><span class="p">(),</span> <span class="mi">9</span><span class="p">)</span>
+<a id="L-0-25" name="L-0-25"></a>
+<a id="L-0-26" name="L-0-26"></a>    <span class="k">let</span> <span class="n">rdzip</span><span class="p">:</span> <span class="n n-Type">PonyZip</span> <span class="o">=</span> <span class="n n-Type">PonyZip</span><span class="p">(</span><span class="s">&quot;test.zip&quot;</span><span class="p">,</span> <span class="n">rdf</span><span class="p">)</span>
+<a id="L-0-27" name="L-0-27"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">rdzip</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span>
+<a id="L-0-28" name="L-0-28"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">errorstr</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<a id="L-0-29" name="L-0-29"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">errortype</span><span class="p">.</span><span class="n">value</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-30" name="L-0-30"></a>
+<a id="L-0-31" name="L-0-31"></a>    <span class="k">let</span> <span class="n">rdzipcnt</span><span class="p">:</span> <span class="nb nb-Type">USize</span> <span class="o">=</span> <span class="n">rdzip</span><span class="p">.</span><span class="n">count</span><span class="p">()?</span>
+<a id="L-0-32" name="L-0-32"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">USize</span><span class="p">](</span><span class="n">rdzipcnt</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<a id="L-0-33" name="L-0-33"></a>
+<a id="L-0-34" name="L-0-34"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLArrayType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-35" name="L-0-35"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">1</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLCvQualifiedType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-36" name="L-0-36"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">2</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLElaboratedType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-37" name="L-0-37"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">3</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLEnumeration.pony&quot;</span><span class="p">)</span>
+<a id="L-0-38" name="L-0-38"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">4</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLField.pony&quot;</span><span class="p">)</span>
+<a id="L-0-39" name="L-0-39"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">5</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLFile.pony&quot;</span><span class="p">)</span>
+<a id="L-0-40" name="L-0-40"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">6</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLFunction.pony&quot;</span><span class="p">)</span>
+<a id="L-0-41" name="L-0-41"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">7</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLFunctionType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-42" name="L-0-42"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">8</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLFundamentalType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-43" name="L-0-43"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">9</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLPointerType.pony&quot;</span><span class="p">)</span>
+<a id="L-0-44" name="L-0-44"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLStruct.pony&quot;</span><span class="p">)</span>
+<a id="L-0-45" name="L-0-45"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">11</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLTypedef.pony&quot;</span><span class="p">)</span>
+<a id="L-0-46" name="L-0-46"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">12</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLUnimplemented.pony&quot;</span><span class="p">)</span>
+<a id="L-0-47" name="L-0-47"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">13</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLUnion.pony&quot;</span><span class="p">)</span>
+<a id="L-0-48" name="L-0-48"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">14</span><span class="p">)?.</span><span class="n">name</span><span class="p">(),</span> <span class="s">&quot;CXMLVariable.pony&quot;</span><span class="p">)</span>
+<a id="L-0-49" name="L-0-49"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">close</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-50" name="L-0-50"></a>
+<a id="L-0-51" name="L-0-51"></a><span class="k">class</span> <span class="k">iso</span> <span class="nc">_TestZipRead</span> <span class="ow">is</span> <span class="n n-Type">UnitTest</span>
+<a id="L-0-52" name="L-0-52"></a>  <span class="k">fun</span> <span class="nf">name</span><span class="p">():</span> <span class="nb nb-Type">String</span> <span class="p">=&gt;</span> <span class="s">&quot;PonyZip/zip_read&quot;</span>
+<a id="L-0-53" name="L-0-53"></a>
+<a id="L-0-54" name="L-0-54"></a>  <span class="k">fun</span> <span class="nf">apply</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="n n-Type">TestHelper</span><span class="p">)</span> <span class="p">?</span> <span class="p">=&gt;</span>
+<a id="L-0-55" name="L-0-55"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span> <span class="k">then</span> <span class="k">error</span> <span class="k">end</span>
+<a id="L-0-56" name="L-0-56"></a>    <span class="k">let</span> <span class="n">rdf</span><span class="p">:</span> <span class="n n-Type">ZipFlags</span> <span class="o">=</span> <span class="n n-Type">ZipFlags</span><span class="p">.</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipRDOnly</span><span class="p">).</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipCheckcons</span><span class="p">)</span>
+<a id="L-0-57" name="L-0-57"></a>    <span class="k">let</span> <span class="n">rdzip</span><span class="p">:</span> <span class="n n-Type">PonyZip</span> <span class="o">=</span> <span class="n n-Type">PonyZip</span><span class="p">(</span><span class="s">&quot;test.zip&quot;</span><span class="p">,</span> <span class="n">rdf</span><span class="p">)</span>
+<a id="L-0-58" name="L-0-58"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">rdzip</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span>
+<a id="L-0-59" name="L-0-59"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">errorstr</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<a id="L-0-60" name="L-0-60"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">errortype</span><span class="p">.</span><span class="n">value</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-61" name="L-0-61"></a>
+<a id="L-0-62" name="L-0-62"></a>    <span class="k">let</span> <span class="n">rdzipcnt</span><span class="p">:</span> <span class="nb nb-Type">USize</span> <span class="o">=</span> <span class="n">rdzip</span><span class="p">.</span><span class="n">count</span><span class="p">()?</span>
+<a id="L-0-63" name="L-0-63"></a>
+<a id="L-0-64" name="L-0-64"></a>    <span class="k">let</span> <span class="n">f1</span><span class="p">:</span> <span class="n n-Type">Zipstat</span> <span class="o">=</span> <span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)?</span>
+<a id="L-0-65" name="L-0-65"></a>    <span class="k">let</span> <span class="n">f1data</span><span class="p">:</span> <span class="nb nb-Type">Array</span><span class="p">[</span><span class="nb nb-Type">U8</span><span class="p">]</span> <span class="k">val</span> <span class="o">=</span> <span class="n">rdzip</span><span class="p">.</span><span class="n">readfile</span><span class="p">(</span><span class="n">f1</span><span class="p">)?</span>
+<a id="L-0-66" name="L-0-66"></a>
+<a id="L-0-67" name="L-0-67"></a>    <span class="c1">// Read the files and manually Verify all the CRCs!</span>
+<a id="L-0-68" name="L-0-68"></a>    <span class="k">for</span> <span class="n">f</span> <span class="k">in</span> <span class="n n-Type">Range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span> <span class="k">do</span>
+<a id="L-0-69" name="L-0-69"></a>      <span class="k">let</span> <span class="n">zs</span><span class="p">:</span> <span class="n n-Type">Zipstat</span> <span class="o">=</span> <span class="n">rdzip</span><span class="p">.</span><span class="n">zip_stat_index</span><span class="p">(</span><span class="n">f</span><span class="p">)?</span>
+<a id="L-0-70" name="L-0-70"></a>      <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">U32</span><span class="p">](</span><span class="n n-Type">CRC32</span><span class="p">.</span><span class="n">calc</span><span class="p">(</span><span class="n">rdzip</span><span class="p">.</span><span class="n">readfile</span><span class="p">(</span><span class="n">zs</span><span class="p">)?),</span> <span class="n">zs</span><span class="p">.</span><span class="n">crc</span><span class="p">())</span>
+<a id="L-0-71" name="L-0-71"></a>    <span class="k">end</span>
+<a id="L-0-72" name="L-0-72"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">rdzip</span><span class="p">.</span><span class="n">close</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-73" name="L-0-73"></a>
+<a id="L-0-74" name="L-0-74"></a><span class="k">class</span> <span class="k">iso</span> <span class="nc">_TestZipWrite</span> <span class="ow">is</span> <span class="n n-Type">UnitTest</span>
+<a id="L-0-75" name="L-0-75"></a>  <span class="k">fun</span> <span class="nf">name</span><span class="p">():</span> <span class="nb nb-Type">String</span> <span class="p">=&gt;</span> <span class="s">&quot;PonyZip/zip_write&quot;</span>
+<a id="L-0-76" name="L-0-76"></a>
+<a id="L-0-77" name="L-0-77"></a>  <span class="k">fun</span> <span class="nf">apply</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="n n-Type">TestHelper</span><span class="p">)</span> <span class="p">?</span> <span class="p">=&gt;</span>
+<a id="L-0-78" name="L-0-78"></a>    <span class="k">let</span> <span class="n">fn</span><span class="p">:</span> <span class="nb nb-Type">String</span> <span class="o">=</span> <span class="s">&quot;testwrite.zip&quot;</span>
+<a id="L-0-79" name="L-0-79"></a>    <span class="k">let</span> <span class="n">fp</span><span class="p">:</span> <span class="n n-Type">FilePath</span> <span class="o">=</span> <span class="n n-Type">FilePath</span><span class="p">(</span><span class="n n-Type">FileAuth</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">env</span><span class="p">.</span><span class="n">root</span><span class="p">),</span> <span class="n">fn</span><span class="p">)</span>
+<a id="L-0-80" name="L-0-80"></a>    <span class="n">fp</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span>
+<a id="L-0-81" name="L-0-81"></a>
+<a id="L-0-82" name="L-0-82"></a>    <span class="k">let</span> <span class="n">rdf</span><span class="p">:</span> <span class="n n-Type">ZipFlags</span> <span class="o">=</span> <span class="n n-Type">ZipFlags</span><span class="p">.</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipCreate</span><span class="p">).</span><span class="o">&gt;</span><span class="n">set</span><span class="p">(</span><span class="n n-Type">ZipExcl</span><span class="p">)</span>
+<a id="L-0-83" name="L-0-83"></a>    <span class="k">let</span> <span class="n">wrzip</span><span class="p">:</span> <span class="n n-Type">PonyZip</span> <span class="o">=</span> <span class="n n-Type">PonyZip</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">rdf</span><span class="p">)</span>
+<a id="L-0-84" name="L-0-84"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">wrzip</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span>
+<a id="L-0-85" name="L-0-85"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">String</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">errorstr</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<a id="L-0-86" name="L-0-86"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">errortype</span><span class="p">.</span><span class="n">value</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-87" name="L-0-87"></a>
+<a id="L-0-88" name="L-0-88"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I64</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">add_file_from_source</span><span class="p">(</span><span class="s">&quot;crc32.pony&quot;</span><span class="p">,</span> <span class="n">wrzip</span><span class="p">.</span><span class="n">zip_source_file</span><span class="p">(</span><span class="s">&quot;ponyzip/crc32.pony&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)?)?,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="L-0-89" name="L-0-89"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I64</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">add_file_from_source</span><span class="p">(</span><span class="s">&quot;functions.pony&quot;</span><span class="p">,</span> <span class="n">wrzip</span><span class="p">.</span><span class="n">zip_source_file</span><span class="p">(</span><span class="s">&quot;ponyzip/functions.pony&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)?)?,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="L-0-90" name="L-0-90"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I64</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">add_file_from_source</span><span class="p">(</span><span class="s">&quot;ponyzip.pony&quot;</span><span class="p">,</span> <span class="n">wrzip</span><span class="p">.</span><span class="n">zip_source_file</span><span class="p">(</span><span class="s">&quot;ponyzip/ponyzip.pony&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)?)?,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="L-0-91" name="L-0-91"></a>    <span class="n">h</span><span class="p">.</span><span class="n">assert_eq</span><span class="p">[</span><span class="nb nb-Type">I32</span><span class="p">](</span><span class="n">wrzip</span><span class="p">.</span><span class="n">close</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+    
+  </body>
+</html>
